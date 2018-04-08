@@ -10,9 +10,11 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.database.LocalItem;
 import org.schabi.newpipe.database.stream.StreamStatisticsEntry;
@@ -207,11 +209,11 @@ public abstract class StatisticsPlaylistFragment
         }
 
         headerPlayAllButton.setOnClickListener(view ->
-                NavigationHelper.playOnMainPlayer(activity, getPlayQueue()));
+                NavigationHelper.playOnMainPlayer(activity, getPlayQueue(false)));
         headerPopupButton.setOnClickListener(view ->
-                NavigationHelper.playOnPopupPlayer(activity, getPlayQueue()));
+                NavigationHelper.playOnPopupPlayer(activity, getPlayQueue(false)));
         headerBackgroundButton.setOnClickListener(view ->
-                NavigationHelper.playOnBackgroundPlayer(activity, getPlayQueue()));
+                NavigationHelper.playOnBackgroundPlayer(activity, getPlayQueue(true)));
 
         hideLoading();
     }
@@ -262,13 +264,13 @@ public abstract class StatisticsPlaylistFragment
                     NavigationHelper.enqueueOnPopupPlayer(activity, new SinglePlayQueue(infoItem));
                     break;
                 case 2:
-                    NavigationHelper.playOnMainPlayer(context, getPlayQueue(index));
+                    NavigationHelper.playOnMainPlayer(context, getPlayQueue(index, false));
                     break;
                 case 3:
-                    NavigationHelper.playOnBackgroundPlayer(context, getPlayQueue(index));
+                    NavigationHelper.playOnBackgroundPlayer(context, getPlayQueue(index, true));
                     break;
                 case 4:
-                    NavigationHelper.playOnPopupPlayer(activity, getPlayQueue(index));
+                    NavigationHelper.playOnPopupPlayer(activity, getPlayQueue(index, false));
                     break;
                 default:
                     break;
@@ -278,22 +280,37 @@ public abstract class StatisticsPlaylistFragment
         new InfoItemDialog(getActivity(), infoItem, commands, actions).show();
     }
 
-    private PlayQueue getPlayQueue() {
-        return getPlayQueue(0);
+    private PlayQueue getPlayQueue(boolean isBackgroundPlay) {
+        return getPlayQueue(0, isBackgroundPlay);
     }
 
-    private PlayQueue getPlayQueue(final int index) {
+    private PlayQueue getPlayQueue(final int index, boolean isBackgroundPlay) {
         if (itemListAdapter == null) {
             return new SinglePlayQueue(Collections.emptyList(), 0);
         }
 
         final List<LocalItem> infoItems = itemListAdapter.getItemsList();
         List<StreamInfoItem> streamInfoItems = new ArrayList<>(infoItems.size());
+        boolean isHasYoutube = false;
         for (final LocalItem item : infoItems) {
             if (item instanceof StreamStatisticsEntry) {
-                streamInfoItems.add(((StreamStatisticsEntry) item).toStreamInfoItem());
+                StreamStatisticsEntry entry = (StreamStatisticsEntry) item;
+                if (isBackgroundPlay) {
+                    if (entry.serviceId == 1 && !App.isBgPlay()) {
+                        streamInfoItems.add(entry.toStreamInfoItem());
+                    } else {
+                        isHasYoutube = true;
+                    }
+                } else {
+                    streamInfoItems.add(entry.toStreamInfoItem());
+                }
             }
         }
+
+        if (isHasYoutube) {
+            Toast.makeText(getContext(), R.string.background_play_tips, Toast.LENGTH_LONG).show();
+        }
+
         return new SinglePlayQueue(streamInfoItems, index);
     }
 }

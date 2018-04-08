@@ -22,7 +22,6 @@ package org.schabi.newpipe;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -41,7 +40,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -57,6 +55,7 @@ import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.StateSaver;
 import org.schabi.newpipe.util.ThemeHelper;
+import org.schabi.newpipe.util.Utils;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -79,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Utils.setStatusColor(this);
 
         if (getSupportFragmentManager() != null && getSupportFragmentManager().getBackStackEntryCount() == 0) {
             initFragments();
@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(findViewById(R.id.toolbar));
         setupDrawer();
+
     }
 
     private void setupDrawer() {
@@ -93,10 +94,9 @@ public class MainActivity extends AppCompatActivity {
         drawer = findViewById(R.id.drawer_layout);
         drawerItems = findViewById(R.id.navigation);
 
-        for(StreamingService s : NewPipe.getServices()) {
+        for (StreamingService s : NewPipe.getServices()) {
             String title =
-                    s.getServiceInfo().getName() +
-                            (ServiceHelper.isBeta(s) ? " (beta)" : "");
+                    s.getServiceInfo().getName();
             MenuItem item = drawerItems.getMenu()
                     .add(R.id.menu_services_group, s.getServiceId(), 0, title);
             item.setIcon(ServiceHelper.getIcon(s.getServiceId()));
@@ -119,7 +119,20 @@ public class MainActivity extends AppCompatActivity {
             public void onDrawerClosed(View drawerView) {
                 int selectServiceId = ServiceHelper.getSelectedServiceId(MainActivity.this);
                 if (lastService != selectServiceId) {
-                    new Handler(Looper.getMainLooper()).post(MainActivity.this::recreate);
+                    SharedPreferences defaultPreferences = PreferenceManager.getDefaultSharedPreferences(getApplication());
+                    defaultPreferences.edit()
+                            .putInt(getString(R.string.main_page_selected_service), selectServiceId).apply();
+                    if (selectServiceId == 1) {
+                        defaultPreferences.edit()
+                                .putString(getString(R.string.main_page_selectd_kiosk_id), Constants.NEWHOT_KIOSK_ID)
+                                .apply();
+                    } else {
+                        defaultPreferences.edit()
+                                .putString(getString(R.string.main_page_selectd_kiosk_id), Constants.TRENDING_KIOSK_ID)
+                                .apply();
+                    }
+//                    new Handler(Looper.getMainLooper()).post(MainActivity.this::recreate);
+                    NavigationHelper.openMainActivity(MainActivity.this);
                 }
             }
         });
@@ -155,13 +168,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupDrawerHeader() {
         headerServiceView = findViewById(R.id.drawer_header_service_view);
-        Button action = findViewById(R.id.drawer_header_action_button);
-        action.setOnClickListener(view -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("https://newpipe.schabi.org/blog/"));
-            startActivity(intent);
-            drawer.closeDrawers();
-        });
     }
 
     @Override
@@ -312,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_show_downloads:
                 return NavigationHelper.openDownloads(this);
             case R.id.action_about:
-                NavigationHelper.openAbout(this);
+                NavigationHelper.openSettings(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

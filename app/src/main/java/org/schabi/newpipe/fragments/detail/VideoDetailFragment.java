@@ -46,6 +46,7 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
+import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.ReCaptchaActivity;
 import org.schabi.newpipe.download.DownloadDialog;
@@ -459,6 +460,8 @@ public class VideoDetailFragment
     // Init
     //////////////////////////////////////////////////////////////////////////*/
 
+    private ImageView logoIv;
+
     @Override
     protected void initViews(View rootView, Bundle savedInstanceState) {
         super.initViews(rootView, savedInstanceState);
@@ -509,6 +512,9 @@ public class VideoDetailFragment
 
         infoItemBuilder = new InfoItemBuilder(activity);
         setHeightThumbnail();
+
+        logoIv = rootView.findViewById(R.id.logo_iv);
+
     }
 
     @Override
@@ -736,6 +742,14 @@ public class VideoDetailFragment
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectedVideoStream = position;
+                if (view == null) {
+                    return;
+                }
+                TextView text = view.findViewById(android.R.id.text1);
+                if (text != null) {
+                    text.setTextColor(ContextCompat.getColor(activity, R.color.white));
+                    view.setBackgroundColor(ContextCompat.getColor(activity, R.color.transparent_background_color));
+                }
             }
 
             @Override
@@ -1118,6 +1132,13 @@ public class VideoDetailFragment
         animateView(thumbnailPlayButton, true, 200);
         videoTitleTextView.setText(name);
 
+        logoIv.setVisibility(View.VISIBLE);
+        if (info.getServiceId() == 0) {
+            logoIv.setImageResource(R.drawable.ic_youtube);
+        } else {
+            logoIv.setImageResource(R.drawable.ic_soundcloud);
+        }
+
         if (!TextUtils.isEmpty(info.getUploaderName())) {
             uploaderTextView.setText(info.getUploaderName());
             uploaderTextView.setVisibility(View.VISIBLE);
@@ -1209,14 +1230,24 @@ public class VideoDetailFragment
                 spinnerToolbar.setVisibility(View.GONE);
                 break;
             default:
-                if (!info.getVideoStreams().isEmpty()
-                        || !info.getVideoOnlyStreams().isEmpty()) break;
+                if (!App.isSpecial()) {
+                    detailControlsDownload.setVisibility(View.GONE);
+                }
 
-                detailControlsBackground.setVisibility(View.GONE);
+                if (!info.getVideoStreams().isEmpty()
+                        || !info.getVideoOnlyStreams().isEmpty()) {
+                    break;
+                }
+
+                //detailControlsBackground.setVisibility(View.GONE);
                 detailControlsPopup.setVisibility(View.GONE);
                 spinnerToolbar.setVisibility(View.GONE);
                 thumbnailPlayButton.setImageResource(R.drawable.ic_headset_white_24dp);
                 break;
+        }
+
+        if (!App.isBgPlay() && info.getServiceId() == 0) {
+            detailControlsBackground.setVisibility(View.GONE);
         }
 
         if (autoPlayEnabled) {

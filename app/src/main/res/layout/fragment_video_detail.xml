@@ -43,12 +43,21 @@
                     tools:src="@drawable/dummy_thumbnail"/>
 
                 <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/logo_iv"
+                    android:layout_margin="4dp"
+                    android:layout_gravity="bottom|left"
+                    android:src="@drawable/ic_youtube"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
                     android:id="@+id/detail_thumbnail_play_button"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/new_play_arrow"
+                    android:src="@drawable/ic_player_detail"
                     android:visibility="invisible"
                     tools:ignore="ContentDescription"
                     tools:visibility="visible"/>
@@ -390,7 +399,7 @@
                             android:clickable="true"
                             android:focusable="true"
                             android:contentDescription="@string/controls_download_desc"
-                            android:drawableTop="?attr/download"
+                            android:drawableTop="@drawable/ic_file_download_6060_24dp"
                             android:gravity="center"
                             android:paddingBottom="6dp"
                             android:paddingTop="6dp"

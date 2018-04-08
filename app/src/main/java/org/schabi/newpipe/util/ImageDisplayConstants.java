@@ -38,6 +38,7 @@ public class ImageDisplayConstants {
     public static final DisplayImageOptions DISPLAY_THUMBNAIL_OPTIONS =
             new DisplayImageOptions.Builder()
                     .cloneFrom(BASE_DISPLAY_IMAGE_OPTIONS)
+                    .showImageOnLoading(R.drawable.dummy_thumbnail)
                     .showImageForEmptyUri(R.drawable.dummy_thumbnail)
                     .showImageOnFail(R.drawable.dummy_thumbnail)
                     .build();
@@ -52,6 +53,7 @@ public class ImageDisplayConstants {
     public static final DisplayImageOptions DISPLAY_PLAYLIST_OPTIONS =
             new DisplayImageOptions.Builder()
                     .cloneFrom(BASE_DISPLAY_IMAGE_OPTIONS)
+                    .showImageOnLoading(R.drawable.dummy_thumbnail_playlist)
                     .showImageForEmptyUri(R.drawable.dummy_thumbnail_playlist)
                     .showImageOnFail(R.drawable.dummy_thumbnail_playlist)
                     .build();

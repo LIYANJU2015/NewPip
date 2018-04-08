@@ -413,6 +413,14 @@
                     android:visibility="gone"
                     android:background="?attr/selectableItemBackground"
                     tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+                <ImageView
+                    android:id="@+id/youtube_icon_iv"
+                    android:paddingLeft="6dp"
+                    android:paddingStart="6dp"
+                    android:src="@drawable/ic_youtube_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </RelativeLayout>
 
@@ -561,6 +569,7 @@
             tools:ignore="RtlHardcoded"
             tools:text="1:06:29"
             tools:visibility="visible" />
+
     </RelativeLayout>
 
 </RelativeLayout>

@@ -45,6 +45,14 @@
         tools:ignore="ContentDescription"
         tools:visibility="visible"/>
 
+    <ImageView
+        android:id="@+id/youtube_icon"
+        android:padding="6dp"
+        android:layout_gravity="bottom|right"
+        android:src="@drawable/ic_youtube"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <RelativeLayout
         android:id="@+id/playbackControlRoot"
         android:layout_width="match_parent"

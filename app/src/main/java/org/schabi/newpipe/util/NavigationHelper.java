@@ -19,9 +19,9 @@ import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import org.schabi.newpipe.App;
 import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.about.AboutActivity;
 import org.schabi.newpipe.download.DownloadActivity;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.StreamingService;
@@ -51,6 +51,7 @@ import org.schabi.newpipe.player.PopupVideoPlayerActivity;
 import org.schabi.newpipe.player.VideoPlayer;
 import org.schabi.newpipe.player.old.PlayVideoActivity;
 import org.schabi.newpipe.playlist.PlayQueue;
+import org.schabi.newpipe.playlist.PlayQueueItem;
 import org.schabi.newpipe.settings.SettingsActivity;
 
 import java.util.ArrayList;
@@ -146,11 +147,35 @@ public class NavigationHelper {
     }
 
     public static void playOnBackgroundPlayer(final Context context, final PlayQueue queue) {
+        if (queue.size() == 0) {
+            return;
+        }
+
+        if (!App.isBgPlay()) {
+            for (int i = 0; i < queue.size(); i++) {
+                PlayQueueItem playQueueItem = queue.getItem(i);
+                if (playQueueItem.getServiceId() == 0) {
+                    Toast.makeText(context, R.string.background_play_tips, Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+        }
+
         Toast.makeText(context, R.string.background_player_playing_toast, Toast.LENGTH_SHORT).show();
         startService(context, getPlayerIntent(context, BackgroundPlayer.class, queue));
     }
 
     public static void enqueueOnPopupPlayer(final Context context, final PlayQueue queue) {
+        if (!App.isBgPlay()) {
+            for (int i = 0; i < queue.size(); i++) {
+                PlayQueueItem playQueueItem = queue.getItem(i);
+                if (playQueueItem.getServiceId() == 0) {
+                    Toast.makeText(context, R.string.background_play_tips, Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+        }
+
         enqueueOnPopupPlayer(context, queue, false);
     }
 
@@ -166,10 +191,37 @@ public class NavigationHelper {
     }
 
     public static void enqueueOnBackgroundPlayer(final Context context, final PlayQueue queue) {
+        if (queue.size() == 0) {
+            return;
+        }
+
+        if (!App.isBgPlay()) {
+            for (int i = 0; i < queue.size(); i++) {
+                PlayQueueItem playQueueItem = queue.getItem(i);
+                if (playQueueItem.getServiceId() == 0) {
+                    Toast.makeText(context, R.string.background_play_tips, Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+        }
+
         enqueueOnBackgroundPlayer(context, queue, false);
     }
 
     public static void enqueueOnBackgroundPlayer(final Context context, final PlayQueue queue, boolean selectOnAppend) {
+        if (queue.size() == 0) {
+            return;
+        }
+        if (!App.isBgPlay()) {
+            for (int i = 0; i < queue.size(); i++) {
+                PlayQueueItem playQueueItem = queue.getItem(i);
+                if (playQueueItem.getServiceId() == 0) {
+                    Toast.makeText(context, R.string.background_play_tips, Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+        }
+
         Toast.makeText(context, R.string.background_player_append, Toast.LENGTH_SHORT).show();
         startService(context,
                 getPlayerEnqueueIntent(context, BackgroundPlayer.class, queue, selectOnAppend));
@@ -410,11 +462,9 @@ public class NavigationHelper {
         mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(mIntent);
-    }
-
-    public static void openAbout(Context context) {
-        Intent intent = new Intent(context, AboutActivity.class);
-        context.startActivity(intent);
+        if (context instanceof Activity) {
+            ((Activity)context).overridePendingTransition(R.anim.switch_service_in, 0);
+        }
     }
 
     public static void openHistory(Context context) {

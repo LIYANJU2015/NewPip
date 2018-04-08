@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="statusbar_view_height">0dp</dimen>
     <!-- Video Item Search View Dimensions-->
     <!-- Text Size -->
     <dimen name="channel_item_detail_title_text_size">16sp</dimen>

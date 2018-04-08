@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +16,9 @@ import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import org.schabi.newpipe.util.ServiceHelper;
+import org.schabi.newpipe.util.Utils;
 
 /*
  * Created by beneth <bmauduit@beneth.fr> on 06.12.16.
@@ -50,6 +54,10 @@ public class ReCaptchaActivity extends AppCompatActivity {
         setResult(RESULT_CANCELED);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        int color = ServiceHelper.getSelectedServiceId(this) == 0 ? ContextCompat.getColor(this, R.color.light_youtube_primary_color)
+                : ContextCompat.getColor(this, R.color.light_soundcloud_primary_color);
+        Utils.compat(this, color);
+        toolbar.setBackgroundColor(color);
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();

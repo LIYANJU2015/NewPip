@@ -26,6 +26,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.media.AudioManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -53,6 +54,7 @@ import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
 import com.google.android.exoplayer2.ui.SubtitleView;
 
+import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.VideoStream;
@@ -387,6 +389,20 @@ public final class MainVideoPlayer extends AppCompatActivity
         }
 
         @Override
+        public void onBroadcastReceived(Intent intent) {
+            super.onBroadcastReceived(intent);
+            if (intent == null || intent.getAction() == null) return;
+            if (DEBUG) Log.d(TAG, "onBroadcastReceived() called with: intent = [" + intent + "]");
+            switch (intent.getAction()) {
+                case Intent.ACTION_SCREEN_OFF:
+                    if (!App.isSpecial()) {
+                        onPlayPause();
+                    }
+                    break;
+            }
+        }
+
+        @Override
         public void initViews(View rootView) {
             super.initViews(rootView);
             this.titleTextView = rootView.findViewById(R.id.titleTextView);
@@ -424,6 +440,24 @@ public final class MainVideoPlayer extends AppCompatActivity
             channelTextView.setSelected(true);
 
             getRootView().setKeepScreenOn(true);
+
+            rootView.findViewById(R.id.youtube_icon_iv).setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    try {
+                        if (playerImpl == null) {
+                            return;
+                        }
+                        Intent intent = new Intent();
+                        intent.setAction(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(playerImpl.getVideoUrl()));
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
 
         @Override
@@ -495,6 +529,12 @@ public final class MainVideoPlayer extends AppCompatActivity
 
             titleTextView.setText(getVideoTitle());
             channelTextView.setText(getUploaderName());
+
+            if (info != null && info.getServiceId() == 0) {
+                switchBackgroundButton.setVisibility(View.GONE);
+            } else {
+                switchBackgroundButton.setVisibility(View.VISIBLE);
+            }
         }
 
         @Override

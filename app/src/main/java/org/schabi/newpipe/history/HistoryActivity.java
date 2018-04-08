@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,7 +19,9 @@ import com.jakewharton.rxbinding2.view.RxView;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.settings.SettingsActivity;
+import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.ThemeHelper;
+import org.schabi.newpipe.util.Utils;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
@@ -47,6 +50,10 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        int color = ServiceHelper.getSelectedServiceId(this) == 0 ? ContextCompat.getColor(this, R.color.light_youtube_primary_color)
+                : ContextCompat.getColor(this, R.color.light_soundcloud_primary_color);
+        Utils.compat(this, color);
+        toolbar.setBackgroundColor(color);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -61,6 +68,7 @@ public class HistoryActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout.setBackgroundColor(color);
         tabLayout.setupWithViewPager(mViewPager);
 
         final FloatingActionButton fab = findViewById(R.id.fab);

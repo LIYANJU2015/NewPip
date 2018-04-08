@@ -21,12 +21,6 @@
         android:clickable="true"
         android:focusable="true">
 
-        <Button
-            android:id="@+id/drawer_header_action_button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="?android:attr/selectableItemBackground"/>
-
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -34,25 +28,15 @@
             android:src="@drawable/background_header"
             android:scaleType="centerCrop"/>
 
-        <ImageView
-            android:id="@+id/drawer_header_np_nude_view"
+
+        <TextView
             android:layout_marginLeft="30dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/np_logo_nude_shadow"/>
-
-        <TextView
             android:id="@+id/drawer_header_np_text_view"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:text="@string/app_name"
-            android:layout_toRightOf="@id/drawer_header_np_nude_view"
-            android:layout_toEndOf="@id/drawer_header_np_nude_view"
-            android:layout_alignTop="@id/drawer_header_np_nude_view"
-            android:layout_alignBottom="@id/drawer_header_np_nude_view"
             android:gravity="center"
             android:textSize="30dp"
             android:textStyle="bold|italic"/>
@@ -87,7 +71,6 @@
         android:layout_alignRight="@id/navigation"
         android:layout_alignStart="@id/navigation"
         android:layout_alignEnd="@id/navigation"
-
         android:layout_alignParentBottom="true">
         <ImageButton
             android:id="@+id/drawer_settings"
@@ -103,7 +86,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="?attr/download" />
+            android:src="@drawable/ic_file_download_6060_24dp" />
 
         <ImageButton
             android:id="@+id/drawer_history"

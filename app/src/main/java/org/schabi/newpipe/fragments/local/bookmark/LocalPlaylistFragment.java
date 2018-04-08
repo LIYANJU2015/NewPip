@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+import org.schabi.newpipe.App;
 import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.database.LocalItem;
@@ -318,11 +319,11 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         setVideoCount(itemListAdapter.getItemsList().size());
 
         headerPlayAllButton.setOnClickListener(view ->
-                NavigationHelper.playOnMainPlayer(activity, getPlayQueue()));
+                NavigationHelper.playOnMainPlayer(activity, getPlayQueue(false)));
         headerPopupButton.setOnClickListener(view ->
-                NavigationHelper.playOnPopupPlayer(activity, getPlayQueue()));
+                NavigationHelper.playOnPopupPlayer(activity, getPlayQueue(false)));
         headerBackgroundButton.setOnClickListener(view ->
-                NavigationHelper.playOnBackgroundPlayer(activity, getPlayQueue()));
+                NavigationHelper.playOnBackgroundPlayer(activity, getPlayQueue(true)));
 
         hideLoading();
     }
@@ -535,13 +536,13 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
                             SinglePlayQueue(infoItem));
                     break;
                 case 2:
-                    NavigationHelper.playOnMainPlayer(context, getPlayQueue(index));
+                    NavigationHelper.playOnMainPlayer(context, getPlayQueue(index, false));
                     break;
                 case 3:
-                    NavigationHelper.playOnBackgroundPlayer(context, getPlayQueue(index));
+                    NavigationHelper.playOnBackgroundPlayer(context, getPlayQueue(index, true));
                     break;
                 case 4:
-                    NavigationHelper.playOnPopupPlayer(activity, getPlayQueue(index));
+                    NavigationHelper.playOnPopupPlayer(activity, getPlayQueue(index,false));
                     break;
                 case 5:
                     changeThumbnailUrl(item.thumbnailUrl);
@@ -568,22 +569,37 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         }
     }
 
-    private PlayQueue getPlayQueue() {
-        return getPlayQueue(0);
+    private PlayQueue getPlayQueue(boolean isBackgroundPlay) {
+        return getPlayQueue(0, isBackgroundPlay);
     }
 
-    private PlayQueue getPlayQueue(final int index) {
+    private PlayQueue getPlayQueue(final int index, boolean isBackgroundPlay) {
         if (itemListAdapter == null) {
             return new SinglePlayQueue(Collections.emptyList(), 0);
         }
 
+        boolean ishasYoutube = false;
         final List<LocalItem> infoItems = itemListAdapter.getItemsList();
         List<StreamInfoItem> streamInfoItems = new ArrayList<>(infoItems.size());
         for (final LocalItem item : infoItems) {
             if (item instanceof PlaylistStreamEntry) {
-                streamInfoItems.add(((PlaylistStreamEntry) item).toStreamInfoItem());
+                PlaylistStreamEntry entry = (PlaylistStreamEntry) item;
+                if (isBackgroundPlay && !App.isBgPlay()) {
+                    if (entry.serviceId == 1) {
+                        streamInfoItems.add(entry.toStreamInfoItem());
+                    } else {
+                        ishasYoutube = true;
+                    }
+                } else {
+                    streamInfoItems.add(entry.toStreamInfoItem());
+                }
             }
         }
+
+        if (ishasYoutube) {
+            Toast.makeText(getContext(), R.string.background_play_tips, Toast.LENGTH_LONG).show();
+        }
+
         return new SinglePlayQueue(streamInfoItems, index);
     }
 }

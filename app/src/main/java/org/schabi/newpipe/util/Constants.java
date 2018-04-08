@@ -12,4 +12,10 @@ public class Constants {
     public static final String KEY_MAIN_PAGE_CHANGE = "key_main_page_change";
 
     public static final int NO_SERVICE_ID = -1;
+
+    public static final String NEWHOT_KIOSK_ID = "New & hot";
+    public static final String TOP50_KIOSK_ID = "Top 50";
+    public static final String TRENDING_KIOSK_ID = "Trending";
+
+    public static final String KEY_SPECIAL = "super_app";
 }

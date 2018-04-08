@@ -464,4 +464,8 @@
     <string name="unhook_checkbox">Unhook (may cause distortion)</string>
     <string name="playback_nightcore">Nightcore</string>
     <string name="playback_default">Default</string>
+
+
+    <string name="background_play_tips">Sorry, because google play policy, youtube video can not play in the background, so the background play queue can not add youtube video</string>
+    <string name="popup_drag_tips">Double - click the screen to change the screen size</string>
 </resources>

@@ -3,6 +3,7 @@ package org.schabi.newpipe.settings;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.Preference;
@@ -12,7 +13,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.schabi.newpipe.R;
+import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.ThemeHelper;
+import org.schabi.newpipe.util.Utils;
 
 
 /*
@@ -49,6 +52,10 @@ public class SettingsActivity extends AppCompatActivity implements BasePreferenc
         setContentView(R.layout.settings_layout);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        int color = ServiceHelper.getSelectedServiceId(this) == 0 ? ContextCompat.getColor(this, R.color.light_youtube_primary_color)
+                : ContextCompat.getColor(this, R.color.light_soundcloud_primary_color);
+        Utils.compat(this, color);
+        toolbar.setBackgroundColor(color);
         setSupportActionBar(toolbar);
 
         if (savedInstanceBundle == null) {

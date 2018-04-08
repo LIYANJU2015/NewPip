@@ -8,6 +8,7 @@ import android.view.View;
 
 import org.schabi.newpipe.extractor.ListExtractor;
 import org.schabi.newpipe.extractor.ListInfo;
+import org.schabi.newpipe.extractor.kiosk.KioskInfo;
 import org.schabi.newpipe.util.Constants;
 
 import java.util.Queue;
@@ -164,8 +165,15 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
     @Override
     public void handleResult(@NonNull I result) {
         super.handleResult(result);
-
-        url = result.getUrl();
+        if (result instanceof KioskInfo && serviceId == 1) {
+            if (!result.getUrl().startsWith("http")) {
+                url = result.getName();
+            } else {
+                url = result.getUrl();
+            }
+        } else {
+            url = result.getUrl();
+        }
         name = result.getName();
         setTitle(name);
 

@@ -143,7 +143,7 @@ public class Utility {
             case MUSIC:
                 return R.color.audio_left_to_load_color;
             case VIDEO:
-                return R.color.video_left_to_load_color;
+                return R.color.audio_left_to_load_color;
             default:
                 return R.color.gray;
         }
@@ -153,9 +153,9 @@ public class Utility {
     public static int getForegroundForFileType(FileType type) {
         switch (type) {
             case MUSIC:
-                return R.color.audio_already_load_color;
+                return R.color.light_youtube_primary_color;
             case VIDEO:
-                return R.color.video_already_load_color;
+                return R.color.light_youtube_dark_color;
             default:
                 return R.color.gray;
         }

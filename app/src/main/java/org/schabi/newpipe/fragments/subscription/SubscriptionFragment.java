@@ -226,7 +226,7 @@ public class SubscriptionFragment extends BaseStateFragment<List<SubscriptionEnt
 
                 final View itemView = addItemView(serviceName, ServiceHelper.getIcon(service.getServiceId()), listHolder);
                 final ImageView iconView = itemView.findViewById(android.R.id.icon1);
-                iconView.setColorFilter(iconColor, PorterDuff.Mode.SRC_IN);
+//                iconView.setColorFilter(iconColor, PorterDuff.Mode.SRC_IN);
 
                 itemView.setOnClickListener(selectedItem -> onImportFromServiceSelected(service.getServiceId()));
             } catch (ExtractionException e) {

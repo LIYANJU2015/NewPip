@@ -50,7 +50,7 @@
         android:layout_alignParentRight="true"
         android:paddingLeft="@dimen/video_item_search_image_right_margin"
         android:scaleType="center"
-        android:src="?attr/drag_handle"
+        android:src="@drawable/ic_drag_handle_6060_24dp"
         android:contentDescription="@string/detail_drag_description"
         tools:ignore="RtlHardcoded,RtlSymmetry"/>
 

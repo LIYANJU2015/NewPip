@@ -4,7 +4,9 @@ import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -26,6 +28,7 @@ import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.settings.SettingsActivity;
 import org.schabi.newpipe.util.ExtractorHelper;
+import org.schabi.newpipe.util.SpecialVersions;
 import org.schabi.newpipe.util.StateSaver;
 
 import java.io.IOException;
@@ -64,6 +67,10 @@ public class App extends Application {
     protected static final String TAG = App.class.toString();
     private RefWatcher refWatcher;
 
+    public static SharedPreferences sPreferences;
+
+    public static Context sContext;
+
     @SuppressWarnings("unchecked")
     private static final Class<? extends ReportSenderFactory>[] reportSenderFactoryClasses = new Class[]{AcraReportSenderFactory.class};
 
@@ -72,6 +79,18 @@ public class App extends Application {
         super.attachBaseContext(base);
 
         initACRA();
+    }
+
+    /**
+     * 默认false
+     * @return
+     */
+    public static boolean isSpecial() {
+        return SpecialVersions.isSpecial();
+    }
+
+    public static boolean isBgPlay() {
+        return false;
     }
 
     @Override
@@ -84,6 +103,10 @@ public class App extends Application {
             return;
         }
         refWatcher = installLeakCanary();
+        sContext = this;
+        sPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        SpecialVersions.initSpecial();
 
         // Initialize settings first because others inits can use its values
         SettingsActivity.initSettings(this);
