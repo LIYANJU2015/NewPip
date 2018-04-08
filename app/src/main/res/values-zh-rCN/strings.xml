@@ -88,7 +88,7 @@
     <string name="retry">重试</string>
     <string name="storage_permission_denied">无权访问存储空间</string>
     <string name="autoplay_by_calling_app_title">自动播放</string>
-    <string name="autoplay_by_calling_app_summary">当 NewPipe 被其他应用调用时自动播放视频</string>
+    <string name="autoplay_by_calling_app_summary">当 TubeGo 被其他应用调用时自动播放视频</string>
     <string name="duration_live">直播</string>
 
     <string name="main_bg_subtitle">点按搜索开始使用</string>
@@ -106,7 +106,7 @@
     <string name="msg_server_unsupported">服务器不支持</string>
     <string name="msg_exists">文件已经存在</string>
     <string name="msg_url_malform">网址不正确或网络不可用</string>
-    <string name="msg_running">NewPipe 正在下载</string>
+    <string name="msg_running">TubeGo 正在下载</string>
     <string name="msg_running_detail">点击了解细节</string>
     <string name="msg_wait">请稍候…</string>
     <string name="msg_copied">已复制到剪贴板</string>
@@ -127,7 +127,7 @@
 
 <string name="open_in_popup_mode">以窗口模式打开</string>
     <string name="use_external_video_player_summary">当启用该选项时某些分辨率的视频将没有声音</string>
-    <string name="popup_mode_share_menu_title">NewPipe 窗口模式</string>
+    <string name="popup_mode_share_menu_title">TubeGo 窗口模式</string>
     <string name="subscribe_button_title">订阅</string>
     <string name="subscribed_button_title">已订阅</string>
     <string name="channel_unsubscribed">已取消订阅频道</string>
@@ -174,8 +174,8 @@
     <string name="popup_resizing_indicator_title">重新调整大小</string>
     <string name="best_resolution">最佳分辨率</string>
 
-    <string name="notification_channel_name">NewPipe 通知</string>
-    <string name="notification_channel_description">NewPipe 后台播放和窗口播放器的通知</string>
+    <string name="notification_channel_name">TubeGo 通知</string>
+    <string name="notification_channel_description">TubeGo 后台播放和窗口播放器的通知</string>
 
     <string name="use_old_player_title">使用旧版播放器</string>
     <string name="use_old_player_summary">旧版本的内置媒体播放器</string>
@@ -194,7 +194,7 @@
     <string name="charset_letters_and_digits">字母和数字</string>
     <string name="charset_most_special_characters">特殊字符</string>
 
-    <string name="title_activity_about">关于 NewPipe</string>
+    <string name="title_activity_about">关于 TubeGo</string>
     <string name="action_settings">设置</string>
     <string name="action_about">关于</string>
     <string name="title_licenses">第三方许可</string>
@@ -206,7 +206,7 @@
     <string name="tab_licenses">许可</string>
     <string name="app_description">一款轻量级的安卓 YouTube 客户端。</string>
     <string name="view_on_github">在 GitHub 上查看</string>
-    <string name="app_license_title">NewPipe 许可</string>
+    <string name="app_license_title">TubeGo 许可</string>
     <string name="contribution_encouragement">无论你想提供点子，翻译程序，改进设计，优化代码或是想做出大量修改，我们都随时欢迎你的加入。贡献有越多程序亦将越加好用！</string>
     <string name="read_full_license">阅读许可</string>
     <string name="contribution_title">贡献</string>

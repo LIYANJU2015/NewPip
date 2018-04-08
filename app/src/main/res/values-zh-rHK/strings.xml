@@ -60,7 +60,7 @@
     <string name="blocked_by_gema">內容被 GEMA 封鎖。</string>
     <string name="main_bg_subtitle">按一下搜尋按鈕以開始操作</string>
     <string name="autoplay_by_calling_app_title">自動撥放</string>
-    <string name="autoplay_by_calling_app_summary">當其他應用程式要求播放影片時，NewPipe 將會自動播放</string>
+    <string name="autoplay_by_calling_app_summary">當其他應用程式要求播放影片時，TubeGo 將會自動播放</string>
     <string name="content">內容</string>
     <string name="show_age_restricted_content_title">顯示已設年齡限制的影片</string>
     <string name="video_is_age_restricted">此影片設有年齡限制。若要觀看，請先在設定中解除年齡限制。</string>
@@ -113,14 +113,14 @@
     <string name="msg_server_unsupported">不支援伺服器</string>
     <string name="msg_exists">檔案已經存在</string>
     <string name="msg_url_malform">網址有問題或沒有網絡連線</string>
-    <string name="msg_running">NewPipe 正在下載</string>
+    <string name="msg_running">TubeGo 正在下載</string>
     <string name="msg_running_detail">按一下以查看詳情</string>
     <string name="msg_wait">請稍候…</string>
     <string name="msg_copied">已複製至剪貼板。</string>
     <string name="no_available_dir">請選擇下載資料夾。</string>
 
     <string name="open_in_popup_mode">在畫中畫模式開啟</string>
-    <string name="popup_mode_share_menu_title">NewPipe 畫中畫模式</string>
+    <string name="popup_mode_share_menu_title">TubeGo 畫中畫模式</string>
 
     <string name="default_popup_resolution_title">預設畫中畫解像度</string>
     <string name="show_higher_resolutions_title">顯示更高解像度</string>
@@ -170,7 +170,7 @@
     <string name="use_old_player_summary">使用舊的內置 Mediaframework 播放器。</string>
     <string name="short_billion">B</string>
 
-    <string name="title_activity_about">關於 NewPipe</string>
+    <string name="title_activity_about">關於 TubeGo</string>
     <string name="action_settings">設定</string>
     <string name="action_about">關於</string>
     <string name="title_licenses">第三方版權特許</string>
@@ -182,8 +182,8 @@
     <string name="tab_licenses">特許</string>
     <string name="app_description">在 Android 上運作自由輕便的 Youtube 前端。</string>
     <string name="view_on_github">檢視我們的 Github</string>
-    <string name="app_license_title">NewPipe 的特許</string>
-    <string name="contribution_encouragement">無論您僅想分享您對 NewPipe 的一些構思，還是願意設計和翻譯程式介面，甚至想幫我們整理或重新編寫原始碼，我們都無任歡迎。貢獻更多，應用程式便會變得更好！</string>
+    <string name="app_license_title">TubeGo 的特許</string>
+    <string name="contribution_encouragement">無論您僅想分享您對 TubeGo 的一些構思，還是願意設計和翻譯程式介面，甚至想幫我們整理或重新編寫原始碼，我們都無任歡迎。貢獻更多，應用程式便會變得更好！</string>
     <string name="read_full_license">檢閱特許</string>
     <string name="contribution_title">貢獻</string>
 </resources>

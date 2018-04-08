@@ -18,7 +18,7 @@
     <string name="use_external_video_player_title">Käytä ulkoista videosoitinta</string>
     <string name="use_external_video_player_summary">Joillain resoluutioilla EI ole ääntä, kun tämä on valittuna</string>
     <string name="use_external_audio_player_title">Käytä ulkoista äänisoitinta</string>
-    <string name="popup_mode_share_menu_title">NewPipe ponnahdusikkuna</string>
+    <string name="popup_mode_share_menu_title">TubeGo ponnahdusikkuna</string>
     <string name="subscribe_button_title">Tilaa</string>
     <string name="subscribed_button_title">Tilattu</string>
     <string name="channel_unsubscribed">Kanavan tilaus peruttu</string>
@@ -42,7 +42,7 @@
     <string name="download_path_audio_dialog_title">Aseta sijainti minne äänitiedostot tallennetaan</string>
 
     <string name="autoplay_by_calling_app_title">Automaattitoisto</string>
-    <string name="autoplay_by_calling_app_summary">Toistaa automaattisesti videon, kun NewPipe sovellusta kutsutaan toisesta sovelluksesta</string>
+    <string name="autoplay_by_calling_app_summary">Toistaa automaattisesti videon, kun TubeGo sovellusta kutsutaan toisesta sovelluksesta</string>
     <string name="default_resolution_title">Oletusresoluutio</string>
     <string name="default_popup_resolution_title">Ponnahdusikkunan oletusresoluutio</string>
     <string name="show_higher_resolutions_title">Näytä korkeampia resoluutioita</string>
@@ -106,7 +106,7 @@
     <string name="best_resolution">Paras resoluutio</string>
     <string name="undo">Peru</string>
 
-    <string name="notification_channel_name">NewPipe Ilmoitus</string>
+    <string name="notification_channel_name">TubeGo Ilmoitus</string>
     <string name="notification_channel_description">Ilmoitukset Newpipe taustasoitolle ja ponnahdusikkunalle</string>
 
     <string name="general_error">Virhe</string>
@@ -190,7 +190,7 @@
     <string name="msg_server_unsupported">Serveriä ei tueta</string>
     <string name="msg_exists">Tiedosto on jo olemassa</string>
     <string name="msg_url_malform">Epämuodostunut URL tai Internet-yhteys ei ole saatavilla</string>
-    <string name="msg_running">NewPipe Lataus käynnissä</string>
+    <string name="msg_running">TubeGo Lataus käynnissä</string>
     <string name="msg_running_detail">Napauta nähdäksesi lisää</string>
     <string name="msg_wait">Odota…</string>
     <string name="msg_copied">Kopioitu leikepöydälle</string>
@@ -209,7 +209,7 @@
     <string name="charset_letters_and_digits">Kirjaimia ja numeroita</string>
     <string name="charset_most_special_characters">Suurin osa erikoismerkeistä</string>
 
-    <string name="title_activity_about">Tietoja NewPipe</string>
+    <string name="title_activity_about">Tietoja TubeGo</string>
     <string name="action_settings">Asetukset</string>
     <string name="action_about">Tietoja</string>
     <string name="title_licenses">Kolmannen osapuolen Lisenssit</string>
@@ -220,7 +220,7 @@
     <string name="tab_licenses">Lisenssit</string>
     <string name="app_description">Vapaa kevyt Android YouTube-frontend.</string>
     <string name="view_on_github">Näytä GitHub:ssa</string>
-    <string name="app_license_title">NewPipe:n Lisenssi</string>
+    <string name="app_license_title">TubeGo:n Lisenssi</string>
     <string name="contribution_encouragement">Olkoon sinulla ideoita; käännöksistä, design muutoksista, koodin siivoamisesta tai raskaista koodimuutoksista—apu on aina tervetullutta. Mitä enemmän saadaan tehtyä, sen paremmaksi sovellus tulee!</string>
     <string name="read_full_license">Lue lisenssi</string>
     <string name="contribution_title">Osallistu</string>
@@ -276,8 +276,8 @@
     <string name="start_here_on_background">Aloita toisto taustalla</string>
     <string name="start_here_on_popup">Aloita toisto ikkunassa</string>
 <string name="donation_title">Lahjoita</string>
-    <string name="donation_encouragement">NewPipe kehitetään vapaaehtoisten toimesta, jotka käyttävät vapaa-aikaansa tuottaakseen parhaimman kokemuksen sinulle. Nyt on aika antaa takaisin, jotta kehittäjät voivat tehdä NewPipe:sta vielä paremman nauttiessaan kupin kahvia!</string>
+    <string name="donation_encouragement">TubeGo kehitetään vapaaehtoisten toimesta, jotka käyttävät vapaa-aikaansa tuottaakseen parhaimman kokemuksen sinulle. Nyt on aika antaa takaisin, jotta kehittäjät voivat tehdä TubeGo:sta vielä paremman nauttiessaan kupin kahvia!</string>
     <string name="give_back">Anna takaisin</string>
     <string name="website_title">Websivu</string>
-    <string name="website_encouragement">Käy verkkosivuillamme saadaksesi lisää tietoa ja uusimmat uutiset NewPipe:sta.</string>
+    <string name="website_encouragement">Käy verkkosivuillamme saadaksesi lisää tietoa ja uusimmat uutiset TubeGo:sta.</string>
     </resources>

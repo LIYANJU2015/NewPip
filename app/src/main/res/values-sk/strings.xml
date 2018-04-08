@@ -68,7 +68,7 @@
     <string name="info_dir_created">Adresár na preberanie bol vytvorený \'%1$s\'</string>
     <string name="main_bg_subtitle">Začnite vyhľadaním obsahu</string>
     <string name="autoplay_by_calling_app_title">Autoplay</string>
-    <string name="autoplay_by_calling_app_summary">Video bude automaticky prehrané pri zavolaní NewPipe inou aplikáciou</string>
+    <string name="autoplay_by_calling_app_summary">Video bude automaticky prehrané pri zavolaní TubeGo inou aplikáciou</string>
     <string name="content">Obsah</string>
     <string name="show_age_restricted_content_title">Zobraziť vekovo obmedzený obsah</string>
     <string name="video_is_age_restricted">Toto video je vekovo obmedzené. Povoľte zobrazenie obsahu v nastavení.</string>
@@ -111,7 +111,7 @@
     <string name="msg_server_unsupported">Nepodporovaný server</string>
     <string name="msg_exists">Súbor už existuje</string>
     <string name="msg_url_malform">Neplatná URL alebo bez pripojenia na Internet</string>
-    <string name="msg_running">NewPipe Preberanie</string>
+    <string name="msg_running">TubeGo Preberanie</string>
     <string name="msg_running_detail">Dotykom zobraziť detaily</string>
     <string name="msg_wait">Čakajte prosím…</string>
     <string name="msg_copied">Skopírované do schránky</string>
@@ -148,7 +148,7 @@
     <string name="msg_popup_permission">Tieto práva vyžaduje
 otvorenie okna na popredí</string>
 
-    <string name="popup_mode_share_menu_title">NewPipe v okne</string>
+    <string name="popup_mode_share_menu_title">TubeGo v okne</string>
 
     <string name="default_video_format_title">Preferovaný fromát videa</string>
     <string name="popup_playing_toast">Prehrávanie v okne</string>
@@ -198,8 +198,8 @@ otvorenie okna na popredí</string>
     <string name="resume_on_audio_focus_gain_summary">Pokračovať po prerušeniach (napr. hlasový hovor)</string>
 
 
-    <string name="notification_channel_name">NewPipe notifikácie</string>
-    <string name="notification_channel_description">Notifikácie pre NewPipe na pozadí a v Okne navrchu</string>
+    <string name="notification_channel_name">TubeGo notifikácie</string>
+    <string name="notification_channel_description">Notifikácie pre TubeGo na pozadí a v Okne navrchu</string>
 
     <string name="settings_category_downloads_title">Preberanie</string>
     <string name="settings_file_charset_title">Povolené znaky v názvoch súborov</string>
@@ -209,7 +209,7 @@ otvorenie okna na popredí</string>
     <string name="charset_letters_and_digits">Písmená a čislice</string>
     <string name="charset_most_special_characters">Väčšina špeciálnych znakov</string>
 
-    <string name="title_activity_about">O NewPipe</string>
+    <string name="title_activity_about">O TubeGo</string>
     <string name="action_settings">Nastavenia</string>
     <string name="action_about">O</string>
     <string name="title_licenses">Licencie tretích strán</string>
@@ -221,7 +221,7 @@ otvorenie okna na popredí</string>
     <string name="tab_licenses">Licencie</string>
     <string name="app_description">Bezplatná a nenáročná appka YouTube pre Android.</string>
     <string name="view_on_github">Pozrieť na GitHube</string>
-    <string name="app_license_title">Licencia NewPipe</string>
+    <string name="app_license_title">Licencia TubeGo</string>
     <string name="contribution_encouragement">Či už máte nápady, prekladáte, spravíte zmenu dizajnu, čistenie kódu alebo skutočné ťažké zmeny v kóde, pomoc je vždy vítaná. Čím viac, tým lepšie!</string>
     <string name="read_full_license">Prečítať licencie</string>
     <string name="contribution_title">Prispieť</string>
@@ -311,10 +311,10 @@ otvorenie okna na popredí</string>
     <string name="rename">Premenovať</string>
 
     <string name="donation_title">Prispieť</string>
-    <string name="donation_encouragement">Aplikácia NewPipe je vyvíjaná dobrovoľníkmi vo voľnom čase. Ak sa vám aplikácia páči a chceli by ste odmeniť vývojárov, teraz je ten najlepši čas. Podporte vývojárov aby mohli NewPipe zlepšovať a zároveň si pochutnávať na šálke kávy!</string>
+    <string name="donation_encouragement">Aplikácia TubeGo je vyvíjaná dobrovoľníkmi vo voľnom čase. Ak sa vám aplikácia páči a chceli by ste odmeniť vývojárov, teraz je ten najlepši čas. Podporte vývojárov aby mohli TubeGo zlepšovať a zároveň si pochutnávať na šálke kávy!</string>
     <string name="give_back">Darovať</string>
     <string name="website_title">Webstránka</string>
-    <string name="website_encouragement">Ak chcete získať ďalšie informácie a novinky o NewPipe navštívte naše webové stránky.</string>
+    <string name="website_encouragement">Ak chcete získať ďalšie informácie a novinky o TubeGo navštívte naše webové stránky.</string>
     <string name="delete_item_search_history">Chcete odstrániť túto položku z histórie vyhľadávania?</string>
     <string name="delete_stream_history_prompt">Chcete odstrániť túto položku z histórie pozretých videí?</string>
     <string name="delete_all_history_prompt">Ste si istý, že chcete vymazať všetky položky z histórie?</string>

@@ -68,7 +68,7 @@
     <string name="msg_name">Имя файла</string>
     <string name="msg_error">Ошибка</string>
     <string name="msg_server_unsupported">Сервер не поддерживается</string>
-    <string name="msg_running">NewPipe скачивает</string>
+    <string name="msg_running">TubeGo скачивает</string>
     <string name="msg_url_malform">Неправильный URL или нет доступа к интернету</string>
     <string name="msg_running_detail">Нажмите для деталей</string>
     <string name="msg_copied">Скопировано в буфер обмена</string>
@@ -80,7 +80,7 @@
     <string name="your_comment">Ваш комментарий (на английском):</string>
     <string name="err_dir_create">Невозможно создать папку для загрузки \'%1$s\'</string>
     <string name="autoplay_by_calling_app_title">Воспроизводить автоматически</string>
-    <string name="autoplay_by_calling_app_summary">Автоматически воспроизводить видео при вызове NewPipe из другого приложения</string>
+    <string name="autoplay_by_calling_app_summary">Автоматически воспроизводить видео при вызове TubeGo из другого приложения</string>
     <string name="content">Контент</string>
     <string name="video_is_age_restricted">Видео с возрастными ограничениями. Разрешить подобный контент можно в настройках.</string>
     <string name="duration_live">вживую</string>
@@ -170,10 +170,10 @@
     <string name="recaptcha_request_toast">Запрошен ввод reCAPTCHA</string>
 
     <string name="show_higher_resolutions_title">Показывать более высокое разрешение</string>
-    <string name="popup_mode_share_menu_title">NewPipe в окне</string>
-    <string name="title_activity_about">О NewPipe</string>
+    <string name="popup_mode_share_menu_title">TubeGo в окне</string>
+    <string name="title_activity_about">О TubeGo</string>
     <string name="action_settings">Настройки</string>
-    <string name="app_license_title">Лицензия NewPipe</string>
+    <string name="app_license_title">Лицензия TubeGo</string>
     <string name="tab_licenses">Лицензии</string>
     <string name="title_licenses">Сторонние лицензии</string>
     <string name="action_open_website">Открыть веб-сайт</string>
@@ -204,8 +204,8 @@
     <string name="resume_on_audio_focus_gain_summary">Возобновлять воспроизведение после перерывов (например, телефонных звонков)</string>
 
 
-    <string name="notification_channel_name">Уведомление NewPipe</string>
-    <string name="notification_channel_description">Уведомления для NewPipe в фоне и во всплывающем окне</string>
+    <string name="notification_channel_name">Уведомление TubeGo</string>
+    <string name="notification_channel_description">Уведомления для TubeGo в фоне и во всплывающем окне</string>
 
     <string name="settings_category_downloads_title">Загрузки</string>
     <string name="settings_file_charset_title">Допустимые символы в именах файлов</string>
@@ -311,10 +311,10 @@
     <string name="audio_streams_empty">Потоки аудио не найдены</string>
 
     <string name="donation_title">Пожертвовать</string>
-    <string name="donation_encouragement">NewPipe разрабатывается добровольцами в свободное время ради вашего удобства использования программы. Пора воздать должное, разработчики могут сделать NewPipe еще лучше с чашечкой кофе!</string>
+    <string name="donation_encouragement">TubeGo разрабатывается добровольцами в свободное время ради вашего удобства использования программы. Пора воздать должное, разработчики могут сделать TubeGo еще лучше с чашечкой кофе!</string>
     <string name="give_back">Воздать должное</string>
     <string name="website_title">Веб-сайт</string>
-    <string name="website_encouragement">Для получения более подробной информации и последних новостей о NewPipe посетите наш веб-сайт.</string>
+    <string name="website_encouragement">Для получения более подробной информации и последних новостей о TubeGo посетите наш веб-сайт.</string>
     <string name="drawer_open">Открыть лоток</string>
     <string name="drawer_close">Закрыть лоток</string>
     <string name="preferred_player_share_menu_dialog_title">Открыть с помощью предпочитаемого проигрывателя</string>

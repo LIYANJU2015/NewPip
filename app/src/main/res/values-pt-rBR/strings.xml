@@ -10,7 +10,7 @@
     <string name="view">Reproduzir</string>
     <string name="video_is_age_restricted">Vídeo com restrição de idade. Permissão para vídeos com essa restrição podem ser feitas no menu configurações.</string>
     <string name="video">Vídeo</string>
-    <string name="autoplay_by_calling_app_summary">Reproduzir o vídeo automaticamente quando o NewPipe for aberto a partir de outro app</string>
+    <string name="autoplay_by_calling_app_summary">Reproduzir o vídeo automaticamente quando o TubeGo for aberto a partir de outro app</string>
     <string name="autoplay_by_calling_app_title">Reproduzir automaticamente</string>
     <string name="black_theme_title">Preto</string>
     <string name="blocked_by_gema">Bloqueado pelo GEMA</string>
@@ -45,7 +45,7 @@
     <string name="msg_copied">Copiado para a área de transferência</string>
     <string name="msg_name">Nome do arquivo</string>
     <string name="msg_running_detail">Toque para detalhes</string>
-    <string name="msg_running">NewPipe baixando</string>
+    <string name="msg_running">TubeGo baixando</string>
     <string name="msg_server_unsupported">Servidor não suportado</string>
     <string name="msg_wait">Aguarde…</string>
     <string name="network_error">Erro de rede</string>
@@ -137,7 +137,7 @@
     <string name="msg_popup_permission">Essa permissão é necessária para
 abrir em modo popup</string>
 
-    <string name="popup_mode_share_menu_title">Modo de popup NewPipe</string>
+    <string name="popup_mode_share_menu_title">Modo de popup TubeGo</string>
 
     <string name="filter">Filtro</string>
     <string name="refresh">Atualizar</string>
@@ -170,12 +170,12 @@ abrir em modo popup</string>
     <string name="tab_licenses">Licenças</string>
     <string name="app_description">Um leve, simples e grátis aplicativo de YouTube para Android.</string>
     <string name="view_on_github">Ver no GitHub</string>
-    <string name="app_license_title">Licença do NewPipe</string>
+    <string name="app_license_title">Licença do TubeGo</string>
     <string name="contribution_encouragement">Sempre que tiver ideias, traduções, mudanças do design, limpeza de código ou grandes alterações de código, a ajuda é bem vinda. Quanto mais for feito, melhor o aplicativo fica!</string>
     <string name="read_full_license">Ler licença</string>
     <string name="contribution_title">Contribuir</string>
 <string name="copyright" formatted="true">© %1$s %2$s protegido pela licença %3$s</string>
-    <string name="title_activity_about">Sobre NewPipe</string>
+    <string name="title_activity_about">Sobre TubeGo</string>
     <string name="settings_category_downloads_title">Download</string>
     <string name="settings_file_charset_title">Caracteres permitidos em nome de arquivos</string>
     <string name="settings_file_replacement_character_summary">Caracteres inválidos são substituídos por este valor</string>
@@ -210,8 +210,8 @@ abrir em modo popup</string>
     <string name="history_empty">O histórico está vazio</string>
     <string name="history_cleared">Histórico limpo</string>
 
-<string name="notification_channel_name">Notificações do NewPipe</string>
-    <string name="notification_channel_description">Notificações em plano de fundo para o NewPipe e players em popup</string>
+<string name="notification_channel_name">Notificações do TubeGo</string>
+    <string name="notification_channel_description">Notificações em plano de fundo para o TubeGo e players em popup</string>
 
     <string name="settings_category_player_behavior_title">Comportamento</string>
     <string name="settings_category_history_title">História</string>
@@ -280,10 +280,10 @@ abrir em modo popup</string>
     <string name="start_here_on_background">Iniciar aqui em plano de fundo</string>
     <string name="start_here_on_popup">Iniciar aqui em popup</string>
 <string name="donation_title">Doar</string>
-    <string name="donation_encouragement">NewPipe é desenvolvido por voluntários que gastam seu tempo livre para trazer a melhor experiência para você. Agora é a hora de retribuir o favor e ter certeza que os desenvolvedores podem fazer com que o NewPipe fique ainda melhor enquanto desfrutam uma xícara de café!</string>
+    <string name="donation_encouragement">TubeGo é desenvolvido por voluntários que gastam seu tempo livre para trazer a melhor experiência para você. Agora é a hora de retribuir o favor e ter certeza que os desenvolvedores podem fazer com que o TubeGo fique ainda melhor enquanto desfrutam uma xícara de café!</string>
     <string name="give_back">Retribuir</string>
     <string name="website_title">Site oficial</string>
-    <string name="website_encouragement">Para obter mais informações e as últimas notícias sobre o NewPipe visite nosso Site.</string>
+    <string name="website_encouragement">Para obter mais informações e as últimas notícias sobre o TubeGo visite nosso Site.</string>
     <string name="no_player_found_toast">Nenhum reprodudor de stream encontrado (você pode instalar VLC para reproduzir isto)</string>
     <string name="default_content_country_title">País do conteúdo padrão</string>
     <string name="service_title">Serviço</string>

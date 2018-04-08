@@ -50,14 +50,14 @@
 
     <string name="download_path_audio_summary">Deskargatutako audioa gordetzeko bide-izena</string>
     <string name="autoplay_by_calling_app_title">Erreprodukzio automatikoa</string>
-    <string name="autoplay_by_calling_app_summary">Automatikoki jotzen da bideoa NewPipe beste aplikazio batek deitu badu</string>
+    <string name="autoplay_by_calling_app_summary">Automatikoki jotzen da bideoa TubeGo beste aplikazio batek deitu badu</string>
     <string name="dark_theme_title">Iluna</string>
     <string name="light_theme_title">Argia</string>
 
     <string name="settings_category_appearance_title">Itxura</string>
 <string name="open_in_popup_mode">Ireki laster-leiho moduan</string>
     <string name="use_external_video_player_summary">Bereizmen batzuetan ez da audiorik izango aukera hau gaituz gero</string>
-    <string name="popup_mode_share_menu_title">NewPipe laster-leiho modua</string>
+    <string name="popup_mode_share_menu_title">TubeGo laster-leiho modua</string>
     <string name="controls_background_title">Bigarren planoa</string>
     <string name="controls_popup_title">Laster-leihoa</string>
 
@@ -152,7 +152,7 @@
     <string name="msg_server_unsupported">Euskarririk gabeko zerbitzaria</string>
     <string name="msg_exists">Fitxategia badago aurretik</string>
     <string name="msg_url_malform">Eragabeko URLa edo Internet ez dago eskuragarri</string>
-    <string name="msg_running">NewPipe deskargatzen</string>
+    <string name="msg_running">TubeGo deskargatzen</string>
     <string name="msg_running_detail">Ukitu xehetasunetarako</string>
     <string name="msg_wait">Itxaron mesedez…</string>
     <string name="msg_copied">Arbelera kopiatuta</string>
@@ -164,7 +164,7 @@
     <string name="reCaptcha_title">reCAPTCHA erronka</string>
     <string name="recaptcha_request_toast">reCAPTCHA erronka eskatu da</string>
 
-    <string name="title_activity_about">NewPipe aplikazioari buruz</string>
+    <string name="title_activity_about">TubeGo aplikazioari buruz</string>
     <string name="action_settings">Ezarpenak</string>
     <string name="action_about">Honi buruz</string>
     <string name="title_licenses">Hirugarrengoen lizentziak</string>
@@ -176,7 +176,7 @@
     <string name="tab_licenses">Lizentziak</string>
     <string name="app_description">Youtube Androiden ikusteko aplikazio libre eta arina.</string>
     <string name="view_on_github">Ikusi GitHub zerbitzarian</string>
-    <string name="app_license_title">NewPipe Lizentzia</string>
+    <string name="app_license_title">TubeGo Lizentzia</string>
     <string name="contribution_encouragement">Ideiak, itzulpenak, diseinu aldaketak, kode garbiketak, kode aldaketa sakonak badituzu, laguntza beti da ongi etorria. Eginaz hobetzen da!</string>
     <string name="read_full_license">Irakurri lizentzia</string>
     <string name="contribution_title">Hartu parte</string>
@@ -206,14 +206,14 @@
     <string name="enable_search_history_summary">Gorde bilaketak lokalki</string>
     <string name="enable_watch_history_title">Historiala</string>
     <string name="enable_watch_history_summary">Gorde ikusitako bideoen historiala</string>
-    <string name="notification_channel_name">NewPipe jakinarazpena</string>
+    <string name="notification_channel_name">TubeGo jakinarazpena</string>
     <string name="settings_category_player_title">Erreproduzigailua</string>
     <string name="settings_category_player_behavior_title">Portaera</string>
     <string name="settings_category_history_title">Historiala</string>
     <string name="playlist">Erreprodukzio-zerrenda</string>
     <string name="undo">Desegin</string>
 
-    <string name="notification_channel_description">Atzeko planoko eta laster-leihoko NewPipe erreproduzigailuen jakinarazpenak</string>
+    <string name="notification_channel_description">Atzeko planoko eta laster-leihoko TubeGo erreproduzigailuen jakinarazpenak</string>
 
     <string name="search_no_results">Emaitzarik ez</string>
     <string name="empty_subscription_feed_subtitle">Kilkerrak besterik ez daude hemen</string>
@@ -264,10 +264,10 @@
     <string name="player_recoverable_failure">Erreproduzigailuaren erroretik berreskuratzen</string>
 
     <string name="donation_title">Dohaintza</string>
-    <string name="donation_encouragement">NewPipe bere denbora librea zuri esperientziarik onena ekartzeko ematen duten boluntarioek garatzen dute. Orain zerbait atzera emateko unea da, garatzaileek NewPipe hobetu ahal izan dezaten Javako kafe bat hartzen duten bitartean!</string>
+    <string name="donation_encouragement">TubeGo bere denbora librea zuri esperientziarik onena ekartzeko ematen duten boluntarioek garatzen dute. Orain zerbait atzera emateko unea da, garatzaileek TubeGo hobetu ahal izan dezaten Javako kafe bat hartzen duten bitartean!</string>
     <string name="give_back">Egin dohaintza</string>
     <string name="website_title">Webgunea</string>
-    <string name="website_encouragement">NewPipe aplikazioari buruzko informazio gehiago eta azken berriak jasotzeko bisitatu gure webgunea.</string>
+    <string name="website_encouragement">TubeGo aplikazioari buruzko informazio gehiago eta azken berriak jasotzeko bisitatu gure webgunea.</string>
     <string name="delete_item_search_history">Elementu hau bilaketen historialetik ezabatu nahi duzu?</string>
 
     <string name="main_page_content">Orri nagusiko edukia</string>

@@ -27,7 +27,7 @@
     <string name="download_path_audio_dialog_title">Podaj ścieżkę zapisu audio</string>
 
     <string name="autoplay_by_calling_app_title">Autoodtwarzanie</string>
-    <string name="autoplay_by_calling_app_summary">Automatycznie odtwórz wideo, kiedy NewPipe zostanie wywołany z innej aplikacji</string>
+    <string name="autoplay_by_calling_app_summary">Automatycznie odtwórz wideo, kiedy TubeGo zostanie wywołany z innej aplikacji</string>
     <string name="default_resolution_title">Domyślna rozdzielczość</string>
     <string name="play_with_kodi_title">Odtwórz w Kodi</string>
     <string name="kore_not_found">Aplikacja Kore nie została znaleziona. Zainstalować ją?</string>
@@ -112,7 +112,7 @@
     <string name="msg_server_unsupported">Serwer niewspierany</string>
     <string name="msg_exists">Plik już istnieje</string>
     <string name="msg_url_malform">Zniekształcony URL lub brak internetu</string>
-    <string name="msg_running">Pobieranie NewPipe</string>
+    <string name="msg_running">Pobieranie TubeGo</string>
     <string name="msg_running_detail">Dotknij, aby zobaczyć szczegóły</string>
     <string name="msg_wait">Proszę czekać…</string>
     <string name="msg_copied">Skopiowano do schowka</string>
@@ -164,7 +164,7 @@
 \notworzyć w trybie okienkowym</string>
 
     <string name="open_in_popup_mode">Odtwórz w trybie okienkowym</string>
-    <string name="popup_mode_share_menu_title">NewPipe tryb okienkowy</string>
+    <string name="popup_mode_share_menu_title">TubeGo tryb okienkowy</string>
     <string name="controls_popup_title">Tryb okienkowy</string>
 
 <string name="best_resolution">Najlepsza rozdzielczość</string>
@@ -172,7 +172,7 @@
     <string name="settings_category_downloads_title">Pobierz</string>
     <string name="settings_file_replacement_character_summary">Niepoprawne znaki są zamienione na tę wartość</string>
     <string name="charset_letters_and_digits">Litery i cyfry</string>
-    <string name="title_activity_about">O NewPipe</string>
+    <string name="title_activity_about">O TubeGo</string>
     <string name="action_settings">Ustawienia</string>
     <string name="action_about">O programie</string>
     <string name="title_licenses">Licencje osób trzecich</string>
@@ -182,7 +182,7 @@
     <string name="tab_licenses">Licencje</string>
     <string name="app_description">Darmowa, lekka alternatywa YouTube dla Androida.</string>
     <string name="view_on_github">Zobacz na GitHubie</string>
-    <string name="app_license_title">Licencja NewPipe</string>
+    <string name="app_license_title">Licencja TubeGo</string>
     <string name="contribution_encouragement">Jeżeli masz pomysł na tłumaczenie, zmiany w wyglądzie aplikacji, oczyszczenie kodu źródłowego, pomoc jest zawsze mile widziana. Im więcej jest zrobione, tym lepiej!</string>
     <string name="read_full_license">Przeczytaj licencję</string>
     <string name="contribution_title">Wkład</string>
@@ -209,8 +209,8 @@
     <string name="resume_on_audio_focus_gain_summary">Kontynuuj odtwarzanie po przerwaniu (np. po rozmowie telefonicznej)</string>
 
 
-    <string name="notification_channel_name">Powiadomienie NewPipe</string>
-    <string name="notification_channel_description">Powiadomienia dla odtwarzacza NewPipe w tle i w okienku</string>
+    <string name="notification_channel_name">Powiadomienie TubeGo</string>
+    <string name="notification_channel_description">Powiadomienia dla odtwarzacza TubeGo w tle i w okienku</string>
 
     <string name="tab_contributors">Współautorzy</string>
     <string name="title_activity_history">Historia</string>
@@ -266,10 +266,10 @@
     <string name="charset_most_special_characters">Większość znaków specjalnych</string>
 
     <string name="donation_title">Dotacja</string>
-    <string name="donation_encouragement">NewPipe rozwijane jest przez wolontariuszy, którzy poświęcają swój wolny czas, by zapewnić Ci jak najlepsze wrażenia podczas korzystania z aplikacji. To dobry moment, aby wesprzeć programistów i sprawić, aby program był jeszcze lepszy, nie przerywając przy tym popijania kawy!</string>
+    <string name="donation_encouragement">TubeGo rozwijane jest przez wolontariuszy, którzy poświęcają swój wolny czas, by zapewnić Ci jak najlepsze wrażenia podczas korzystania z aplikacji. To dobry moment, aby wesprzeć programistów i sprawić, aby program był jeszcze lepszy, nie przerywając przy tym popijania kawy!</string>
     <string name="give_back">Daj od siebie</string>
     <string name="website_title">Witryna</string>
-    <string name="website_encouragement">By otrzymać więcej informacji oraz najnowsze wiadomości o NewPipe, odwiedź naszą stronę.</string>
+    <string name="website_encouragement">By otrzymać więcej informacji oraz najnowsze wiadomości o TubeGo, odwiedź naszą stronę.</string>
     <string name="item_deleted">Pozycja usunięta</string>
     <string name="delete_item_search_history">Czy chcesz usunąć tę pozycję z historii wyszukiwania?</string>
 

@@ -24,7 +24,7 @@
     <string name="download_path_audio_dialog_title">Masukkan lokasi unduhan berkas audio</string>
 
     <string name="autoplay_by_calling_app_title">Putar otomatis</string>
-    <string name="autoplay_by_calling_app_summary">Otomatis memutar video ketika NewPipe dijalankan dari aplikasi lain</string>
+    <string name="autoplay_by_calling_app_summary">Otomatis memutar video ketika TubeGo dijalankan dari aplikasi lain</string>
     <string name="default_resolution_title">Resolusi baku</string>
     <string name="play_with_kodi_title">Putar dengan Kodi</string>
     <string name="kore_not_found">Aplikasi Kore tidak ditemukan. Pasang Kore?</string>
@@ -108,7 +108,7 @@
     <string name="msg_server_unsupported">Server tidak didukung</string>
     <string name="msg_exists">Berkas telah ada</string>
     <string name="msg_url_malform">URL salah atau tidak tersedia layanan internet</string>
-    <string name="msg_running">NewPipe sedang Mengunduh</string>
+    <string name="msg_running">TubeGo sedang Mengunduh</string>
     <string name="msg_running_detail">Sentuh untuk detail</string>
     <string name="msg_wait">Mohon tunggu…</string>
     <string name="msg_copied">Disalin ke papan klip</string>
@@ -145,7 +145,7 @@
     <string name="msg_popup_permission">Izin ini dibutuhkan untuk
 membuka di mode popup</string>
 
-    <string name="popup_mode_share_menu_title">Mode popup NewPipe</string>
+    <string name="popup_mode_share_menu_title">Mode popup TubeGo</string>
 
     <string name="popup_playing_toast">Memutar dalam mode popup</string>
     <string name="use_old_player_title">Gunakan pemutar lama</string>
@@ -186,7 +186,7 @@ membuka di mode popup</string>
     <string name="charset_letters_and_digits">Huruf dan angka</string>
     <string name="charset_most_special_characters">Karakter spesial umum</string>
 
-    <string name="title_activity_about">Tentang NewPipe</string>
+    <string name="title_activity_about">Tentang TubeGo</string>
     <string name="action_settings">Pengaturan</string>
     <string name="action_about">Tentang</string>
     <string name="title_licenses">Lisensi pihak ketiga</string>
@@ -198,7 +198,7 @@ membuka di mode popup</string>
     <string name="tab_licenses">Lisensi</string>
     <string name="app_description">Antarmuka YouTube yang ringan dan gratis untuk Android.</string>
     <string name="view_on_github">Lihat di Github</string>
-    <string name="app_license_title">Lisensi NewPipe</string>
+    <string name="app_license_title">Lisensi TubeGo</string>
     <string name="contribution_encouragement">Terlepas apakah Anda memiliki ide, terjemahan, perubahan desain, pembersihan kode, atau perubahan kode yang signifikan, segala bantuan akan selalu diterima. Semakin banyak akan semakin baik jadinya!</string>
     <string name="read_full_license">Baca lisensi</string>
     <string name="contribution_title">Kontribusi</string>
@@ -213,7 +213,7 @@ membuka di mode popup</string>
     <string name="enable_search_history_title">Cari riwayat</string>
     <string name="enable_search_history_summary">Simpan pencarian secara lokal</string>
     <string name="enable_watch_history_title">Riwayat</string>
-    <string name="notification_channel_name">Notifikasi NewPipe</string>
+    <string name="notification_channel_name">Notifikasi TubeGo</string>
     <string name="title_activity_history">Riwayat</string>
     <string name="history_disabled">Riwayat dinonaktifkan</string>
     <string name="action_history">Riwayat</string>
@@ -243,7 +243,7 @@ membuka di mode popup</string>
     <string name="just_once">Hanya Sekali</string>
     <string name="file">Berkas</string>
 
-    <string name="notification_channel_description">Notifikasi untuk Layar Belakang NewPipe dan Pemutar Sembulan</string>
+    <string name="notification_channel_description">Notifikasi untuk Layar Belakang TubeGo dan Pemutar Sembulan</string>
 
     <string name="unknown_content">[Tidak diketahui]</string>
 
@@ -295,10 +295,10 @@ membuka di mode popup</string>
     <string name="rename">Ubah nama</string>
 
     <string name="donation_title">Donasi</string>
-    <string name="donation_encouragement">NewPipe dikembangkan oleh relawan yg menghabiskan waktu luangnya untuk pengalaman terbaik kamu. Kini saatnya memberikan kembali untuk memastikan pengembang kita dapat membuat NewPipe lebih baik lagi sambil menikmati secangkir kopi jawa!</string>
+    <string name="donation_encouragement">TubeGo dikembangkan oleh relawan yg menghabiskan waktu luangnya untuk pengalaman terbaik kamu. Kini saatnya memberikan kembali untuk memastikan pengembang kita dapat membuat TubeGo lebih baik lagi sambil menikmati secangkir kopi jawa!</string>
     <string name="give_back">Beri balik</string>
     <string name="website_title">Situs</string>
-    <string name="website_encouragement">Untuk mendapatkan informasi lebih jauh dan berita terbaru tentang NewPipe kunjungi situs kami.</string>
+    <string name="website_encouragement">Untuk mendapatkan informasi lebih jauh dan berita terbaru tentang TubeGo kunjungi situs kami.</string>
     <string name="title_history_search">Sudah dicari</string>
     <string name="history_cleared">Riwayat terhapus</string>
     <string name="item_deleted">Item terhapus</string>

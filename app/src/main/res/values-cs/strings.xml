@@ -67,7 +67,7 @@
     <string name="err_dir_create">Nebylo možné vytvořit složku pro stažené soubory \'%1$s\'</string>
     <string name="info_dir_created">Vytvořena složka pro stažené soubory \'%1$s\'</string>
     <string name="autoplay_by_calling_app_title">Automaticky přehrávat</string>
-    <string name="autoplay_by_calling_app_summary">Automaticky přehrát video, když je NewPipe otevřen z jiné aplikace</string>
+    <string name="autoplay_by_calling_app_summary">Automaticky přehrát video, když je TubeGo otevřen z jiné aplikace</string>
     <string name="content">Obsah</string>
     <string name="show_age_restricted_content_title">Zobrazovat věkově omezený obsah</string>
     <string name="video_is_age_restricted">Toto video je věkově omezeno. Povolte věkově omezená videa v nastavení.</string>
@@ -77,7 +77,7 @@
     <string name="main_bg_subtitle">Začni stiskem hledat</string>
     <string name="msg_copied">Zkopírováno do schránky</string>
     <string name="msg_wait">Počkejte prosím…</string>
-    <string name="msg_running">NewPipe stahuje</string>
+    <string name="msg_running">TubeGo stahuje</string>
     <string name="msg_running_detail">Stiskni pro detaily</string>
     <string name="msg_server_unsupported">Server není podporován</string>
     <string name="msg_exists">Soubor již existuje</string>
@@ -150,7 +150,7 @@ otevření ve vyskakovacím okně</string>
     <string name="default_video_format_title">Výchozí formát videa</string>
     <string name="popup_remember_size_pos_title">Pamatovat si velikost a pozici vyskakovacího okna</string>
     <string name="popup_remember_size_pos_summary">Pamatovat si poslední velikost a pozici vyskakovacího okna</string>
-    <string name="popup_mode_share_menu_title">NewPipe režim vyskakovacího okna</string>
+    <string name="popup_mode_share_menu_title">TubeGo režim vyskakovacího okna</string>
     <string name="subscribe_button_title">Odebírat</string>
     <string name="subscribed_button_title">Odebíráno</string>
     <string name="channel_unsubscribed">Odběr zrušen</string>
@@ -190,8 +190,8 @@ otevření ve vyskakovacím okně</string>
     <string name="best_resolution">Nejlepší rozlišení</string>
     <string name="undo">Vrátit</string>
 
-    <string name="notification_channel_name">NewPipe notifikace</string>
-    <string name="notification_channel_description">Notifikace pro NewPipe přehrávače v pozadí a v okně</string>
+    <string name="notification_channel_name">TubeGo notifikace</string>
+    <string name="notification_channel_description">Notifikace pro TubeGo přehrávače v pozadí a v okně</string>
 
     <string name="search_no_results">Žádné výsledky</string>
     <string name="empty_subscription_feed_subtitle">Je tu sranda jak v márnici</string>
@@ -229,7 +229,7 @@ otevření ve vyskakovacím okně</string>
     <string name="charset_letters_and_digits">Písmena a číslice</string>
     <string name="charset_most_special_characters">Většina speciálních znaků</string>
 
-    <string name="title_activity_about">O NewPipe</string>
+    <string name="title_activity_about">O TubeGo</string>
     <string name="action_settings">Nastavení</string>
     <string name="action_about">O aplikaci</string>
     <string name="title_licenses">Licence třetích stran</string>
@@ -241,7 +241,7 @@ otevření ve vyskakovacím okně</string>
     <string name="tab_licenses">Licence</string>
     <string name="app_description">Bezplatná a nenáročná YouTube aplikace pro Android.</string>
     <string name="view_on_github">Zobraz na GitHubu</string>
-    <string name="app_license_title">Licence NewPipe</string>
+    <string name="app_license_title">Licence TubeGo</string>
     <string name="contribution_encouragement">Pokud máte nápady na zlepšení jako; překlad, změny designu, vylepšování kódu nebo opravdu velké změny kódu - pomoc je vždy vítána. Čím více se udělá, tím lepší to bude!</string>
     <string name="read_full_license">Přečíst licenci</string>
     <string name="contribution_title">Podílet se</string>
@@ -294,10 +294,10 @@ otevření ve vyskakovacím okně</string>
     <string name="start_here_on_background">Začne zde na pozadí</string>
     <string name="start_here_on_popup">Začne zde v okně</string>
 <string name="donation_title">Donate</string>
-    <string name="donation_encouragement">NewPipe je vyvíjen dobrovolníky, kteří tráví svůj volný čas, aby vaše zkušenost s aplikací byla co nejlepší. Nyní je čas vrátit něco zpět, aby naši vývojáři mohli NewPipe dále zlepšovat a zároveň si vychutnat šálek kávy!</string>
+    <string name="donation_encouragement">TubeGo je vyvíjen dobrovolníky, kteří tráví svůj volný čas, aby vaše zkušenost s aplikací byla co nejlepší. Nyní je čas vrátit něco zpět, aby naši vývojáři mohli TubeGo dále zlepšovat a zároveň si vychutnat šálek kávy!</string>
     <string name="give_back">Daruj</string>
     <string name="website_title">Webová stránka</string>
-    <string name="website_encouragement">Pro další informace a poslední novinky o NewPipe navštivte naši stránku.</string>
+    <string name="website_encouragement">Pro další informace a poslední novinky o TubeGo navštivte naši stránku.</string>
     <string name="default_content_country_title">Země výchozího obsahu</string>
     <string name="service_title">Služba</string>
     <string name="toggle_orientation">Změna orientaci</string>

@@ -18,7 +18,7 @@
     <string name="use_external_video_player_title">Използвай външен видео плейър</string>
     <string name="use_external_video_player_summary">Някои резолюции няма да имат вграден аудио поток ако изберете тази опция</string>
     <string name="use_external_audio_player_title">Използвай външен аудио плейър</string>
-    <string name="popup_mode_share_menu_title">Режим с подпрозорец на NewPipe</string>
+    <string name="popup_mode_share_menu_title">Режим с подпрозорец на TubeGo</string>
     <string name="subscribe_button_title">Абониране</string>
     <string name="subscribed_button_title">Абониран</string>
     <string name="channel_unsubscribed">Премахнат абонамент за канала</string>
@@ -41,7 +41,7 @@
     <string name="download_path_audio_dialog_title">Въведи път за съхранение на свалено аудио</string>
 
     <string name="autoplay_by_calling_app_title">Автоматично възпроизвеждане</string>
-    <string name="autoplay_by_calling_app_summary">Автоматично въпроизвеждане на видео, когато NewPipe е повикан от друго приложение</string>
+    <string name="autoplay_by_calling_app_summary">Автоматично въпроизвеждане на видео, когато TubeGo е повикан от друго приложение</string>
     <string name="default_resolution_title">Резолюция по подразбиране</string>
     <string name="default_popup_resolution_title">Резолюция по подразбиране на подпрозореца</string>
     <string name="show_higher_resolutions_title">Покажи по-високи резолюции</string>
@@ -110,8 +110,8 @@
     <string name="undo">Отмени</string>
     <string name="play_all">Възпроизведи всички</string>
 
-    <string name="notification_channel_name">Известия от NewPipe</string>
-    <string name="notification_channel_description">Известия за фоновия плейър и плейъра на подпрозореца на NewPipe</string>
+    <string name="notification_channel_name">Известия от TubeGo</string>
+    <string name="notification_channel_description">Известия за фоновия плейър и плейъра на подпрозореца на TubeGo</string>
 
     <string name="unknown_content">[Неизвестен]</string>
 
@@ -191,7 +191,7 @@
     <string name="msg_server_unsupported">Сървърът не се поддържа</string>
     <string name="msg_exists">Файлът вече съществува</string>
     <string name="msg_url_malform">Неправилен формат на URL-а или няма връзка</string>
-    <string name="msg_running">NewPipe Сваляне</string>
+    <string name="msg_running">TubeGo Сваляне</string>
     <string name="msg_running_detail">Натисни за подробности</string>
     <string name="msg_wait">Моля, изчакайте…</string>
     <string name="msg_copied">Копирано в клипборда</string>
@@ -200,7 +200,7 @@
     <string name="settings_file_replacement_character_title">Стойност за замяна</string>
 
     <string name="charset_letters_and_digits">Букви и цифри</string>
-    <string name="title_activity_about">За NewPipe</string>
+    <string name="title_activity_about">За TubeGo</string>
     <string name="action_settings">Настройки</string>
     <string name="action_about">Относно приложението</string>
     <string name="title_licenses">Лицензи от трети страни</string>

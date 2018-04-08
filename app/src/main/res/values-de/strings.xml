@@ -90,7 +90,7 @@
     <string name="your_comment">Dein Kommentar (auf englisch):</string>
     <string name="could_not_get_stream">Konnte keinen Stream holen</string>
     <string name="autoplay_by_calling_app_title">Autoplay</string>
-    <string name="autoplay_by_calling_app_summary">Spiele ein Video automatisch ab, wenn NewPipe von einer anderen App aufgerufen wurde</string>
+    <string name="autoplay_by_calling_app_summary">Spiele ein Video automatisch ab, wenn TubeGo von einer anderen App aufgerufen wurde</string>
     <string name="report_error">Einen Fehler melden</string>
     <string name="user_report">Anwenderbericht</string>
 
@@ -126,7 +126,7 @@
     <string name="could_not_load_image">Konnte Bild nicht laden</string>
     <string name="app_ui_crash">App/UI abgestürzt</string>
     <string name="msg_threads">Threads</string>
-    <string name="msg_running">NewPipe lädt herunter</string>
+    <string name="msg_running">TubeGo lädt herunter</string>
     <string name="msg_running_detail">Für Details antippen</string>
 
     <string name="msg_url_malform">Ungültige URL oder Internet nicht verfügbar</string>
@@ -148,7 +148,7 @@
     <string name="open_in_popup_mode">Im Pop-up Modus öffnen</string>
     <string name="default_video_format_title">Bevorzugtes Videoformat</string>
     <string name="popup_playing_toast">Spiele im Pop-up Modus ab</string>
-    <string name="popup_mode_share_menu_title">NewPipe Pop-up Modus</string>
+    <string name="popup_mode_share_menu_title">TubeGo Pop-up Modus</string>
 
 
     <string name="msg_popup_permission">Diese Berechtigung ist für das Öffnen im Pop-up Modus erforderlich</string>
@@ -176,7 +176,7 @@
     <string name="best_resolution">Beste Auflösung</string>
 
     <string name="action_about">Über</string>
-    <string name="title_activity_about">Über NewPipe</string>
+    <string name="title_activity_about">Über TubeGo</string>
     <string name="action_open_website">Website öffnen</string>
     <string name="tab_contributors">Mitwirkende</string>
     <string name="tab_licenses">Lizenzen</string>
@@ -187,7 +187,7 @@
     <string name="tab_about">Über</string>
     <string name="app_description">Eine offene, leichtgewichtige YouTube App für Android.</string>
     <string name="app_license_title">NewPipes Lizenz</string>
-    <string name="contribution_encouragement">Ob Ideen, Übersetzung, Design-Änderungen, Code-Aufräumung oder richtig große Code-Änderungen - Hilfe ist immer willkommen. Je mehr geholfen wird, desto besser wird NewPipe!</string>
+    <string name="contribution_encouragement">Ob Ideen, Übersetzung, Design-Änderungen, Code-Aufräumung oder richtig große Code-Änderungen - Hilfe ist immer willkommen. Je mehr geholfen wird, desto besser wird TubeGo!</string>
     <string name="title_licenses">Drittanbieter Lizenzen</string>
     <string name="view_on_github">Auf GitHub ansehen</string>
     <string name="contribution_title">Beitragen</string>
@@ -222,8 +222,8 @@
     <string name="resume_on_audio_focus_gain_summary">Nach Unterbrechungen (z.B. Telefonaten) Wiedergabe fortsetzen</string>
 
 
-    <string name="notification_channel_name">NewPipe Benachrichtigung</string>
-    <string name="notification_channel_description">Benachrichtigungen für NewPipe Hintergrund- und Pop-up Player</string>
+    <string name="notification_channel_name">TubeGo Benachrichtigung</string>
+    <string name="notification_channel_description">Benachrichtigungen für TubeGo Hintergrund- und Pop-up Player</string>
 
     <string name="tab_main">Main</string>
     <string name="settings_category_player_behavior_title">Verhalten</string>
@@ -298,8 +298,8 @@
 <string name="donation_title">Spenden</string>
     <string name="give_back">Zurückgeben</string>
     <string name="website_title">Website</string>
-    <string name="website_encouragement">Um mehr Informationen und die aktuellsten Nachrichten über NewPipe zu bekommen, besuche unsere Website.</string>
-    <string name="donation_encouragement">NewPipe wird von Freiwilligen entwickelt, die ihre Freizeit damit verbringen, dir das beste Erlebnis zu bieten. Jetzt ist es an der Zeit, etwas zurückzugeben, um sicherzustellen, dass unsere Entwickler NewPipe noch besser machen können, während sie eine Tasse Java genießen!</string>
+    <string name="website_encouragement">Um mehr Informationen und die aktuellsten Nachrichten über TubeGo zu bekommen, besuche unsere Website.</string>
+    <string name="donation_encouragement">TubeGo wird von Freiwilligen entwickelt, die ihre Freizeit damit verbringen, dir das beste Erlebnis zu bieten. Jetzt ist es an der Zeit, etwas zurückzugeben, um sicherzustellen, dass unsere Entwickler TubeGo noch besser machen können, während sie eine Tasse Java genießen!</string>
     <string name="service_title">Service</string>
     <string name="no_player_found_toast">Kein Streamplayer gefunden (Du kannst VLC installieren, um ihn abzuspielen)</string>
     <string name="default_content_country_title">Standard-Land des Inhalts</string>

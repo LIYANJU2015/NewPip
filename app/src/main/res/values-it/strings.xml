@@ -78,7 +78,7 @@
 
     <string name="main_bg_subtitle">Tocca cerca per iniziare</string>
     <string name="autoplay_by_calling_app_title">Riproduzione automatica</string>
-    <string name="autoplay_by_calling_app_summary">Riproduci i video automaticamente quando NewPipe viene aperto da un\'altra app</string>
+    <string name="autoplay_by_calling_app_summary">Riproduci i video automaticamente quando TubeGo viene aperto da un\'altra app</string>
     <string name="duration_live">in diretta</string>
 
     <string name="light_parsing_error">Impossibile analizzare completamente il sito web</string>
@@ -119,7 +119,7 @@
     <string name="msg_server_unsupported">Server non supportato</string>
     <string name="msg_exists">File già esistente</string>
     <string name="msg_url_malform">URL errato od errore di rete</string>
-    <string name="msg_running">Download di NewPipe</string>
+    <string name="msg_running">Download di TubeGo</string>
     <string name="msg_running_detail">Tocca per maggiori dettagli</string>
     <string name="msg_wait">Attendi…</string>
     <string name="msg_copied">Copiato negli appunti</string>
@@ -149,7 +149,7 @@
 
 
     <string name="open_in_popup_mode">Apri in modalità popup</string>
-    <string name="popup_mode_share_menu_title">NewPipe modalità a comparsa</string>
+    <string name="popup_mode_share_menu_title">TubeGo modalità a comparsa</string>
 
     <string name="popup_playing_toast">Riproduzione in modalità popup</string>
     <string name="disabled">Disattivato</string>
@@ -193,11 +193,11 @@
     <string name="tab_licenses">Licenze</string>
     <string name="app_description">Un\'interfaccia leggera e libera per accedere a YouTube su Android.</string>
     <string name="view_on_github">Mostra su GitHub</string>
-    <string name="app_license_title">Licenza di NewPipe</string>
+    <string name="app_license_title">Licenza di TubeGo</string>
     <string name="contribution_encouragement">Un aiuto è sempre il benvenuto: nuove idee, design o traduzioni, piccoli cambi o modifiche radicali del codice rendono l\'applicazione sempre migliore!</string>
     <string name="read_full_license">Leggi la licenza</string>
     <string name="contribution_title">Partecipa</string>
-<string name="title_activity_about">Informazioni su NewPipe</string>
+<string name="title_activity_about">Informazioni su TubeGo</string>
     <string name="subscribe_button_title">Iscriviti</string>
     <string name="subscribed_button_title">Iscritto</string>
     <string name="channel_unsubscribed">Disiscritto dal canale</string>
@@ -239,8 +239,8 @@
     <string name="playlist">Scaletta</string>
     <string name="undo">Annulla</string>
 
-    <string name="notification_channel_name">Notifiche NewPipe</string>
-    <string name="notification_channel_description">Notifiche per NewPipe in background e per il lettore a comparsa</string>
+    <string name="notification_channel_name">Notifiche TubeGo</string>
+    <string name="notification_channel_description">Notifiche per TubeGo in background e per il lettore a comparsa</string>
 
     <string name="search_no_results">Nessun risultato</string>
     <string name="no_subscribers">Nessun iscritto</string>
@@ -304,8 +304,8 @@
     <string name="start_here_on_popup">Inizia qui nel Popup</string>
 <string name="donation_title">Dona</string>
     <string name="website_title">Sito web</string>
-    <string name="website_encouragement">Per ricevere maggiori informazioni e le ultime novità su NewPipe visita il nostro sito web.</string>
-    <string name="donation_encouragement">NewPipe è sviluppato da volontari che spendono il loro tempo libero per regalarti la migliore esperienza. È tempo di restituire il favore permettendo ai nostri sviluppatori di migliorare ulteriormente NewPipe mentre gustano una tazza di Giava!</string>
+    <string name="website_encouragement">Per ricevere maggiori informazioni e le ultime novità su TubeGo visita il nostro sito web.</string>
+    <string name="donation_encouragement">TubeGo è sviluppato da volontari che spendono il loro tempo libero per regalarti la migliore esperienza. È tempo di restituire il favore permettendo ai nostri sviluppatori di migliorare ulteriormente TubeGo mentre gustano una tazza di Giava!</string>
     <string name="give_back">Restituisci</string>
     <string name="default_content_country_title">Paese predefinito per i contenuti</string>
     <string name="toggle_orientation">Cambia orientamento</string>

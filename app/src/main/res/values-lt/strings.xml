@@ -18,7 +18,7 @@
     <string name="use_external_video_player_title">Naudoti išorinį vaizdo grotuvą</string>
     <string name="use_external_video_player_summary">Kai kurios raiškos nepalaiko audio, kai ši parinktis įgalinta</string>
     <string name="use_external_audio_player_title">Naudoti išorinį audio grotuvą</string>
-    <string name="popup_mode_share_menu_title">NewPipe iššokančiojo lango rėžimas</string>
+    <string name="popup_mode_share_menu_title">TubeGo iššokančiojo lango rėžimas</string>
     <string name="controls_background_title">Fonas</string>
     <string name="controls_popup_title">Išokantis langelis</string>
 
@@ -31,7 +31,7 @@
     <string name="download_path_audio_dialog_title">Įveskite atsisiuntimų kelią garso įrašams</string>
 
     <string name="autoplay_by_calling_app_title">Automatinis paleidimas</string>
-    <string name="autoplay_by_calling_app_summary">Automatiškai groti vaizdo įrašą, kai NewPipe iškvečiama per kitą programėlę</string>
+    <string name="autoplay_by_calling_app_summary">Automatiškai groti vaizdo įrašą, kai TubeGo iškvečiama per kitą programėlę</string>
     <string name="default_resolution_title">Numatytoji raiška</string>
     <string name="default_popup_resolution_title">Numatytoji išokančiojo lango raiška</string>
     <string name="show_higher_resolutions_title">Rodyti aukštesnes raiškas</string>
@@ -151,7 +151,7 @@
     <string name="msg_server_unsupported">Tarnybinė stotis nepalaikoma</string>
     <string name="msg_exists">Byla jau egzistuoja</string>
     <string name="msg_url_malform">Neteisingas adresas arba negalimas internetas</string>
-    <string name="msg_running">NewPipe Atsiunčiama</string>
+    <string name="msg_running">TubeGo Atsiunčiama</string>
     <string name="msg_running_detail">Palieskite, kad peržiūrėtumėte detales</string>
     <string name="msg_wait">Prašome palaukti…</string>
     <string name="msg_copied">Nukopijuota į iškarpinę</string>
@@ -191,7 +191,7 @@
     <string name="undo">Atgal</string>
     <string name="play_all">Groti viską</string>
 
-    <string name="notification_channel_name">NewPipe pranešimai</string>
+    <string name="notification_channel_name">TubeGo pranešimai</string>
     <string name="notification_channel_description">Foninio ir langelio rėžimo grotuvų pranešimai</string>
 
     <string name="unknown_content">[Nežinoma]</string>
@@ -226,7 +226,7 @@
     <string name="charset_letters_and_digits">Raidės ir skaičiai</string>
     <string name="charset_most_special_characters">Ypatingieji simboliai</string>
 
-    <string name="title_activity_about">Apie NewPipe</string>
+    <string name="title_activity_about">Apie TubeGo</string>
     <string name="action_settings">Nustatymai</string>
     <string name="action_about">Apie</string>
     <string name="title_licenses">Trečiųjų šalių leidimai</string>
@@ -241,11 +241,11 @@
     <string name="contribution_encouragement">Jei turite idėjų dėl- vertimų, išvaizdos pakeitimų, kodo supaprastinimo, arba rimtų kodo pakeitimų- pagalba visada laukiama!</string>
     <string name="view_on_github">Peržiūrėti per GitHub</string>
     <string name="donation_title">Paremti</string>
-    <string name="donation_encouragement">NewPipe yra vystoma savanorių, kurie praleidžia savo laisvą laiką, kad sukurtų geriausią patirtį Jums. Dabar yra laikas paremti juos, kad kūrėjai galėtų NewPipe paversti dar geresne programėle!</string>
+    <string name="donation_encouragement">TubeGo yra vystoma savanorių, kurie praleidžia savo laisvą laiką, kad sukurtų geriausią patirtį Jums. Dabar yra laikas paremti juos, kad kūrėjai galėtų TubeGo paversti dar geresne programėle!</string>
     <string name="give_back">Duokite grąžos</string>
     <string name="website_title">Interneto puslapis</string>
-    <string name="website_encouragement">Kad sužinotumėte daugiau apie NewPipe apsilankykite mūsų interneto puslapyje.</string>
-    <string name="app_license_title">NewPipe Leidimas</string>
+    <string name="website_encouragement">Kad sužinotumėte daugiau apie TubeGo apsilankykite mūsų interneto puslapyje.</string>
+    <string name="app_license_title">TubeGo Leidimas</string>
     <string name="read_full_license">Skaityti leidimą</string>
 
 

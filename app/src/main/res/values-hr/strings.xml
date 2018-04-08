@@ -18,7 +18,7 @@
     <string name="use_external_video_player_title">Koristi vanjski reproduktor videozapisa</string>
     <string name="use_external_video_player_summary">Neke razlučivosti NEĆE imati zvuk kad je ova opcija omogućena</string>
     <string name="use_external_audio_player_title">Koristi vanjski reproduktor za zvuk</string>
-    <string name="popup_mode_share_menu_title">NewPipe skočni prozor</string>
+    <string name="popup_mode_share_menu_title">TubeGo skočni prozor</string>
     <string name="subscribe_button_title">Pretplati se</string>
     <string name="subscribed_button_title">Pretplaćeno</string>
     <string name="channel_unsubscribed">Pretplata na kanalu otkazana</string>
@@ -41,8 +41,8 @@
     <string name="download_path_audio_summary">Put za spremanje preuzetog zvuka u</string>
     <string name="download_path_audio_dialog_title">Unesi put za preuzimanje zvučne datoteke</string>
 
-    <string name="autoplay_by_calling_app_title">Auto. reprod. kada je NewPipe pozvan iz druge apl.</string>
-    <string name="autoplay_by_calling_app_summary">Automatski reproduciraj videozapis kad je NewPipe pozvan iz druge aplikacije</string>
+    <string name="autoplay_by_calling_app_title">Auto. reprod. kada je TubeGo pozvan iz druge apl.</string>
+    <string name="autoplay_by_calling_app_summary">Automatski reproduciraj videozapis kad je TubeGo pozvan iz druge aplikacije</string>
     <string name="default_resolution_title">Zadana razlučivost</string>
     <string name="default_popup_resolution_title">Zadana razlučivost skočnog prozora</string>
     <string name="show_higher_resolutions_title">Prikaži veće razlučivosti</string>
@@ -169,7 +169,7 @@
     <string name="msg_server_unsupported">Server nije podržan</string>
     <string name="msg_exists">Datoteka već postoji</string>
     <string name="msg_url_malform">Krivi URL ili internet nije dostupan</string>
-    <string name="msg_running">NewPipe preuzima</string>
+    <string name="msg_running">TubeGo preuzima</string>
     <string name="msg_running_detail">Dodirni za detalje</string>
     <string name="msg_wait">Molimo pričekajte…</string>
     <string name="msg_copied">Kopirano u međuspremnik</string>
@@ -201,7 +201,7 @@
     <string name="tab_licenses">Licence</string>
     <string name="app_description">Besplatna i lagana YouTube aplikacija za Android.</string>
     <string name="view_on_github">Pogledaj na GitHubu</string>
-    <string name="app_license_title">Licenca za NewPipe</string>
+    <string name="app_license_title">Licenca za TubeGo</string>
     <string name="contribution_encouragement">Ako imate ideja za prijevod, promjene u dizajnu, čišćenje koda ili neke veće promjene u kodu, pomoć je uvijek dobro došla. Što više radimo, to bolji postajemo!</string>
     <string name="read_full_license">Pročitaj licencu</string>
     <string name="contribution_title">Doprinos</string>
@@ -214,8 +214,8 @@
     <string name="history_empty">Povijest je prazna</string>
     <string name="history_cleared">Povijest očišćena</string>
 
-<string name="notification_channel_name">NewPipe obavijest</string>
-    <string name="notification_channel_description">Obavijesti za NewPipe pozadinske i skočne reproduktore</string>
+<string name="notification_channel_name">TubeGo obavijest</string>
+    <string name="notification_channel_description">Obavijesti za TubeGo pozadinske i skočne reproduktore</string>
 
     <string name="settings_category_player_title">Reproduktor</string>
     <string name="settings_category_player_behavior_title">Ponašanje</string>

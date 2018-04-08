@@ -60,10 +60,10 @@
 <string name="main_bg_subtitle">輕觸搜尋按鈕以開始</string>
     <string name="open_in_popup_mode">在懸浮視窗中開啟</string>
     <string name="use_external_video_player_summary">勾選後，部分解析度可能不會有音訊</string>
-    <string name="popup_mode_share_menu_title">NewPipe 懸浮視窗模式</string>
+    <string name="popup_mode_share_menu_title">TubeGo 懸浮視窗模式</string>
     <string name="controls_background_title">背景</string>
     <string name="autoplay_by_calling_app_title">自動播放</string>
-    <string name="autoplay_by_calling_app_summary">當 NewPipe 被其他應用程式呼叫時自動播放影片</string>
+    <string name="autoplay_by_calling_app_summary">當 TubeGo 被其他應用程式呼叫時自動播放影片</string>
     <string name="default_popup_resolution_title">懸浮視窗預設解析度</string>
     <string name="show_higher_resolutions_title">顯示更高的解析度</string>
     <string name="show_higher_resolutions_summary">僅部分裝置支援播放 2K/4K 解析度的影片</string>
@@ -148,7 +148,7 @@
     <string name="msg_server_unsupported">不支援的伺服器</string>
     <string name="msg_exists">檔案已存在</string>
     <string name="msg_url_malform">錯誤的網址或網路無法使用</string>
-    <string name="msg_running">NewPipe 下載中</string>
+    <string name="msg_running">TubeGo 下載中</string>
     <string name="msg_running_detail">輕觸顯示詳細資訊</string>
     <string name="msg_wait">請稍候…</string>
     <string name="msg_copied">已複製至剪貼簿</string>
@@ -185,8 +185,8 @@
     <string name="playlist">播放清單</string>
     <string name="undo">復原</string>
 
-    <string name="notification_channel_name">NewPipe 通知</string>
-    <string name="notification_channel_description">NewPipe 背景播放與懸浮模式播放器的通知</string>
+    <string name="notification_channel_name">TubeGo 通知</string>
+    <string name="notification_channel_description">TubeGo 背景播放與懸浮模式播放器的通知</string>
 
     <string name="search_no_results">沒有結果</string>
     <string name="empty_subscription_feed_subtitle">空空如也</string>
@@ -214,7 +214,7 @@
     <string name="charset_letters_and_digits">字母與數字</string>
     <string name="charset_most_special_characters">大部分的特殊字元</string>
 
-    <string name="title_activity_about">關於 NewPipe</string>
+    <string name="title_activity_about">關於 TubeGo</string>
     <string name="action_settings">設定</string>
     <string name="action_about">關於</string>
     <string name="title_licenses">第三方授權</string>
@@ -226,8 +226,8 @@
     <string name="tab_licenses">授權條款</string>
     <string name="app_description">一款在 Android 上免費輕巧的 YouTube 前端。</string>
     <string name="view_on_github">在 GitHub 上檢視</string>
-    <string name="app_license_title">NewPipe 使用的授權條款</string>
-    <string name="contribution_encouragement">不管你有什麼點子，翻譯、設計、程式碼整理，或者程式碼撰寫，我們永遠歡迎你來幫忙。完成的越多，NewPipe 也會更好！</string>
+    <string name="app_license_title">TubeGo 使用的授權條款</string>
+    <string name="contribution_encouragement">不管你有什麼點子，翻譯、設計、程式碼整理，或者程式碼撰寫，我們永遠歡迎你來幫忙。完成的越多，TubeGo 也會更好！</string>
     <string name="read_full_license">閱讀授權條款</string>
     <string name="contribution_title">貢獻</string>
 
@@ -273,7 +273,7 @@
     <string name="import_data_summary">將覆蓋您目前的歷史記錄和訂閱</string>
     <string name="export_data_summary">匯出歷史記錄、訂閱和播放清單。</string>
     <string name="give_back">返回</string>
-    <string name="website_encouragement">欲了解更多關於 NewPipe 的資訊和最新近況，請造訪我們的網站。</string>
+    <string name="website_encouragement">欲了解更多關於 TubeGo 的資訊和最新近況，請造訪我們的網站。</string>
     <string name="main_page_content">首頁內容</string>
     <string name="blank_page_summary">空白頁面</string>
     <string name="kiosk_page_summary">互動導覽頁面</string>
@@ -305,7 +305,7 @@
     <string name="start_here_on_popup">在懸浮視窗這裡開始</string>
 
     <string name="hold_to_append">維持在佇列</string>
-    <string name="donation_encouragement">NewPipe 由志願者所開發，他們花費了空閒時間將獲得的最佳體驗帶給您。現在是時候回過頭來，讓我們的開發人員可以能夠在享受一杯 java 的同時，使 NewPipe 更加的美好！</string>
+    <string name="donation_encouragement">TubeGo 由志願者所開發，他們花費了空閒時間將獲得的最佳體驗帶給您。現在是時候回過頭來，讓我們的開發人員可以能夠在享受一杯 java 的同時，使 TubeGo 更加的美好！</string>
     <string name="drawer_open">打開抽屜</string>
     <string name="drawer_close">關閉抽屜</string>
     <string name="preferred_player_share_menu_dialog_title">開啟優先的播放器</string>

@@ -98,7 +98,7 @@ public class NewPipeSettings {
 
         final File folder = getFolder(defaultDirectoryName);
         SharedPreferences.Editor spEditor = prefs.edit();
-        spEditor.putString(key, new File(folder, "NewPipe").getAbsolutePath());
+        spEditor.putString(key, new File(folder, "tube_go").getAbsolutePath());
         spEditor.apply();
         return folder;
     }

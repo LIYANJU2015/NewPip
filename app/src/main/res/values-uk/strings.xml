@@ -26,7 +26,7 @@
     <string name="download_path_audio_title">Шлях для завантаження аудіо</string>
     <string name="download_path_audio_summary">Шлях де будуть зберігатись завантажені аудіо файли</string>
     <string name="autoplay_by_calling_app_title">Автоматично відтворювати</string>
-    <string name="autoplay_by_calling_app_summary">Автоматично відтворювати відео коли NewPipe викликано з іншого застосунку</string>
+    <string name="autoplay_by_calling_app_summary">Автоматично відтворювати відео коли TubeGo викликано з іншого застосунку</string>
     <string name="default_resolution_title">Типова роздільна здатність</string>
     <string name="play_with_kodi_title">Відтворювати за допомогою Kodi</string>
     <string name="kore_not_found">Застосунок Kore не знайдено. Встановити?</string>
@@ -119,7 +119,7 @@
     <string name="msg_error">Помилка</string>
     <string name="msg_server_unsupported">Сервер не підтримується</string>
     <string name="msg_exists">Файл уже існує</string>
-    <string name="msg_running">NewPipe завантажує</string>
+    <string name="msg_running">TubeGo завантажує</string>
     <string name="msg_running_detail">Натисніть для подробиць</string>
     <string name="msg_wait">Будь ласка, зачекайте…</string>
     <string name="msg_copied">Скопійовано до сховку</string>
@@ -128,7 +128,7 @@
 <string name="no_player_found_toast">Потоковий програвач не знайдено (ви можете встановити VLC для відтворення)</string>
     <string name="open_in_popup_mode">Відкрити у віконному режимі</string>
     <string name="use_external_video_player_summary">Певні роздільності НЕ МАТИМУТЬ звуку якщо цей параметр увімкнено</string>
-    <string name="popup_mode_share_menu_title">NewPipe у віконному режимі</string>
+    <string name="popup_mode_share_menu_title">TubeGo у віконному режимі</string>
     <string name="subscribe_button_title">Підписатися</string>
     <string name="subscribed_button_title">Ви підписалися</string>
     <string name="channel_unsubscribed">Ви відписалися від каналу</string>
@@ -180,8 +180,8 @@
     <string name="always">Щоразу</string>
     <string name="just_once">Тільки тепер</string>
 
-    <string name="notification_channel_name">NewPipe сповіщення</string>
-    <string name="notification_channel_description">Сповіщення для фонового та віконного програвачів NewPipe</string>
+    <string name="notification_channel_name">TubeGo сповіщення</string>
+    <string name="notification_channel_description">Сповіщення для фонового та віконного програвачів TubeGo</string>
 
     <string name="unknown_content">[Невідомо]</string>
 
@@ -215,7 +215,7 @@
     <string name="charset_letters_and_digits">Літери та цифри</string>
     <string name="charset_most_special_characters">Більш специфічні символи</string>
 
-    <string name="title_activity_about">Щодо NewPipe</string>
+    <string name="title_activity_about">Щодо TubeGo</string>
     <string name="action_settings">Налаштування</string>
     <string name="action_about">Про</string>
     <string name="error_unable_to_load_license">Неможливо завантажити ліцензію</string>
@@ -281,7 +281,7 @@
     <string name="action_open_website">Перейти до сайту</string>
     <string name="tab_about">Про</string>
     <string name="app_description">Легкий YouTube фронт-енд застосунок для Android.</string>
-    <string name="contribution_encouragement">Які б не були Ваші ідеї: переклад, дизайн, легкий чи глобальний рефакторинґ - будь яка допомога вітається. Що більше зроблено, то ліпшим NewPipe стає!</string>
+    <string name="contribution_encouragement">Які б не були Ваші ідеї: переклад, дизайн, легкий чи глобальний рефакторинґ - будь яка допомога вітається. Що більше зроблено, то ліпшим TubeGo стає!</string>
     <string name="disable_leak_canary_notice">Моніторинг витоку памяті вимкнено</string>
 <string name="settings_category_debug_title">Усунення вад</string>
     <string name="empty_subscription_feed_subtitle">Нічого нема</string>
@@ -300,10 +300,10 @@
 
     <string name="copyright" formatted="true">© %1$s by %2$s under %3$s</string>
     <string name="tab_contributors">Учасники</string>
-    <string name="donation_encouragement">NewPipe розробляється добровольцями, які витрачають власний час заради вашого задоволення. Настала черга допомогти й вам, аби розробники мали можливість зробити NewPipe ще ліпшим, насолоджуючись філіжанкою джави!</string>
+    <string name="donation_encouragement">TubeGo розробляється добровольцями, які витрачають власний час заради вашого задоволення. Настала черга допомогти й вам, аби розробники мали можливість зробити TubeGo ще ліпшим, насолоджуючись філіжанкою джави!</string>
     <string name="give_back">Ваша допомога</string>
-    <string name="website_encouragement">Аби одержати більше інформації та прочитати останні новини стосовно NewPipe, завітайте до нашого веб-сайту.</string>
-    <string name="app_license_title">Ліцензія NewPipe</string>
+    <string name="website_encouragement">Аби одержати більше інформації та прочитати останні новини стосовно TubeGo, завітайте до нашого веб-сайту.</string>
+    <string name="app_license_title">Ліцензія TubeGo</string>
     <string name="read_full_license">Прочитати ліцензію</string>
 
 

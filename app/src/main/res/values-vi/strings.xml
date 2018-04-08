@@ -17,7 +17,7 @@
     <string name="use_external_video_player_title">Sử dụng trình phát video bên ngoài</string>
     <string name="use_external_video_player_summary">Một số độ phân giải sẽ KHÔNG có âm thanh khi chế độ này</string>
     <string name="use_external_audio_player_title">Sử dụng trình phát âm thanh bên ngoài</string>
-    <string name="popup_mode_share_menu_title">Chế độ popup của NewPipe</string>
+    <string name="popup_mode_share_menu_title">Chế độ popup của TubeGo</string>
     <string name="controls_popup_title">Chế độ Popup</string>
 
     <string name="download_path_title">Đường dẫn tải xuống video</string>
@@ -29,7 +29,7 @@
     <string name="download_path_audio_dialog_title">Nhập đường dẫn tải xuống cho tệp âm thanh</string>
 
     <string name="autoplay_by_calling_app_title">Tự động phát khi được gọi từ một ứng dụng khác</string>
-    <string name="autoplay_by_calling_app_summary">Tự động phát một video khi NewPipe được gọi từ một ứng dụng khác</string>
+    <string name="autoplay_by_calling_app_summary">Tự động phát một video khi TubeGo được gọi từ một ứng dụng khác</string>
     <string name="default_resolution_title">Độ phân giải mặc định</string>
     <string name="default_popup_resolution_title">Độ phân giải popup mặc định</string>
     <string name="show_higher_resolutions_title">Hiển thị độ phân giải cao hơn</string>
@@ -147,7 +147,7 @@
     <string name="msg_server_unsupported">Sever không được hỗ trợ</string>
     <string name="msg_exists">Tập tin đã tồn tại</string>
     <string name="msg_url_malform">URL không hợp lệ hoặc Internet không khả dụng</string>
-    <string name="msg_running">NewPipe đang tải xuống</string>
+    <string name="msg_running">TubeGo đang tải xuống</string>
     <string name="msg_running_detail">Chạm để biết chi tiết</string>
     <string name="msg_wait">Vui lòng đợi …</string>
     <string name="msg_copied">Sao chép vào clipboard.</string>
@@ -159,7 +159,7 @@
     <string name="reCaptcha_title">ReCAPTCHA Challenge</string>
     <string name="recaptcha_request_toast">Yêu cầu reCAPTCHA</string>
 
-    <string name="title_activity_about">Giới thiệu về NewPipe</string>
+    <string name="title_activity_about">Giới thiệu về TubeGo</string>
     <string name="action_settings">Cài đặt</string>
     <string name="action_about">Về</string>
     <string name="title_licenses">Giấy phép của bên thứ ba</string>
@@ -171,7 +171,7 @@
     <string name="tab_licenses">Giấy phép</string>
     <string name="app_description">Giao diện trực quan nhẹ cho Android.</string>
     <string name="view_on_github">Xem trên Github</string>
-    <string name="app_license_title">Giấy phép của NewPipe</string>
+    <string name="app_license_title">Giấy phép của TubeGo</string>
     <string name="contribution_encouragement">Cho dù bạn có ý tưởng, dịch, thay đổi thiết kế, làm sạch mã hoặc thay đổi mã, sự trợ giúp luôn được hoan nghênh. Càng làm nhiều thì càng tốt!</string>
     <string name="read_full_license">Đọc giấy phép</string>
     <string name="contribution_title">Sự đóng góp</string>

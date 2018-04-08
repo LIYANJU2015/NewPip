@@ -66,7 +66,7 @@
     <string name="blocked_by_gema">GEMA által blokkolt.</string>
     <string name="live_streams_not_supported">Ez egy élö közvetités. Még nem támogatva.</string>
     <string name="autoplay_by_calling_app_title">Automatikus lejátszás külső indítás esetén</string>
-    <string name="autoplay_by_calling_app_summary">Videók automatikus lejátszása a NewPipe külső indításakor.</string>
+    <string name="autoplay_by_calling_app_summary">Videók automatikus lejátszása a TubeGo külső indításakor.</string>
     <string name="video_is_age_restricted">A video korhatáros. A megtekintéséhez engedélyezze a korhatáros videókat.</string>
     <string name="duration_live">élő</string>
 
@@ -111,7 +111,7 @@
     <string name="msg_error">Hiba</string>
     <string name="msg_exists">A file már létezik</string>
     <string name="msg_url_malform">Hibás URL vagy nincs internet</string>
-    <string name="msg_running">NewPipe letöltés folyamatban</string>
+    <string name="msg_running">TubeGo letöltés folyamatban</string>
     <string name="msg_running_detail">Katt a részletekért</string>
     <string name="msg_wait">Kérlek várj...</string>
     <string name="msg_copied">Vágólapra másolva.</string>
@@ -133,7 +133,7 @@
     <string name="no_player_found_toast">Nem található lejátszó alkalmazás(Feltelepítheti a VLC a lejátszáshoz)</string>
     <string name="open_in_popup_mode">Megnyitás felugró ablakként</string>
     <string name="use_external_video_player_summary">Néhány felbontásnál NEM lesz hang ha ez a beállítás be van kapcsolva</string>
-    <string name="popup_mode_share_menu_title">NewPipe felugró ablak mód</string>
+    <string name="popup_mode_share_menu_title">TubeGo felugró ablak mód</string>
     <string name="subscribe_button_title">Feliratkozás</string>
     <string name="subscribed_button_title">Feliratkozva</string>
     <string name="show_info">Több infó</string>
@@ -174,8 +174,8 @@
     <string name="always">Mindig</string>
     <string name="just_once">Csak egyszer</string>
 
-    <string name="notification_channel_name">NewPipe Értesítés</string>
-    <string name="notification_channel_description">Értesítések a NewPipe Háttér- és felugró ablak lejátszójához</string>
+    <string name="notification_channel_name">TubeGo Értesítés</string>
+    <string name="notification_channel_description">Értesítések a TubeGo Háttér- és felugró ablak lejátszójához</string>
 
     <string name="unknown_content">[Ismeretlen]</string>
 

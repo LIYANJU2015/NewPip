@@ -17,7 +17,7 @@
     <string name="use_external_video_player_title">Använd extern videospelare</string>
     <string name="use_external_video_player_summary">Några upplösningar kommer INTE ha ljud när det här alternativet är aktiverat</string>
     <string name="use_external_audio_player_title">Använd extern ljudspelare</string>
-    <string name="popup_mode_share_menu_title">NewPipe popup-läge</string>
+    <string name="popup_mode_share_menu_title">TubeGo popup-läge</string>
     <string name="controls_background_title">Bakgrund</string>
     <string name="controls_popup_title">Extrafönster</string>
 
@@ -29,7 +29,7 @@
     <string name="download_path_audio_summary">Plats för att lagra nerladdat ljud i</string>
     <string name="download_path_audio_dialog_title">Ange nerladdningsplats för ljudfiler</string>
 
-    <string name="autoplay_by_calling_app_summary">Spelar automatiskt upp en video när NewPipe öppnas av en annan app</string>
+    <string name="autoplay_by_calling_app_summary">Spelar automatiskt upp en video när TubeGo öppnas av en annan app</string>
     <string name="default_resolution_title">Standardupplösning</string>
     <string name="default_popup_resolution_title">Standardupplösning för popup</string>
     <string name="show_higher_resolutions_title">Visa högre upplösningar</string>
@@ -139,8 +139,8 @@
     <string name="undo">Ångra</string>
     <string name="play_all">Spela Alla</string>
 
-    <string name="notification_channel_name">NewPipe Avisering</string>
-    <string name="notification_channel_description">Aviseringar för NewPipe bakgrunds och popup-spelare</string>
+    <string name="notification_channel_name">TubeGo Avisering</string>
+    <string name="notification_channel_description">Aviseringar för TubeGo bakgrunds och popup-spelare</string>
 
     <string name="unknown_content">[Okänd]</string>
 
@@ -207,7 +207,7 @@
     <string name="msg_server_unsupported">Serveren stöds inte</string>
     <string name="msg_exists">Filen finns redan</string>
     <string name="msg_url_malform">Felaktig webbadress eller Internet inte tillgängligt</string>
-    <string name="msg_running">NewPipe nedladdning</string>
+    <string name="msg_running">TubeGo nedladdning</string>
     <string name="msg_running_detail">Tryck för detaljer</string>
     <string name="msg_wait">Vänta…</string>
     <string name="msg_copied">Kopierat till urklipp</string>
@@ -227,7 +227,7 @@
     <string name="charset_letters_and_digits">Bokstäver och siffror</string>
     <string name="charset_most_special_characters">De flesta specialtecken</string>
 
-    <string name="title_activity_about">Om NewPipe</string>
+    <string name="title_activity_about">Om TubeGo</string>
     <string name="action_settings">Inställningar</string>
     <string name="action_about">Om</string>
     <string name="title_licenses">Tredjepartslicenser</string>
@@ -280,8 +280,8 @@
     <string name="start_here_on_background">Börja här i bakgrunden</string>
     <string name="start_here_on_popup">Börja här i popup</string>
 <string name="donation_title">Donera</string>
-    <string name="donation_encouragement">NewPipe utvecklas av frivilliga som spenderar sin fritid på att ge dig den bästa användarupplevelsen. Nu är det tid att ge tillbaka för att säkerställa att utvecklarna kan göra NewPipe ännu bättre medan de njuter av en kopp kaffe!</string>
+    <string name="donation_encouragement">TubeGo utvecklas av frivilliga som spenderar sin fritid på att ge dig den bästa användarupplevelsen. Nu är det tid att ge tillbaka för att säkerställa att utvecklarna kan göra TubeGo ännu bättre medan de njuter av en kopp kaffe!</string>
     <string name="give_back">Ge tillbaka</string>
     <string name="website_title">Webbplats</string>
-    <string name="website_encouragement">För att få mer information och de senaste nyheterna om NewPipe, besök vår webbplats.</string>
+    <string name="website_encouragement">För att få mer information och de senaste nyheterna om TubeGo, besök vår webbplats.</string>
     </resources>

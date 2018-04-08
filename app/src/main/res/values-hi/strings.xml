@@ -12,7 +12,7 @@
     <string name="settings">सेटिंग्स</string>
     <string name="choose_browser">ब्राउज़र चुनें</string>
     <string name="screen_rotation">स्क्रीन रोटेशन</string>
-    <string name="popup_mode_share_menu_title">NewPipe पॉपअप मोड</string>
+    <string name="popup_mode_share_menu_title">TubeGo पॉपअप मोड</string>
     <string name="subscribe_button_title">सदस्य बनें</string>
     <string name="subscribed_button_title">सदस्यता ली</string>
     <string name="channel_unsubscribed">चैनल सदस्यता रद्द करी गयी</string>
@@ -76,7 +76,7 @@
     <string name="download_path_audio_summary">डाउनलोड किये गए ऑडियो फाइल की जगह</string>
     <string name="download_path_audio_dialog_title">ऑडियो फाइल डाउनलोड करने के लिए जगह दर्ज करें</string>
 
-    <string name="autoplay_by_calling_app_summary">जब NewPipe को दुसरे एप्प से बुलावा आये तो विडियो अपनी स्वेच्छा से चले</string>
+    <string name="autoplay_by_calling_app_summary">जब TubeGo को दुसरे एप्प से बुलावा आये तो विडियो अपनी स्वेच्छा से चले</string>
     <string name="default_resolution_title">वीडियो का डिफ़ॉल्ट रिज़ॉल्यूशन</string>
     <string name="default_popup_resolution_title">विडियो पॉपअप का डिफ़ॉल्ट रिज़ॉल्यूशन</string>
     <string name="show_higher_resolutions_title">उच्च रिज़ॉल्यूशन दिखाएं</string>
@@ -137,8 +137,8 @@
     <string name="undo">वापस जाए</string>
     <string name="play_all">सारे प्ले करे</string>
 
-    <string name="notification_channel_name">NewPipe की अधिसूचना</string>
-    <string name="notification_channel_description">NewPipe के बैकग्राउंड में चल रहे विडियो और पॉपअप विडियो के लिए अधिसूचना</string>
+    <string name="notification_channel_name">TubeGo की अधिसूचना</string>
+    <string name="notification_channel_description">TubeGo के बैकग्राउंड में चल रहे विडियो और पॉपअप विडियो के लिए अधिसूचना</string>
 
     <string name="unknown_content">[नहीं जानते]</string>
 
@@ -312,10 +312,10 @@
     <string name="rename">नाम बदलें</string>
 
     <string name="donation_title">दान करें</string>
-    <string name="donation_encouragement">NewPipe स्वयंसेवकों द्वारा विकसित किया जाता है जो आपको अच्छा अनुभव देने के लिए अपना खाली समय व्यतीत करते हैं। अब यह सुनिश्चित करने का समय है कि हमारे डेवलपर्स जावा के कप का आनंद लेते समय NewPipe को और भी बेहतर बना सके!</string>
+    <string name="donation_encouragement">TubeGo स्वयंसेवकों द्वारा विकसित किया जाता है जो आपको अच्छा अनुभव देने के लिए अपना खाली समय व्यतीत करते हैं। अब यह सुनिश्चित करने का समय है कि हमारे डेवलपर्स जावा के कप का आनंद लेते समय TubeGo को और भी बेहतर बना सके!</string>
     <string name="give_back">वापस दे</string>
     <string name="website_title">वेबसाइट</string>
-    <string name="website_encouragement">अधिक जानकारी और NewPipe के बारे में नवीनतम समाचार प्राप्त करने के लिए हमारी वेबसाइट पर जाएं ।</string>
+    <string name="website_encouragement">अधिक जानकारी और TubeGo के बारे में नवीनतम समाचार प्राप्त करने के लिए हमारी वेबसाइट पर जाएं ।</string>
     <string name="delete_stream_history_prompt">क्या आप इस आइटम को वॉच इतिहास से हटाना चाहते हैं?</string>
     <string name="delete_all_history_prompt">क्या आप वाकई इतिहास से सभी आइटंस हटाना चाहते हैं?</string>
     <string name="title_last_played">पिछला चलाया गया</string>

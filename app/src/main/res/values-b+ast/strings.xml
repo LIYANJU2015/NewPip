@@ -113,18 +113,18 @@
     <string name="msg_copied">Copióse al cartafueyu</string>
     <string name="no_available_dir">Esbilla una carpeta disponible de descarga, por favor</string>
 
-    <string name="autoplay_by_calling_app_summary">Auto-reproduz un videu al llamar a NewPipe dende otra aplicación</string>
+    <string name="autoplay_by_calling_app_summary">Auto-reproduz un videu al llamar a TubeGo dende otra aplicación</string>
     <string name="autoplay_by_calling_app_title">Auto-reproducción</string>
     <string name="detail_uploader_thumbnail_view_description">Miniatura del avatar del xubidor</string>
     <string name="detail_dislikes_img_view_description">Despréstames</string>
 
 
-    <string name="msg_running">NewPipe baxando</string>
+    <string name="msg_running">TubeGo baxando</string>
     <string name="could_not_load_image">Nun pudo cargase la imaxe</string>
     <string name="app_ui_crash">Cascó l\'aplicación/IU</string>
     <string name="info_labels">Lo qu\'asocedió:\\nSolicitú:\\nLlingua del conteníu:\\nServiciu:\\nHora GMT:\\nPaquete:\\nVersión:\\nVersión del SO:</string>
     <string name="open_in_popup_mode">Abrir en ventanu emerxente</string>
-    <string name="popup_mode_share_menu_title">Mou de ventanu emerxente de NewPipe</string>
+    <string name="popup_mode_share_menu_title">Mou de ventanu emerxente de TubeGo</string>
 
     <string name="default_video_format_title">Formatu por defeutu de videu</string>
     <string name="black_theme_title">Prietu</string>
@@ -195,8 +195,8 @@
     <string name="best_resolution">La meyor resolución</string>
     <string name="undo">Desfacer</string>
 
-    <string name="notification_channel_name">Avisu de NewPipe</string>
-    <string name="notification_channel_description">Avisos pa los reproductores de fondu y en ventanu emerxente de NewPipe</string>
+    <string name="notification_channel_name">Avisu de TubeGo</string>
+    <string name="notification_channel_description">Avisos pa los reproductores de fondu y en ventanu emerxente de TubeGo</string>
 
     <string name="search_no_results">Ensin resultaos</string>
     <string name="empty_subscription_feed_subtitle">Equí nun hai más que grillos</string>
@@ -227,7 +227,7 @@
     <string name="charset_letters_and_digits">Lletres y díxitos</string>
     <string name="charset_most_special_characters">La mayoría de caráuteres especiales</string>
 
-    <string name="title_activity_about">Tocante a NewPipe</string>
+    <string name="title_activity_about">Tocante a TubeGo</string>
     <string name="action_settings">Axustes</string>
     <string name="action_about">Tocante a</string>
     <string name="title_licenses">Llicencies de terceros</string>
@@ -239,7 +239,7 @@
     <string name="tab_licenses">Llicencies</string>
     <string name="app_description">Un frontal llixeru de YouTube p\'Android.</string>
     <string name="view_on_github">Ver en GitHub</string>
-    <string name="app_license_title">Llicencia de NewPipe</string>
+    <string name="app_license_title">Llicencia de TubeGo</string>
     <string name="contribution_encouragement">Si tienes idees, quies traducir, facer cambeos, llimpiar el códigu u otres coses, l\'ayuda siempres s\'agradez. ¡Cuánto más se faiga, más s\'ameyora!</string>
     <string name="read_full_license">Lleer llicencia</string>
     <string name="contribution_title">Collaborar</string>
@@ -291,10 +291,10 @@
     <string name="start_here_on_background">Entamar equí de fondu</string>
     <string name="start_here_on_popup">Entamár equí de ventanu</string>
 <string name="donation_title">Donar</string>
-    <string name="donation_encouragement">NewPipe ta desendolcáu por voluntarios que gasten el so tiempu llibre pa ufrite la meyor esperiencia. ¡Agora ye momentu de devolve-yos el favor p\'aseguar l\'ameyoramientu de NewPipe mentanto esfruten d\'un café!</string>
+    <string name="donation_encouragement">TubeGo ta desendolcáu por voluntarios que gasten el so tiempu llibre pa ufrite la meyor esperiencia. ¡Agora ye momentu de devolve-yos el favor p\'aseguar l\'ameyoramientu de TubeGo mentanto esfruten d\'un café!</string>
     <string name="give_back">Devolver favor</string>
     <string name="website_title">Sitiu web</string>
-    <string name="website_encouragement">Pa consiguir información y les anuncies caberes tocante a NewPipe visita\'l nuesu sitiu web.</string>
+    <string name="website_encouragement">Pa consiguir información y les anuncies caberes tocante a TubeGo visita\'l nuesu sitiu web.</string>
     <string name="no_player_found_toast">Nun s\'alcontró un reproductor de fluxos (pues instalar VLC pa reproducilu)</string>
     <string name="default_content_country_title">País predetermináu de conteníu</string>
     <string name="service_title">Serviciu</string>

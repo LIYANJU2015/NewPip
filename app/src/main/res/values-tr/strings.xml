@@ -27,7 +27,7 @@
     <string name="download_path_audio_dialog_title">Ses dosyaları için indirme konumu girin</string>
 
     <string name="autoplay_by_calling_app_title">Kendiliğinden oynat</string>
-    <string name="autoplay_by_calling_app_summary">NewPipe başka bir uygulamadan çağırıldığında videoyu kendiliğinden oynatır</string>
+    <string name="autoplay_by_calling_app_summary">TubeGo başka bir uygulamadan çağırıldığında videoyu kendiliğinden oynatır</string>
     <string name="default_resolution_title">Öntanımlı çözünürlük</string>
     <string name="play_with_kodi_title">Kodi ile oynat</string>
     <string name="kore_not_found">Kore uygulaması bulunamadı. Kur?</string>
@@ -111,7 +111,7 @@
     <string name="msg_server_unsupported">Sunucu desteklenmiyor</string>
     <string name="msg_exists">Dosya zaten var</string>
     <string name="msg_url_malform">Hatalı biçimlendirilmiş URL veya İnternet yok</string>
-    <string name="msg_running">NewPipe İndiriyor</string>
+    <string name="msg_running">TubeGo İndiriyor</string>
     <string name="msg_running_detail">Ayrıntılar için dokun</string>
     <string name="msg_wait">Lütfen bekleyin…</string>
     <string name="msg_copied">Panoya kopyalandı</string>
@@ -120,7 +120,7 @@
 
     <string name="could_not_setup_download_menu">İndirme menüsü ayarlanamadı</string>
     <string name="open_in_popup_mode">Açılır pencere kipinde aç</string>
-    <string name="popup_mode_share_menu_title">NewPipe açılır pencere kipi</string>
+    <string name="popup_mode_share_menu_title">TubeGo açılır pencere kipi</string>
 
     <string name="default_popup_resolution_title">Öntanımlı açılır pencere çözünürlüğü</string>
     <string name="show_higher_resolutions_title">Daha yüksek çözünürlükleri göster</string>
@@ -176,7 +176,7 @@
 
 <string name="best_resolution">En iyi çözünürlük</string>
 
-    <string name="title_activity_about">NewPipe Hakkında</string>
+    <string name="title_activity_about">TubeGo Hakkında</string>
     <string name="action_settings">Ayarlar</string>
     <string name="action_about">Hakkında</string>
     <string name="title_licenses">Üçüncü-taraf Lisanslar</string>
@@ -188,7 +188,7 @@
     <string name="tab_licenses">Lisanslar</string>
     <string name="app_description">Android için özgür hafif bir YouTube arayüzü.</string>
     <string name="view_on_github">GitHub\'da gör</string>
-    <string name="app_license_title">NewPipe\'ın Lisansı</string>
+    <string name="app_license_title">TubeGo\'ın Lisansı</string>
     <string name="contribution_encouragement">Fikirleriniz; çeviri, tasarım değişiklikleri, kod temizliği, ya da gerçek köklü kod değişikleri olsun—yardımınıza her zaman açığız. Daha çok yapıldıkça daha iyiye gider!</string>
     <string name="read_full_license">Lisansı oku</string>
     <string name="contribution_title">Katkıda bulun</string>
@@ -223,7 +223,7 @@
     <string name="playlist">Oynatma listesi</string>
     <string name="undo">Geri al</string>
 
-    <string name="notification_channel_name">NewPipe Bildirimi</string>
+    <string name="notification_channel_name">TubeGo Bildirimi</string>
     <string name="notification_channel_description">New Pipe Arka Plan ve Açılır Pencere Oynatıcıları için bildirimler</string>
 
     <string name="search_no_results">Sonuç yok</string>
@@ -294,10 +294,10 @@
     <string name="start_here_on_background">Burayı Arka Planda Başlat</string>
     <string name="start_here_on_popup">Burayı Açılır Pencerede Başlat</string>
 <string name="donation_title">Bağış yapın</string>
-    <string name="donation_encouragement">NewPipe, size en iyi deneyimi sunmak için boş zamanını harcayan gönüllüler tarafından geliştirilmektedir. Geliştiricilerimizin bir fincan kahvenin tadını çıkarırken NewPipe\'ı daha da çok iyileştirebilmelerinden emin olmak için karşılığını vermenin tam zamanı!</string>
+    <string name="donation_encouragement">TubeGo, size en iyi deneyimi sunmak için boş zamanını harcayan gönüllüler tarafından geliştirilmektedir. Geliştiricilerimizin bir fincan kahvenin tadını çıkarırken TubeGo\'ı daha da çok iyileştirebilmelerinden emin olmak için karşılığını vermenin tam zamanı!</string>
     <string name="give_back">Karşılığını ver</string>
     <string name="website_title">Web sitesi</string>
-    <string name="website_encouragement">NewPipe hakkında daha çok bilgiyi ve son haberleri almak için web sitemize uğrayın.</string>
+    <string name="website_encouragement">TubeGo hakkında daha çok bilgiyi ve son haberleri almak için web sitemize uğrayın.</string>
     <string name="default_content_country_title">Öntanımlı içerik ülkesi</string>
     <string name="service_title">Hizmet</string>
     <string name="toggle_orientation">Yönelimi Değiştir</string>
