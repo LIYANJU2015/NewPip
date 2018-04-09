@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="6dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp">
+
+        <com.facebook.ads.MediaView
+            android:id="@+id/fb_half_mv_view"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            />
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_fb_ad_img"
+            android:id="@+id/fb_half_iv"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            />
+
+        <FrameLayout
+            android:id="@+id/fb_adChoices_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:background="@drawable/fb_ad_bottom_bg"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="44dp">
+
+            <ImageView
+                android:id="@+id/fb_half_icon_iv"
+                android:src="@drawable/ic_fb_ad_icon"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center_vertical" />
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="9dp"
+                android:layout_marginRight="9dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/fb_banner_title_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginRight="11dp"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/fb_banner_desc_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginRight="11dp"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif"
+                    android:maxLines="2"
+                    android:textColor="#ffffff"
+                    android:textSize="11dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ad_close_iv"
+            android:padding="4dp"
+            android:src="@drawable/ic_fb_ad_close"
+            android:layout_gravity="top|right"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/fb_half_actionbtn"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/fb_ad_actionbtn_selector"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="11dp" />
+
+</LinearLayout>

@@ -1,9 +1,9 @@
-package org.schabi.newpipe.subscription.services;
+package org.player.tubego.subscription.services;
 
 import org.junit.Test;
+import org.player.tubego.subscription.ImportExportJsonHelper;
 import org.schabi.newpipe.extractor.subscription.SubscriptionExtractor;
 import org.schabi.newpipe.extractor.subscription.SubscriptionItem;
-import org.schabi.newpipe.subscription.ImportExportJsonHelper;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

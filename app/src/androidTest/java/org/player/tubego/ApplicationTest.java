@@ -1,4 +1,4 @@
-package org.schabi.newpipe;
+package org.player.tubego;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

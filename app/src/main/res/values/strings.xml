@@ -471,4 +471,6 @@
 
     <string name="facebook_app_id">610127239332636</string>
     <string name="fb_login_protocol_scheme">fb610127239332636</string>
+
+    <string name="add_download_tips">Add download succeeded</string>
 </resources>

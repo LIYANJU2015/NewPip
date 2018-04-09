@@ -1,11 +1,11 @@
-package org.schabi.newpipe.report;
+package org.player.tubego.report;
 
 import android.app.Activity;
 
 import org.junit.Test;
-import org.schabi.newpipe.MainActivity;
-import org.schabi.newpipe.RouterActivity;
-import org.schabi.newpipe.fragments.detail.VideoDetailFragment;
+import org.player.tubego.MainActivity;
+import org.player.tubego.RouterActivity;
+import org.player.tubego.fragments.detail.VideoDetailFragment;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;

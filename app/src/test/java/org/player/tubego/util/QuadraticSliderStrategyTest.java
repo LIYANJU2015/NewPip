@@ -1,4 +1,4 @@
-package org.schabi.newpipe.util;
+package org.player.tubego.util;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;

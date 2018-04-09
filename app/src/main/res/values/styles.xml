@@ -8,6 +8,17 @@
         <item name="android:windowBackground">@color/dark_background_color</item>
     </style>
 
+    <!--<style name="dialog_animation_style" parent="android:Animation" mce_bogus="1">-->
+        <!--<item name="@android:windowEnterAnimation">@anim/ad_dialog_enter</item>-->
+        <!--<item name="@android:windowExitAnimation">@anim/ad_dialog_exit</item>-->
+    <!--</style>-->
+
+
+    <style name="splash_theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+
     <!-- Base themes -->
 
     <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">

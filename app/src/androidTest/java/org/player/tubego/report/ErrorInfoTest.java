@@ -1,4 +1,4 @@
-package org.schabi.newpipe.report;
+package org.player.tubego.report;
 
 import android.os.Parcel;
 import android.support.test.filters.LargeTest;
@@ -6,8 +6,8 @@ import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.schabi.newpipe.R;
-import org.schabi.newpipe.report.ErrorActivity.ErrorInfo;
+import org.player.tubego.R;
+import org.player.tubego.report.ErrorActivity.ErrorInfo;
 
 import static org.junit.Assert.assertEquals;
 

@@ -5,7 +5,7 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "org.schabi.newpipe"
+        applicationId "com.schabi.newpipe2"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 60
@@ -56,6 +56,12 @@ dependencies {
 
     implementation 'com.github.TeamNewPipe:NewPipeExtractor:a6b6235644474'
 
+    compile 'com.facebook.android:audience-network-sdk:4.+'
+    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
+    implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'
+    compile 'com.orhanobut:dialogplus:1.11@aar'
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    compile 'com.zhy:base-rvadapter:3.0.3'
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:1.10.19'
@@ -67,7 +73,6 @@ dependencies {
     implementation "com.android.support:preference-v14:$supportLibVersion"
 
     implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'ch.acra:acra:4.9.2'
 
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
@@ -96,5 +101,6 @@ dependencies {
 
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
     debugImplementation "com.facebook.stetho:stetho-okhttp3:$okHttpLibVersion"
+
 
 }

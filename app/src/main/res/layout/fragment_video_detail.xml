@@ -113,6 +113,12 @@
                 android:layout_height="match_parent"
                 android:background="?android:windowBackground">
 
+                <FrameLayout
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/fb_ad_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
                 <!-- TITLE -->
                 <FrameLayout
                     android:id="@+id/detail_title_root_layout"
