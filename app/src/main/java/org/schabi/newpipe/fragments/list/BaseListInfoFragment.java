@@ -2,14 +2,25 @@ package org.schabi.newpipe.fragments.list;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.facebook.ads.AdChoicesView;
+import com.facebook.ads.NativeAd;
+
+import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.ListExtractor;
 import org.schabi.newpipe.extractor.ListInfo;
 import org.schabi.newpipe.extractor.kiosk.KioskInfo;
 import org.schabi.newpipe.util.Constants;
+import org.schabi.newpipe.util.FBAdUtils;
+import org.schabi.newpipe.views.AdViewWrapperAdapter;
 
 import java.util.Queue;
 
@@ -44,6 +55,15 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
     public void onPause() {
         super.onPause();
         if (currentWorker != null) currentWorker.dispose();
+    }
+
+    private AdViewWrapperAdapter adViewWrapperAdapter;
+
+    @Override
+    public RecyclerView.Adapter onGetAdapter() {
+        adViewWrapperAdapter = new AdViewWrapperAdapter(infoListAdapter);
+        infoListAdapter.setParentAdapter(adViewWrapperAdapter);
+        return adViewWrapperAdapter;
     }
 
     @Override
@@ -177,9 +197,20 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
         name = result.getName();
         setTitle(name);
 
-        if (infoListAdapter.getItemsList().size() == 0) {
+        if (infoListAdapter.getItemsList() != null && infoListAdapter.getItemsList().size() == 0) {
             if (result.getRelatedItems().size() > 0) {
-                infoListAdapter.addInfoItemList(result.getRelatedItems());
+                NativeAd nativeAd = FBAdUtils.nextNativieAd();
+                if (nativeAd == null || !nativeAd.isAdLoaded()) {
+                    nativeAd = FBAdUtils.getNativeAd();
+                }
+                if (nativeAd != null && nativeAd.isAdLoaded() && result.getRelatedItems().size() > 3) {
+                    int offsetStart = adViewWrapperAdapter.getItemCount();
+                    adViewWrapperAdapter.addAdView(offsetStart + 2, new AdViewWrapperAdapter.
+                            AdViewItem(FBAdUtils.setUpItemNativeAdView(nativeAd), offsetStart + 2));
+                    infoListAdapter.addInfoItemList2(result.getRelatedItems());
+                } else {
+                    infoListAdapter.addInfoItemList(result.getRelatedItems());
+                }
                 showListFooter(hasMoreItems());
             } else {
                 infoListAdapter.clearStreamItemList();

@@ -17,8 +17,13 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+
+import com.facebook.ads.NativeAd;
 
 import org.schabi.newpipe.R;
+import org.schabi.newpipe.util.Constants;
+import org.schabi.newpipe.util.FBAdUtils;
 
 import us.shandian.giga.get.DownloadManager;
 import us.shandian.giga.service.DownloadManagerService;
@@ -55,6 +60,8 @@ public abstract class MissionsFragment extends Fragment {
 
     };
 
+    private FrameLayout mAdFramelayout;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.missions, container, false);
@@ -76,6 +83,15 @@ public abstract class MissionsFragment extends Fragment {
         mList.setLayoutManager(mGridManager);
 
         setHasOptionsMenu(true);
+
+        NativeAd nativeAd = FBAdUtils.nextNativieAd();
+        if (nativeAd == null || !nativeAd.isAdLoaded()) {
+            nativeAd = FBAdUtils.getNativeAd();
+        }
+        if (nativeAd != null && nativeAd.isAdLoaded()) {
+            mAdFramelayout.removeAllViews();
+            mAdFramelayout.addView(FBAdUtils.setUpItemNativeAdView(nativeAd));
+        }
 
         return v;
     }
@@ -108,6 +124,8 @@ public abstract class MissionsFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         getActivity().unbindService(mConnection);
+
+        FBAdUtils.loadAd(Constants.NATIVE_AD);
     }
 
     @Override

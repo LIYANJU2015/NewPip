@@ -93,6 +93,12 @@ public class InfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.useMiniVariant = useMiniVariant;
     }
 
+    public void addInfoItemList2(List<InfoItem> data) {
+        int offsetStart = sizeConsideringHeaderOffset();
+        infoItemList.addAll(data);
+        notifyItemRangeInserted(offsetStart, data.size());
+    }
+
     public void addInfoItemList(List<InfoItem> data) {
         if (data != null) {
             if (DEBUG) {
@@ -169,6 +175,9 @@ public class InfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 
     private int sizeConsideringHeaderOffset() {
+        if (parentAdapter != null) {
+            return parentAdapter.getItemCount();
+        }
         int i = infoItemList.size() + (header != null ? 1 : 0);
         if (DEBUG) Log.d(TAG, "sizeConsideringHeaderOffset() called → " + i);
         return i;
@@ -176,6 +185,12 @@ public class InfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public ArrayList<InfoItem> getItemsList() {
         return infoItemList;
+    }
+
+    private RecyclerView.Adapter parentAdapter;
+
+    public void setParentAdapter(RecyclerView.Adapter adapter) {
+        parentAdapter = adapter;
     }
 
     @Override

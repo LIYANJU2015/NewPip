@@ -27,7 +27,12 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.facebook.ads.AdChoicesView;
+import com.facebook.ads.NativeAd;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.ReCaptchaActivity;
@@ -46,8 +51,10 @@ import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.AnimationUtils;
 import org.schabi.newpipe.util.ExtractorHelper;
+import org.schabi.newpipe.util.FBAdUtils;
 import org.schabi.newpipe.util.LayoutManagerSmoothScroller;
 import org.schabi.newpipe.util.NavigationHelper;
+import org.schabi.newpipe.views.AdViewWrapperAdapter;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -233,6 +240,7 @@ public class SearchFragment
         if (DEBUG) Log.d(TAG, "onDestroyView() called");
         unsetSearchListeners();
         super.onDestroyView();
+        FBAdUtils.loadAd(Constants.NATIVE_AD);
     }
 
     @Override
@@ -793,6 +801,15 @@ public class SearchFragment
         hideKeyboardSearch();
     }
 
+    private AdViewWrapperAdapter adViewWrapperAdapter;
+
+    @Override
+    public RecyclerView.Adapter onGetAdapter() {
+        adViewWrapperAdapter = new AdViewWrapperAdapter(infoListAdapter);
+        infoListAdapter.setParentAdapter(adViewWrapperAdapter);
+        return adViewWrapperAdapter;
+    }
+
     /*//////////////////////////////////////////////////////////////////////////
     // Search Results
     //////////////////////////////////////////////////////////////////////////*/
@@ -807,7 +824,19 @@ public class SearchFragment
 
         if (infoListAdapter.getItemsList().size() == 0) {
             if (!result.getResults().isEmpty()) {
-                infoListAdapter.addInfoItemList(result.getResults());
+                NativeAd nativeAd = FBAdUtils.nextNativieAd();
+                if (nativeAd == null || !nativeAd.isAdLoaded()) {
+                    nativeAd = FBAdUtils.getNativeAd();
+                }
+                if (nativeAd != null && nativeAd.isAdLoaded() && result.getResults().size() > 3) {
+                    int offsetStart = adViewWrapperAdapter.getItemCount();
+                    adViewWrapperAdapter.addAdView(offsetStart + 2, new AdViewWrapperAdapter.
+                            AdViewItem(FBAdUtils.setUpItemNativeAdView(nativeAd), offsetStart + 2));
+                    infoListAdapter.addInfoItemList2(result.getResults());
+                    Log.v("xx", "offsetStart: " + (offsetStart + 2));
+                } else {
+                    infoListAdapter.addInfoItemList(result.getResults());
+                }
             } else {
                 infoListAdapter.clearStreamItemList();
                 showEmptyState();
@@ -822,7 +851,19 @@ public class SearchFragment
     public void handleNextItems(ListExtractor.InfoItemsPage result) {
         showListFooter(false);
         currentPage = Integer.parseInt(result.getNextPageUrl());
-        infoListAdapter.addInfoItemList(result.getItems());
+
+        NativeAd nativeAd = FBAdUtils.nextNativieAd();
+        if (nativeAd == null || !nativeAd.isAdLoaded()) {
+            nativeAd = FBAdUtils.getNativeAd();
+        }
+        if (nativeAd != null && nativeAd.isAdLoaded() && result.getItems().size() > 3) {
+            int offsetStart = adViewWrapperAdapter.getItemCount();
+            adViewWrapperAdapter.addAdView(offsetStart + 2, new AdViewWrapperAdapter.
+                    AdViewItem(FBAdUtils.setUpItemNativeAdView(nativeAd), offsetStart + 2));
+            infoListAdapter.addInfoItemList2(result.getItems());
+        } else {
+            infoListAdapter.addInfoItemList(result.getItems());
+        }
 
         if (!result.getErrors().isEmpty()) {
             showSnackBarError(result.getErrors(), UserAction.SEARCHED, NewPipe.getNameOfService(serviceId)

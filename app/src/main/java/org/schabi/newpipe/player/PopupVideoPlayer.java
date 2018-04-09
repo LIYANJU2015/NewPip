@@ -640,7 +640,7 @@ public final class PopupVideoPlayer extends Service {
                     enableVideoRenderer(true);
                     break;
                 case Intent.ACTION_SCREEN_OFF:
-                    if (!App.isSpecial()) {
+                    if (!App.isSuper()) {
                         onPlayPause();
                     }
                     enableVideoRenderer(false);

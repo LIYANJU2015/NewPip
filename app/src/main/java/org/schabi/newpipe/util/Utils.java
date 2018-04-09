@@ -3,12 +3,18 @@ package org.schabi.newpipe.util;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.hardware.display.DisplayManager;
 import android.os.Build;
+import android.os.PowerManager;
 import android.support.v4.content.ContextCompat;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
+
+import java.io.File;
 
 /**
  * Created by liyanju on 2018/4/8.
@@ -23,6 +29,51 @@ public class Utils {
         int color = ServiceHelper.getSelectedServiceId(activity) == 0 ? ContextCompat.getColor(activity, R.color.light_youtube_primary_color)
                 : ContextCompat.getColor(activity, R.color.light_soundcloud_primary_color);
         Utils.compat(activity, color);
+    }
+
+    public static boolean isRoot(){
+        boolean bool = false;
+
+        try{
+            if ((!new File("/system/bin/su").exists())
+                    && (!new File("/system/xbin/su").exists())){
+                bool = false;
+            } else {
+                bool = true;
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        return bool;
+    }
+
+    public static boolean isScreenOn() {
+        try {
+            if (android.os.Build.VERSION.SDK_INT >= 20) {
+                // I'm counting
+                // STATE_DOZE, STATE_OFF, STATE_DOZE_SUSPENDED
+                // all as "OFF"
+                DisplayManager dm = (DisplayManager) App.sContext.getSystemService(Context.DISPLAY_SERVICE);
+                Display[] displays = dm.getDisplays();
+                for (Display display : displays) {
+                    if (display.getState() == Display.STATE_ON
+                            || display.getState() == Display.STATE_UNKNOWN) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            // If you use less than API20:
+            PowerManager powerManager = (PowerManager) App.sContext.getSystemService(Context.POWER_SERVICE);
+            if (powerManager.isScreenOn()) {
+                return true;
+            }
+            return false;
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
 

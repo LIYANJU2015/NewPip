@@ -1,5 +1,7 @@
 package org.schabi.newpipe.download;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
@@ -18,7 +20,9 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.schabi.newpipe.App;
 import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.MediaFormat;
@@ -27,6 +31,8 @@ import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.VideoStream;
 import org.schabi.newpipe.fragments.detail.SpinnerToolbarAdapter;
 import org.schabi.newpipe.settings.NewPipeSettings;
+import org.schabi.newpipe.util.Constants;
+import org.schabi.newpipe.util.FBAdUtils;
 import org.schabi.newpipe.util.FilenameUtils;
 import org.schabi.newpipe.util.ListHelper;
 import org.schabi.newpipe.util.PermissionHelper;
@@ -251,6 +257,13 @@ public class DownloadDialog extends DialogFragment implements RadioGroup.OnCheck
         }
     }
 
+    private Activity activity;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        activity = getActivity();
+    }
 
     private void downloadSelected() {
         String url, location;
@@ -271,5 +284,17 @@ public class DownloadDialog extends DialogFragment implements RadioGroup.OnCheck
 
         DownloadManagerService.startMission(getContext(), url, location, fileName, isAudio, threadsSeekBar.getProgress() + 1);
         getDialog().dismiss();
+
+        FBAdUtils.showAdDialog(activity, Constants.NATIVE_AD, new Runnable() {
+            @Override
+            public void run() {
+                if (FBAdUtils.isInterstitialLoaded()) {
+                    FBAdUtils.showInterstitial();
+                }
+            }
+        });
+
+        Toast.makeText(App.sContext, R.string.add_download_tips, Toast.LENGTH_LONG).show();
+
     }
 }

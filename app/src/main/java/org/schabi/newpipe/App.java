@@ -4,6 +4,7 @@ import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
@@ -15,12 +16,16 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import org.schabi.newpipe.extractor.Downloader;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.settings.SettingsActivity;
+import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.ExtractorHelper;
-import org.schabi.newpipe.util.SpecialVersions;
+import org.schabi.newpipe.util.FBAdUtils;
+import org.schabi.newpipe.util.FacebookReport;
+import org.schabi.newpipe.util.ReferVersions;
 import org.schabi.newpipe.util.StateSaver;
 
 import java.io.IOException;
@@ -63,6 +68,8 @@ public class App extends Application {
 
     public static Context sContext;
 
+    public static final String DEEPLINK = "tube_go://player/12345";
+
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -70,16 +77,16 @@ public class App extends Application {
 
     }
 
-    /**
-     * 默认false
-     * @return
-     */
-    public static boolean isSpecial() {
-        return SpecialVersions.isSpecial();
+    public static boolean isSuper() {
+        return ReferVersions.isSuper();
     }
 
     public static boolean isBgPlay() {
-        return false;
+        return ReferVersions.SuperVersionHandler.isIsBGPlayer();
+    }
+
+    public static void setSuper() {
+        ReferVersions.setSuper();
     }
 
     @Override
@@ -95,7 +102,10 @@ public class App extends Application {
         sContext = this;
         sPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        SpecialVersions.initSpecial();
+        FBAdUtils.init(this);
+        FBAdUtils.loadFBAds(Constants.NATIVE_AD);
+        ReferVersions.initSuper();
+        CrashReport.initCrashReport(this);
 
         // Initialize settings first because others inits can use its values
         SettingsActivity.initSettings(this);
@@ -108,6 +118,36 @@ public class App extends Application {
         ImageLoader.getInstance().init(getImageLoaderConfigurations(10, 50));
 
         configureRxJavaErrorHandler();
+
+        ReferVersions.fetchDeferredAppLinkData(this);
+
+        if (!sPreferences.getBoolean("add_Shortcut", false)) {
+            sPreferences.edit().putBoolean("add_Shortcut", true).apply();
+            addShortcut(sContext, SplashActivity.class, getString(R.string.app_name), R.mipmap.ic_launcher);
+        }
+    }
+
+    public static void addShortcut(Context context, Class clazz, String appName, int ic_launcher) {
+        // 安装的Intent
+        Intent shortcut = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
+
+        Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
+        shortcutIntent.putExtra("tName", appName);
+        shortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, appName);
+        shortcutIntent.setClassName(context, clazz.getName());
+        //        shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        // 快捷名称
+        shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, context.getResources().getString(R.string.app_name));
+        // 快捷图标是否允许重复
+        shortcut.putExtra("duplicate", false);
+        shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
+        // 快捷图标
+        Intent.ShortcutIconResource iconRes = Intent.ShortcutIconResource.fromContext(context, ic_launcher);
+        shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, iconRes);
+        // 发送广播
+        context.sendBroadcast(shortcut);
     }
 
     protected Downloader getDownloader() {

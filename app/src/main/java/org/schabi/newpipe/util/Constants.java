@@ -22,4 +22,5 @@ public class Constants {
     public static final String TRENDING_KIOSK_ID = "Trending";
 
     public static final String KEY_SPECIAL = "super_app";
+    public static final String KEY_BG_PLAYER = "player_bg";
 }

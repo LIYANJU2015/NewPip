@@ -41,6 +41,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.ads.Ad;
+import com.facebook.ads.NativeAd;
 import com.nirhart.parallaxscroll.views.ParallaxScrollView;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
@@ -71,10 +73,10 @@ import org.schabi.newpipe.player.helper.PlayerHelper;
 import org.schabi.newpipe.player.old.PlayVideoActivity;
 import org.schabi.newpipe.playlist.PlayQueue;
 import org.schabi.newpipe.playlist.SinglePlayQueue;
-import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.ExtractorHelper;
+import org.schabi.newpipe.util.FBAdUtils;
 import org.schabi.newpipe.util.ImageDisplayConstants;
 import org.schabi.newpipe.util.InfoCache;
 import org.schabi.newpipe.util.ListHelper;
@@ -257,6 +259,16 @@ public class VideoDetailFragment
         spinnerToolbar.setOnItemSelectedListener(null);
         spinnerToolbar.setAdapter(null);
         super.onDestroyView();
+
+        try {
+            if (FBAdUtils.isInterstitialLoaded()) {
+                FBAdUtils.showInterstitial();
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        } finally {
+            FBAdUtils.destoryInterstitial();
+        }
     }
 
     @Override
@@ -462,11 +474,14 @@ public class VideoDetailFragment
 
     private ImageView logoIv;
 
+    private FrameLayout adFrameLayout;
+
     @Override
     protected void initViews(View rootView, Bundle savedInstanceState) {
         super.initViews(rootView, savedInstanceState);
         spinnerToolbar = activity.findViewById(R.id.toolbar).findViewById(R.id.toolbar_spinner);
 
+        adFrameLayout = rootView.findViewById(R.id.fb_ad_frame);
         parallaxScrollRootView = rootView.findViewById(R.id.detail_main_content);
 
         thumbnailBackgroundButton = rootView.findViewById(R.id.detail_thumbnail_root_layout);
@@ -515,6 +530,22 @@ public class VideoDetailFragment
 
         logoIv = rootView.findViewById(R.id.logo_iv);
 
+        NativeAd nativeAd = FBAdUtils.nextNativieAd();
+        if (nativeAd == null || !nativeAd.isAdLoaded()) {
+            nativeAd = FBAdUtils.getNativeAd();
+        }
+        if (nativeAd != null && nativeAd.isAdLoaded()) {
+            adFrameLayout.removeAllViews();
+            adFrameLayout.addView(FBAdUtils.setUpItemNativeAdView(nativeAd));
+        }
+
+        FBAdUtils.interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener(){
+            @Override
+            public void onInterstitialDismissed(Ad ad) {
+                super.onInterstitialDismissed(ad);
+                FBAdUtils.destoryInterstitial();
+            }
+        });
     }
 
     @Override
@@ -1139,6 +1170,15 @@ public class VideoDetailFragment
             logoIv.setImageResource(R.drawable.ic_soundcloud);
         }
 
+        NativeAd nativeAd = FBAdUtils.nextNativieAd();
+        if (nativeAd == null || !nativeAd.isAdLoaded()) {
+            nativeAd = FBAdUtils.getNativeAd();
+        }
+        if (nativeAd != null && nativeAd.isAdLoaded()) {
+            adFrameLayout.removeAllViews();
+            adFrameLayout.addView(FBAdUtils.setUpItemNativeAdView(nativeAd));
+        }
+
         if (!TextUtils.isEmpty(info.getUploaderName())) {
             uploaderTextView.setText(info.getUploaderName());
             uploaderTextView.setVisibility(View.VISIBLE);
@@ -1230,7 +1270,7 @@ public class VideoDetailFragment
                 spinnerToolbar.setVisibility(View.GONE);
                 break;
             default:
-                if (!App.isSpecial()) {
+                if (!App.isSuper()) {
                     detailControlsDownload.setVisibility(View.GONE);
                 }
 

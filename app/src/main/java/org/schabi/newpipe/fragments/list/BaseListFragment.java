@@ -127,7 +127,11 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I> implem
         infoListAdapter.setFooter(getListFooter());
         infoListAdapter.setHeader(getListHeader());
 
-        itemsList.setAdapter(infoListAdapter);
+        itemsList.setAdapter(onGetAdapter());
+    }
+
+    public RecyclerView.Adapter onGetAdapter() {
+        return infoListAdapter;
     }
 
     protected void onItemSelected(InfoItem selectedItem) {
