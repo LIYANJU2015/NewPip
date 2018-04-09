@@ -1,6 +1,10 @@
 package org.schabi.newpipe.util;
 
 public class Constants {
+
+    public static final String INTERSTITIAL_AD = "610127239332636_610128862665807";
+    public static final String NATIVE_AD = "610127239332636_610127952665898";
+
     public static final String KEY_SERVICE_ID = "key_service_id";
     public static final String KEY_URL = "key_url";
     public static final String KEY_TITLE = "key_title";

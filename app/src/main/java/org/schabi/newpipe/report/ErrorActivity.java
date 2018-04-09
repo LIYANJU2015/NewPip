@@ -27,16 +27,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.acra.ReportField;
-import org.acra.collector.CrashReportData;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.schabi.newpipe.ActivityCommunicator;
 import org.schabi.newpipe.BuildConfig;
-import org.schabi.newpipe.Downloader;
 import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.extractor.utils.Parser;
 import org.schabi.newpipe.util.ThemeHelper;
 
 import java.io.PrintWriter;
@@ -44,7 +40,6 @@ import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.TimeZone;
 import java.util.Vector;
 
@@ -106,13 +101,13 @@ public class ErrorActivity extends AppCompatActivity {
     }
 
     private static void startErrorActivity(Class returnActivity, Context context, ErrorInfo errorInfo, List<Throwable> el) {
-        ActivityCommunicator ac = ActivityCommunicator.getCommunicator();
-        ac.returnActivity = returnActivity;
-        Intent intent = new Intent(context, ErrorActivity.class);
-        intent.putExtra(ERROR_INFO, errorInfo);
-        intent.putExtra(ERROR_LIST, elToSl(el));
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
+//        ActivityCommunicator ac = ActivityCommunicator.getCommunicator();
+//        ac.returnActivity = returnActivity;
+//        Intent intent = new Intent(context, ErrorActivity.class);
+//        intent.putExtra(ERROR_INFO, errorInfo);
+//        intent.putExtra(ERROR_LIST, elToSl(el));
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context.startActivity(intent);
     }
 
     public static void reportError(final Context context, final Throwable e,
@@ -143,22 +138,22 @@ public class ErrorActivity extends AppCompatActivity {
         handler.post(() -> reportError(context, el, returnActivity, rootView, errorInfo));
     }
 
-    public static void reportError(final Context context, final CrashReportData report, final ErrorInfo errorInfo) {
-        // get key first (don't ask about this solution)
-        ReportField key = null;
-        for (ReportField k : report.keySet()) {
-            if (k.toString().equals("STACK_TRACE")) {
-                key = k;
-            }
-        }
-        String[] el = new String[]{report.get(key).toString()};
-
-        Intent intent = new Intent(context, ErrorActivity.class);
-        intent.putExtra(ERROR_INFO, errorInfo);
-        intent.putExtra(ERROR_LIST, el);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
-    }
+//    public static void reportError(final Context context, final CrashReportData report, final ErrorInfo errorInfo) {
+//        // get key first (don't ask about this solution)
+////        ReportField key = null;
+////        for (ReportField k : report.keySet()) {
+////            if (k.toString().equals("STACK_TRACE")) {
+////                key = k;
+////            }
+////        }
+////        String[] el = new String[]{report.get(key).toString()};
+////
+////        Intent intent = new Intent(context, ErrorActivity.class);
+////        intent.putExtra(ERROR_INFO, errorInfo);
+////        intent.putExtra(ERROR_LIST, el);
+////        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+////        context.startActivity(intent);
+//    }
 
     private static String getStackTrace(final Throwable throwable) {
         final StringWriter sw = new StringWriter();

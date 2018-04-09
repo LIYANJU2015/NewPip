@@ -468,4 +468,7 @@
 
     <string name="background_play_tips">Sorry, because google play policy, youtube video can not play in the background, so the background play queue can not add youtube video</string>
     <string name="popup_drag_tips">Double - click the screen to change the screen size</string>
+
+    <string name="facebook_app_id">610127239332636</string>
+    <string name="fb_login_protocol_scheme">fb610127239332636</string>
 </resources>

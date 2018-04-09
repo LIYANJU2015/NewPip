@@ -16,16 +16,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
-import org.acra.ACRA;
-import org.acra.config.ACRAConfiguration;
-import org.acra.config.ACRAConfigurationException;
-import org.acra.config.ConfigurationBuilder;
-import org.acra.sender.ReportSenderFactory;
 import org.schabi.newpipe.extractor.Downloader;
 import org.schabi.newpipe.extractor.NewPipe;
-import org.schabi.newpipe.report.AcraReportSenderFactory;
-import org.schabi.newpipe.report.ErrorActivity;
-import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.settings.SettingsActivity;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.SpecialVersions;
@@ -71,14 +63,11 @@ public class App extends Application {
 
     public static Context sContext;
 
-    @SuppressWarnings("unchecked")
-    private static final Class<? extends ReportSenderFactory>[] reportSenderFactoryClasses = new Class[]{AcraReportSenderFactory.class};
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
 
-        initACRA();
     }
 
     /**
@@ -192,20 +181,6 @@ public class App extends Application {
                 .diskCacheSize(diskCacheSizeMb * 1024 * 1024)
                 .imageDownloader(new ImageDownloader(getApplicationContext()))
                 .build();
-    }
-
-    private void initACRA() {
-        try {
-            final ACRAConfiguration acraConfig = new ConfigurationBuilder(this)
-                    .setReportSenderFactoryClasses(reportSenderFactoryClasses)
-                    .setBuildConfigClass(BuildConfig.class)
-                    .build();
-            ACRA.init(this, acraConfig);
-        } catch (ACRAConfigurationException ace) {
-            ace.printStackTrace();
-            ErrorActivity.reportError(this, ace, null, null, ErrorActivity.ErrorInfo.make(UserAction.SOMETHING_ELSE, "none",
-                    "Could not initialize ACRA crash report", R.string.app_ui_crash));
-        }
     }
 
     public void initNotificationChannel() {
