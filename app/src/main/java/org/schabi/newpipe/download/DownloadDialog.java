@@ -33,6 +33,7 @@ import org.schabi.newpipe.fragments.detail.SpinnerToolbarAdapter;
 import org.schabi.newpipe.settings.NewPipeSettings;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.FBAdUtils;
+import org.schabi.newpipe.util.FacebookReport;
 import org.schabi.newpipe.util.FilenameUtils;
 import org.schabi.newpipe.util.ListHelper;
 import org.schabi.newpipe.util.PermissionHelper;
@@ -293,6 +294,8 @@ public class DownloadDialog extends DialogFragment implements RadioGroup.OnCheck
                 }
             }
         });
+
+        FacebookReport.logSentStartDownload(fileName);
 
         Toast.makeText(App.sContext, R.string.add_download_tips, Toast.LENGTH_LONG).show();
 

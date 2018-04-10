@@ -144,6 +144,8 @@ public class NavigationHelper {
 
         Toast.makeText(context, R.string.popup_playing_toast, Toast.LENGTH_SHORT).show();
         startService(context, getPlayerIntent(context, PopupVideoPlayer.class, queue));
+
+        FacebookReport.logSentPopupPageShow();
     }
 
     public static void playOnBackgroundPlayer(final Context context, final PlayQueue queue) {
@@ -163,6 +165,8 @@ public class NavigationHelper {
 
         Toast.makeText(context, R.string.background_player_playing_toast, Toast.LENGTH_SHORT).show();
         startService(context, getPlayerIntent(context, BackgroundPlayer.class, queue));
+
+        FacebookReport.logSentBackgroudPlayerPageShow();
     }
 
     public static void enqueueOnPopupPlayer(final Context context, final PlayQueue queue) {
@@ -188,6 +192,8 @@ public class NavigationHelper {
         Toast.makeText(context, R.string.popup_playing_append, Toast.LENGTH_SHORT).show();
         startService(context,
                 getPlayerEnqueueIntent(context, PopupVideoPlayer.class, queue, selectOnAppend));
+
+        FacebookReport.logSentPopupPageShow();
     }
 
     public static void enqueueOnBackgroundPlayer(final Context context, final PlayQueue queue) {
@@ -225,6 +231,8 @@ public class NavigationHelper {
         Toast.makeText(context, R.string.background_player_append, Toast.LENGTH_SHORT).show();
         startService(context,
                 getPlayerEnqueueIntent(context, BackgroundPlayer.class, queue, selectOnAppend));
+
+        FacebookReport.logSentBackgroudPlayerPageShow();
     }
 
     public static void startService(@NonNull final Context context, @NonNull final Intent intent) {

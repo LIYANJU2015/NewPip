@@ -59,7 +59,6 @@ dependencies {
     compile 'com.facebook.android:audience-network-sdk:4.+'
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
     implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'
-    compile 'com.orhanobut:dialogplus:1.11@aar'
     compile 'com.tencent.bugly:crashreport:latest.release'
     compile 'com.zhy:base-rvadapter:3.0.3'
 

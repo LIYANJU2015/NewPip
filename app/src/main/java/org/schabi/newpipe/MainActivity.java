@@ -52,6 +52,7 @@ import org.schabi.newpipe.fragments.list.search.SearchFragment;
 import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.FBAdUtils;
+import org.schabi.newpipe.util.FacebookReport;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.StateSaver;
@@ -89,6 +90,12 @@ public class MainActivity extends AppCompatActivity {
         setupDrawer();
 
         FBAdUtils.showAdDialog(this, Constants.NATIVE_AD);
+
+        if (ServiceHelper.getSelectedServiceId(this) == 0) {
+            FacebookReport.logSentMainPageShow("youtube");
+        } else {
+            FacebookReport.logSentMainPageShow("soundcloud");
+        }
     }
 
     private void setupDrawer() {

@@ -22,6 +22,7 @@ import android.widget.Toast;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.download.DownloadActivity;
 import org.schabi.newpipe.settings.NewPipeSettings;
+import org.schabi.newpipe.util.FacebookReport;
 
 import java.util.ArrayList;
 
@@ -231,6 +232,7 @@ public class DownloadManagerService extends Service {
         public void onFinish(DownloadMission downloadMission) {
             postUpdateMessage();
             notifyMediaScanner(downloadMission);
+            FacebookReport.logSentDownloadFinish(downloadMission.name);
         }
 
         @Override

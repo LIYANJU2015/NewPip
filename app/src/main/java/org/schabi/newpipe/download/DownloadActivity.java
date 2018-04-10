@@ -14,6 +14,7 @@ import android.view.ViewTreeObserver;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.settings.SettingsActivity;
+import org.schabi.newpipe.util.FacebookReport;
 import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.util.Utils;
@@ -57,6 +58,8 @@ public class DownloadActivity extends AppCompatActivity {
                 getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this);
             }
         });
+
+        FacebookReport.logSentDownloadPageShow();
     }
 
     private void updateFragments() {
