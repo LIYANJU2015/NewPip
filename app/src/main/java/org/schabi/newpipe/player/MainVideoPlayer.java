@@ -415,7 +415,7 @@ public final class MainVideoPlayer extends AppCompatActivity
             if (DEBUG) Log.d(TAG, "onBroadcastReceived() called with: intent = [" + intent + "]");
             switch (intent.getAction()) {
                 case Intent.ACTION_SCREEN_OFF:
-                    if (!App.isSuper()) {
+                    if (!App.isBgPlay()) {
                         onPlayPause();
                     }
                     break;

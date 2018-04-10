@@ -170,6 +170,10 @@ public class MainActivity extends AppCompatActivity {
         ImageButton downloads = findViewById(R.id.drawer_downloads);
         ImageButton history = findViewById(R.id.drawer_history);
 
+        if (!App.isSuper()) {
+            downloads.setVisibility(View.GONE);
+        }
+
         settings.setOnClickListener(view -> NavigationHelper.openSettings(this));
         downloads.setOnClickListener(view ->NavigationHelper.openDownloads(this));
         history.setOnClickListener(view -> NavigationHelper.openHistory(this));
