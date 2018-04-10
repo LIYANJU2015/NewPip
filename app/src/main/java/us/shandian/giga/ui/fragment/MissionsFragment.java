@@ -90,7 +90,7 @@ public abstract class MissionsFragment extends Fragment {
         }
         if (nativeAd != null && nativeAd.isAdLoaded()) {
             mAdFramelayout.removeAllViews();
-            mAdFramelayout.addView(FBAdUtils.setUpItemNativeAdView(nativeAd));
+            mAdFramelayout.addView(FBAdUtils.setUpItemNativeAdView(getActivity(), nativeAd));
         }
 
         return v;

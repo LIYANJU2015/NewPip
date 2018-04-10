@@ -206,7 +206,7 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
                 if (nativeAd != null && nativeAd.isAdLoaded() && result.getRelatedItems().size() > 3) {
                     int offsetStart = adViewWrapperAdapter.getItemCount();
                     adViewWrapperAdapter.addAdView(offsetStart + 2, new AdViewWrapperAdapter.
-                            AdViewItem(FBAdUtils.setUpItemNativeAdView(nativeAd), offsetStart + 2));
+                            AdViewItem(FBAdUtils.setUpItemNativeAdView(activity, nativeAd), offsetStart + 2));
                     infoListAdapter.addInfoItemList2(result.getRelatedItems());
                 } else {
                     infoListAdapter.addInfoItemList(result.getRelatedItems());

@@ -277,10 +277,10 @@ public class FBAdUtils {
         }
     }
 
-    public static View setUpItemNativeAdView(NativeAd nativeAd) {
+    public static View setUpItemNativeAdView(Activity activity, NativeAd nativeAd) {
         nativeAd.unregisterView();
 
-        View adView = LayoutInflater.from(sContext).inflate(R.layout.fb_ad_list_item, null);
+        View adView = LayoutInflater.from(activity).inflate(R.layout.fb_ad_list_item, null);
 
         FrameLayout adChoicesFrame = adView.findViewById(R.id.fb_adChoices2);
         ImageView nativeAdIcon = adView.findViewById(R.id.image_ad);

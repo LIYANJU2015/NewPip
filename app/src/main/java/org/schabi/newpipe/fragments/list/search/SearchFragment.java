@@ -831,7 +831,7 @@ public class SearchFragment
                 if (nativeAd != null && nativeAd.isAdLoaded() && result.getResults().size() > 3) {
                     int offsetStart = adViewWrapperAdapter.getItemCount();
                     adViewWrapperAdapter.addAdView(offsetStart + 2, new AdViewWrapperAdapter.
-                            AdViewItem(FBAdUtils.setUpItemNativeAdView(nativeAd), offsetStart + 2));
+                            AdViewItem(FBAdUtils.setUpItemNativeAdView(activity, nativeAd), offsetStart + 2));
                     infoListAdapter.addInfoItemList2(result.getResults());
                     Log.v("xx", "offsetStart: " + (offsetStart + 2));
                 } else {
@@ -859,7 +859,7 @@ public class SearchFragment
         if (nativeAd != null && nativeAd.isAdLoaded() && result.getItems().size() > 3) {
             int offsetStart = adViewWrapperAdapter.getItemCount();
             adViewWrapperAdapter.addAdView(offsetStart + 2, new AdViewWrapperAdapter.
-                    AdViewItem(FBAdUtils.setUpItemNativeAdView(nativeAd), offsetStart + 2));
+                    AdViewItem(FBAdUtils.setUpItemNativeAdView(activity, nativeAd), offsetStart + 2));
             infoListAdapter.addInfoItemList2(result.getItems());
         } else {
             infoListAdapter.addInfoItemList(result.getItems());

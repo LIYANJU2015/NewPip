@@ -536,7 +536,7 @@ public class VideoDetailFragment
         }
         if (nativeAd != null && nativeAd.isAdLoaded()) {
             adFrameLayout.removeAllViews();
-            adFrameLayout.addView(FBAdUtils.setUpItemNativeAdView(nativeAd));
+            adFrameLayout.addView(FBAdUtils.setUpItemNativeAdView(activity, nativeAd));
         }
 
         FBAdUtils.interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener(){
@@ -1176,7 +1176,7 @@ public class VideoDetailFragment
         }
         if (nativeAd != null && nativeAd.isAdLoaded()) {
             adFrameLayout.removeAllViews();
-            adFrameLayout.addView(FBAdUtils.setUpItemNativeAdView(nativeAd));
+            adFrameLayout.addView(FBAdUtils.setUpItemNativeAdView(activity, nativeAd));
         }
 
         if (!TextUtils.isEmpty(info.getUploaderName())) {
