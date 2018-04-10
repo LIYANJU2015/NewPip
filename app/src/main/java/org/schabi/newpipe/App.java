@@ -24,7 +24,6 @@ import org.schabi.newpipe.settings.SettingsActivity;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.FBAdUtils;
-import org.schabi.newpipe.util.FacebookReport;
 import org.schabi.newpipe.util.ReferVersions;
 import org.schabi.newpipe.util.StateSaver;
 
@@ -123,15 +122,15 @@ public class App extends Application {
 
         if (!sPreferences.getBoolean("add_Shortcut", false)) {
             sPreferences.edit().putBoolean("add_Shortcut", true).apply();
-            addShortcut(sContext, SplashActivity.class, getString(R.string.app_name), R.mipmap.ic_launcher);
+            addShortcut(sContext, WelcomeActivity.class, getString(R.string.app_name), R.mipmap.ic_launcher);
         }
     }
 
     public static void addShortcut(Context context, Class clazz, String appName, int ic_launcher) {
-        // 安装的Intent
         Intent shortcut = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
 
         Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
+        shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         shortcutIntent.putExtra("tName", appName);
         shortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, appName);
         shortcutIntent.setClassName(context, clazz.getName());

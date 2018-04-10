@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
  * Created by liyanju on 2018/4/9.
  */
 
-public class SplashActivity extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     public void finish() {
@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
         getWindow().getDecorView().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.switch_service_in, 0);
                 finish();

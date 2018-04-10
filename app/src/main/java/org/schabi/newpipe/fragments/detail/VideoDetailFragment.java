@@ -530,13 +530,15 @@ public class VideoDetailFragment
 
         logoIv = rootView.findViewById(R.id.logo_iv);
 
-        NativeAd nativeAd = FBAdUtils.nextNativieAd();
-        if (nativeAd == null || !nativeAd.isAdLoaded()) {
-            nativeAd = FBAdUtils.getNativeAd();
-        }
-        if (nativeAd != null && nativeAd.isAdLoaded()) {
-            adFrameLayout.removeAllViews();
-            adFrameLayout.addView(FBAdUtils.setUpItemNativeAdView(activity, nativeAd));
+        if (App.isBgPlay()) {
+            NativeAd nativeAd = FBAdUtils.nextNativieAd();
+            if (nativeAd == null || !nativeAd.isAdLoaded()) {
+                nativeAd = FBAdUtils.getNativeAd();
+            }
+            if (nativeAd != null && nativeAd.isAdLoaded()) {
+                adFrameLayout.removeAllViews();
+                adFrameLayout.addView(FBAdUtils.setUpItemNativeAdView(activity, nativeAd));
+            }
         }
 
         FBAdUtils.interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener(){
@@ -1170,13 +1172,15 @@ public class VideoDetailFragment
             logoIv.setImageResource(R.drawable.ic_soundcloud);
         }
 
-        NativeAd nativeAd = FBAdUtils.nextNativieAd();
-        if (nativeAd == null || !nativeAd.isAdLoaded()) {
-            nativeAd = FBAdUtils.getNativeAd();
-        }
-        if (nativeAd != null && nativeAd.isAdLoaded()) {
-            adFrameLayout.removeAllViews();
-            adFrameLayout.addView(FBAdUtils.setUpItemNativeAdView(activity, nativeAd));
+        if (App.isBgPlay()) {
+            NativeAd nativeAd = FBAdUtils.nextNativieAd();
+            if (nativeAd == null || !nativeAd.isAdLoaded()) {
+                nativeAd = FBAdUtils.getNativeAd();
+            }
+            if (nativeAd != null && nativeAd.isAdLoaded()) {
+                adFrameLayout.removeAllViews();
+                adFrameLayout.addView(FBAdUtils.setUpItemNativeAdView(activity, nativeAd));
+            }
         }
 
         if (!TextUtils.isEmpty(info.getUploaderName())) {

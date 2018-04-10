@@ -137,13 +137,15 @@ public final class MainVideoPlayer extends AppCompatActivity
             finish();
         }
 
-        FBAdUtils.interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener(){
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-                super.onInterstitialDismissed(ad);
-                FBAdUtils.destoryInterstitial();
-            }
-        });
+        if (App.isBgPlay()) {
+            FBAdUtils.interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener() {
+                @Override
+                public void onInterstitialDismissed(Ad ad) {
+                    super.onInterstitialDismissed(ad);
+                    FBAdUtils.destoryInterstitial();
+                }
+            });
+        }
     }
 
     @Override
@@ -221,10 +223,12 @@ public final class MainVideoPlayer extends AppCompatActivity
         if (DEBUG) Log.d(TAG, "onDestroy() called");
         if (playerImpl != null) playerImpl.destroy();
 
-        if (FBAdUtils.isInterstitialLoaded()) {
-            FBAdUtils.showInterstitial();
+        if (App.isBgPlay()) {
+            if (FBAdUtils.isInterstitialLoaded()) {
+                FBAdUtils.showInterstitial();
+            }
+            FBAdUtils.destoryInterstitial();
         }
-        FBAdUtils.destoryInterstitial();
     }
 
     /*//////////////////////////////////////////////////////////////////////////

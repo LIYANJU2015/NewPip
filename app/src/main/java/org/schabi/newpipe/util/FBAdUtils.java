@@ -187,6 +187,14 @@ public class FBAdUtils {
     }
 
     public static void showAdDialog(Activity activity, String adId, Runnable errorCallBack) {
+        NativeAd nativeAd = nextNativieAd();
+        if (nativeAd != null && nativeAd.isAdLoaded()) {
+            View view = setupAdView(nativeAd);
+            showDialog(view, activity);
+            loadAd(adId, null);
+            return;
+        }
+
         loadAd(adId, new AdListener() {
             @Override
             public void onError(Ad ad, AdError adError) {
@@ -201,29 +209,8 @@ public class FBAdUtils {
                     return;
                 }
                 View view = setupAdView(sNativeAd);
-                if (view != null && !activity.isFinishing()) {
-                    try {
-                        final MaterialDialog dialog = new MaterialDialog.Builder(activity)
-                                .canceledOnTouchOutside(true)
-                                .customView(view, false).build();
-                        dialog.show();
-                        view.findViewById(R.id.ad_close_iv).setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                try {
-                                    if (dialog.isShowing()) {
-                                        dialog.dismiss();
-                                    }
-                                } catch (Throwable e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        });
-                        loadAd(adId, null);
-                    } catch (Throwable e) {
-                        e.printStackTrace();
-                    }
-                }
+                showDialog(view, activity);
+                loadAd(adId, null);
             }
 
             @Override
@@ -236,6 +223,31 @@ public class FBAdUtils {
 
             }
         });
+    }
+
+    private static void showDialog(View view, Activity activity) {
+        if (view != null && !activity.isFinishing()) {
+            try {
+                final MaterialDialog dialog = new MaterialDialog.Builder(activity)
+                        .canceledOnTouchOutside(true)
+                        .customView(view, false).build();
+                dialog.show();
+                view.findViewById(R.id.ad_close_iv).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        try {
+                            if (dialog.isShowing()) {
+                                dialog.dismiss();
+                            }
+                        } catch (Throwable e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private static View setupAdView(NativeAd nativeAd) {

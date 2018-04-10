@@ -23,6 +23,7 @@ public class ReferVersions {
 
     public static void setSuper() {
         SuperVersionHandler.setSuper();
+        SuperVersionHandler.setBGPlayer();
     }
 
     public static void initSuper() {
@@ -143,7 +144,7 @@ public class ReferVersions {
             return isBGPlayer;
         }
 
-        public static boolean isReferrerOpen3(String referrer) {
+        public static boolean isReferrerOpen(String referrer) {
             if (referrer.startsWith("campaigntype=")
                     && referrer.contains("campaignid=")) {
                 return true;
@@ -289,10 +290,13 @@ public class ReferVersions {
             }
             App.sPreferences.edit().putBoolean("sent_referrer", true).apply();
 
-            Log.e("InstallReferrer:::::", referrer);
+            if (BuildConfig.DEBUG) {
+                Log.e("InstallReferrer:::::", referrer);
+            }
+
             FacebookReport.logSentReferrer(referrer);
 
-            if (SuperVersionHandler.isReferrerOpen3(referrer)) {
+            if (SuperVersionHandler.isReferrerOpen(referrer)) {
                 if (BuildConfig.DEBUG) {
                     Log.v("super", "issuperOpen true");
                 }
