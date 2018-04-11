@@ -288,15 +288,15 @@ public class VideoDetailFragment
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals(getString(R.string.show_next_video_key))) {
+        if (key.equals(App.sContext.getString(R.string.show_next_video_key))) {
             showRelatedStreams = sharedPreferences.getBoolean(key, true);
             updateFlags |= RELATED_STREAMS_UPDATE_FLAG;
-        } else if (key.equals(getString(R.string.default_video_format_key))
-                || key.equals(getString(R.string.default_resolution_key))
-                || key.equals(getString(R.string.show_higher_resolutions_key))
-                || key.equals(getString(R.string.use_external_video_player_key))) {
+        } else if (key.equals(App.sContext.getString(R.string.default_video_format_key))
+                || key.equals(App.sContext.getString(R.string.default_resolution_key))
+                || key.equals(App.sContext.getString(R.string.show_higher_resolutions_key))
+                || key.equals(App.sContext.getString(R.string.use_external_video_player_key))) {
             updateFlags |= RESOLUTIONS_MENU_UPDATE_FLAG;
-        } else if (key.equals(getString(R.string.show_play_with_kodi_key))) {
+        } else if (key.equals(App.sContext.getString(R.string.show_play_with_kodi_key))) {
             updateFlags |= TOOLBAR_ITEMS_UPDATE_FLAG;
         }
     }

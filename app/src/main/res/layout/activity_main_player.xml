@@ -48,6 +48,14 @@
         tools:ignore="ContentDescription"
         tools:visibility="visible"/>
 
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/music_logo_iv"
+        android:layout_centerInParent="true"
+        android:src="@drawable/music"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
     <RelativeLayout
         android:id="@+id/playQueuePanel"
         android:layout_width="match_parent"
@@ -418,11 +426,13 @@
                     android:id="@+id/youtube_icon_iv"
                     android:paddingLeft="6dp"
                     android:paddingStart="6dp"
+                    android:visibility="gone"
                     android:src="@drawable/ic_youtube_small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
         </RelativeLayout>
+
 
         <ImageButton
             android:id="@+id/playPauseButton"
@@ -435,6 +445,8 @@
             android:scaleType="fitXY"
             android:src="@drawable/ic_pause_white"
             tools:ignore="ContentDescription"/>
+
+
 
         <ImageButton
             android:id="@+id/playPreviousButton"

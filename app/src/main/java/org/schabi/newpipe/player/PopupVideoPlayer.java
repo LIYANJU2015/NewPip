@@ -178,6 +178,7 @@ public final class PopupVideoPlayer extends Service {
     //////////////////////////////////////////////////////////////////////////*/
 
     private View youtubeIconView;
+    private View musicLogoIV;
 
     @SuppressLint("RtlHardcoded")
     private void initPopup() {
@@ -186,6 +187,7 @@ public final class PopupVideoPlayer extends Service {
         playerImpl.setup(rootView);
 
         youtubeIconView = rootView.findViewById(R.id.youtube_icon);
+        musicLogoIV = rootView.findViewById(R.id.music_logo_iv);
 
         shutdownFlingVelocity = PlayerHelper.getShutdownFlingVelocity(this);
         tossFlingVelocity = PlayerHelper.getTossFlingVelocity(this);
@@ -546,6 +548,14 @@ public final class PopupVideoPlayer extends Service {
         private void updateMetadata() {
             if (activityListener != null && currentInfo != null) {
                 activityListener.onMetadataUpdate(currentInfo);
+            }
+
+            if (currentInfo != null && currentInfo.getServiceId() == 0) {
+                youtubeIconView.setVisibility(View.VISIBLE);
+                musicLogoIV.setVisibility(View.GONE);
+            } else {
+                youtubeIconView.setVisibility(View.GONE);
+                musicLogoIV.setVisibility(View.VISIBLE);
             }
         }
 

@@ -422,6 +422,9 @@ public final class MainVideoPlayer extends AppCompatActivity
             }
         }
 
+        private View youtubeIconIV;
+        private View musicLogoIV;
+
         @Override
         public void initViews(View rootView) {
             super.initViews(rootView);
@@ -461,7 +464,9 @@ public final class MainVideoPlayer extends AppCompatActivity
 
             getRootView().setKeepScreenOn(true);
 
-            rootView.findViewById(R.id.youtube_icon_iv).setOnClickListener(new View.OnClickListener(){
+            musicLogoIV = rootView.findViewById(R.id.music_logo_iv);
+            youtubeIconIV = rootView.findViewById(R.id.youtube_icon_iv);
+            youtubeIconIV.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
                     try {
@@ -554,6 +559,14 @@ public final class MainVideoPlayer extends AppCompatActivity
                 switchBackgroundButton.setVisibility(View.GONE);
             } else {
                 switchBackgroundButton.setVisibility(View.VISIBLE);
+            }
+
+            if (info != null && info.getServiceId() == 0) {
+                youtubeIconIV.setVisibility(View.VISIBLE);
+                musicLogoIV.setVisibility(View.GONE);
+            } else {
+                youtubeIconIV.setVisibility(View.GONE);
+                musicLogoIV.setVisibility(View.VISIBLE);
             }
         }
 

@@ -65,7 +65,7 @@ public abstract class MissionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.missions, container, false);
-
+        mAdFramelayout = v.findViewById(R.id.download_ad_frame);
         mPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         mLinear = mPrefs.getBoolean("linear", false);
 
