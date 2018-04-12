@@ -31,6 +31,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.ads.Ad;
 import com.facebook.ads.AdChoicesView;
 import com.facebook.ads.NativeAd;
 
@@ -187,6 +188,14 @@ public class SearchFragment
         } else {
             FacebookReport.logSentSearchPageShow("youtube");
         }
+
+        FBAdUtils.interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){
+            @Override
+            public void onInterstitialDismissed(Ad ad) {
+                super.onInterstitialDismissed(ad);
+                FBAdUtils.destoryInterstitial();
+            }
+        });
     }
 
     @Override
@@ -255,6 +264,11 @@ public class SearchFragment
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (FBAdUtils.isInterstitialLoaded()) {
+            FBAdUtils.showInterstitial();
+        }
+        FBAdUtils.destoryInterstitial();
+
         if (searchDisposable != null) searchDisposable.dispose();
         if (suggestionDisposable != null) suggestionDisposable.dispose();
         if (disposables != null) disposables.clear();

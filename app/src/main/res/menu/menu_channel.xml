@@ -11,7 +11,7 @@
 
     <item
         android:id="@+id/menu_item_rss"
-        android:icon="?attr/rss"
+        android:icon="@drawable/ic_rss_feed_white_24dp"
         android:title="@string/rss_button_title"
         android:visible="false"
         app:showAsAction="ifRoom"

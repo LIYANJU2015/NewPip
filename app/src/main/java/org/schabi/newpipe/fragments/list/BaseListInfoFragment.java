@@ -168,7 +168,19 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
     public void handleNextItems(ListExtractor.InfoItemsPage result) {
         super.handleNextItems(result);
         currentNextPageUrl = result.getNextPageUrl();
-        infoListAdapter.addInfoItemList(result.getItems());
+
+        NativeAd nativeAd = FBAdUtils.nextNativieAd();
+        if (nativeAd == null || !nativeAd.isAdLoaded()) {
+            nativeAd = FBAdUtils.getNativeAd();
+        }
+        if (nativeAd != null && nativeAd.isAdLoaded() && result.getItems().size() > 3) {
+            int offsetStart = adViewWrapperAdapter.getItemCount();
+            adViewWrapperAdapter.addAdView(offsetStart + 2, new AdViewWrapperAdapter.
+                    AdViewItem(FBAdUtils.setUpItemNativeAdView(activity, nativeAd, onSmallItem()), offsetStart + 2));
+            infoListAdapter.addInfoItemList2(result.getItems());
+        } else {
+            infoListAdapter.addInfoItemList(result.getItems());
+        }
 
         showListFooter(hasMoreItems());
     }
@@ -176,6 +188,10 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
     @Override
     protected boolean hasMoreItems() {
         return !TextUtils.isEmpty(currentNextPageUrl);
+    }
+
+    public boolean onSmallItem() {
+        return false;
     }
 
     /*//////////////////////////////////////////////////////////////////////////
@@ -206,7 +222,7 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
                 if (nativeAd != null && nativeAd.isAdLoaded() && result.getRelatedItems().size() > 3) {
                     int offsetStart = adViewWrapperAdapter.getItemCount();
                     adViewWrapperAdapter.addAdView(offsetStart + 2, new AdViewWrapperAdapter.
-                            AdViewItem(FBAdUtils.setUpItemNativeAdView(activity, nativeAd), offsetStart + 2));
+                            AdViewItem(FBAdUtils.setUpItemNativeAdView(activity, nativeAd, onSmallItem()), offsetStart + 2));
                     infoListAdapter.addInfoItemList2(result.getRelatedItems());
                 } else {
                     infoListAdapter.addInfoItemList(result.getRelatedItems());

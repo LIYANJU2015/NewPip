@@ -170,16 +170,6 @@ public class NavigationHelper {
     }
 
     public static void enqueueOnPopupPlayer(final Context context, final PlayQueue queue) {
-        if (!App.isBgPlay()) {
-            for (int i = 0; i < queue.size(); i++) {
-                PlayQueueItem playQueueItem = queue.getItem(i);
-                if (playQueueItem.getServiceId() == 0) {
-                    Toast.makeText(context, R.string.background_play_tips, Toast.LENGTH_LONG).show();
-                    return;
-                }
-            }
-        }
-
         enqueueOnPopupPlayer(context, queue, false);
     }
 

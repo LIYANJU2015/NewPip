@@ -541,7 +541,7 @@ public class VideoDetailFragment
             }
         }
 
-        FBAdUtils.interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener(){
+        FBAdUtils.interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){
             @Override
             public void onInterstitialDismissed(Ad ad) {
                 super.onInterstitialDismissed(ad);
@@ -1290,7 +1290,7 @@ public class VideoDetailFragment
                 break;
         }
 
-        if (!App.isBgPlay() && info.getServiceId() == 0) {
+        if (!App.isSuper() && info.getServiceId() == 0) {
             detailControlsBackground.setVisibility(View.GONE);
         }
 

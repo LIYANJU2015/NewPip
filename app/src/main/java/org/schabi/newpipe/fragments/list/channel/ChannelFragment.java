@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.ads.Ad;
 import com.jakewharton.rxbinding2.view.RxView;
 
 import org.schabi.newpipe.R;
@@ -43,7 +44,9 @@ import org.schabi.newpipe.playlist.SinglePlayQueue;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.subscription.SubscriptionService;
 import org.schabi.newpipe.util.AnimationUtils;
+import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.ExtractorHelper;
+import org.schabi.newpipe.util.FBAdUtils;
 import org.schabi.newpipe.util.ImageDisplayConstants;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.NavigationHelper;
@@ -118,12 +121,26 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo> {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        FBAdUtils.interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener(){
+            @Override
+            public void onInterstitialDismissed(Ad ad) {
+                super.onInterstitialDismissed(ad);
+                FBAdUtils.destoryInterstitial();
+            }
+        });
+
         return inflater.inflate(R.layout.fragment_channel, container, false);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+
+        if (FBAdUtils.isInterstitialLoaded()) {
+            FBAdUtils.showInterstitial();
+        }
+        FBAdUtils.destoryInterstitial();
+
         if (disposables != null) disposables.clear();
         if (subscribeButtonMonitor != null) subscribeButtonMonitor.dispose();
     }

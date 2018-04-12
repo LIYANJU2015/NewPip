@@ -96,6 +96,17 @@ public class MainActivity extends AppCompatActivity {
         } else {
             FacebookReport.logSentMainPageShow("soundcloud");
         }
+
+        if (App.sPreferences.getBoolean("isCanRefer", true)) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    App.sPreferences.edit().putBoolean("isCanRefer", false).apply();
+                }
+            }, 1000);
+        }
+
+        Utils.checkAndRequestPermissions(this);
     }
 
     private void setupDrawer() {
@@ -189,6 +200,8 @@ public class MainActivity extends AppCompatActivity {
         if (!isChangingConfigurations()) {
             StateSaver.clearStateFiles();
         }
+
+        FBAdUtils.loadFBAds(Constants.NATIVE_AD);
     }
 
     @Override

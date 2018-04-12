@@ -85,6 +85,11 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
         return instance;
     }
 
+    @Override
+    public boolean onSmallItem() {
+        return true;
+    }
+
     /*//////////////////////////////////////////////////////////////////////////
     // LifeCycle
     //////////////////////////////////////////////////////////////////////////*/

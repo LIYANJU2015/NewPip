@@ -295,8 +295,8 @@ public abstract class StatisticsPlaylistFragment
         for (final LocalItem item : infoItems) {
             if (item instanceof StreamStatisticsEntry) {
                 StreamStatisticsEntry entry = (StreamStatisticsEntry) item;
-                if (isBackgroundPlay) {
-                    if (entry.serviceId == 1 && !App.isBgPlay()) {
+                if (isBackgroundPlay && !App.isBgPlay()) {
+                    if (entry.serviceId == 1) {
                         streamInfoItems.add(entry.toStreamInfoItem());
                     } else {
                         isHasYoutube = true;

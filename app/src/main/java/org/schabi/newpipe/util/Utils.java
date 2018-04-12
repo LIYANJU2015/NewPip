@@ -1,11 +1,14 @@
 package org.schabi.newpipe.util;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.hardware.display.DisplayManager;
 import android.os.Build;
 import android.os.PowerManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.Display;
 import android.view.View;
@@ -15,6 +18,8 @@ import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by liyanju on 2018/4/8.
@@ -24,6 +29,37 @@ public class Utils {
 
     private static final int INVALID_VAL = -1;
     private static final int COLOR_DEFAULT = Color.parseColor("#20000000");
+
+    public static void checkAndRequestPermissions(Activity activity) {
+        try {
+            ArrayList<String> permissionList = new ArrayList<>();
+            permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            permissionList.add(Manifest.permission.READ_PHONE_STATE);
+            checkAndRequestPermissions(activity, permissionList);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void checkAndRequestPermissions(Activity activity, ArrayList<String> permissionList) {
+        ArrayList<String> list = new ArrayList<>(permissionList);
+        Iterator<String> it = list.iterator();
+        while (it.hasNext()) {
+            String permission = it.next();
+            //检查权限是否已经申请
+            int hasPermission = ContextCompat.checkSelfPermission(activity, permission);
+            if (hasPermission == PackageManager.PERMISSION_GRANTED) {
+                it.remove();
+            }
+        }
+
+        if (list.size() == 0) {
+            return;
+        }
+        String[] permissions = list.toArray(new String[0]);
+        //正式请求权限
+        ActivityCompat.requestPermissions(activity, permissions, 101);
+    }
 
     public static void setStatusColor(Activity activity) {
         int color = ServiceHelper.getSelectedServiceId(activity) == 0 ? ContextCompat.getColor(activity, R.color.light_youtube_primary_color)

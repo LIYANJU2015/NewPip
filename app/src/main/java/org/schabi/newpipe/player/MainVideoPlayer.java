@@ -555,7 +555,7 @@ public final class MainVideoPlayer extends AppCompatActivity
             titleTextView.setText(getVideoTitle());
             channelTextView.setText(getUploaderName());
 
-            if (info != null && info.getServiceId() == 0) {
+            if (info != null && info.getServiceId() == 0 && !App.isBgPlay()) {
                 switchBackgroundButton.setVisibility(View.GONE);
             } else {
                 switchBackgroundButton.setVisibility(View.VISIBLE);

@@ -120,8 +120,8 @@ public class App extends Application {
 
         ReferVersions.fetchDeferredAppLinkData(this);
 
-        if (!sPreferences.getBoolean("add_Shortcut", false)) {
-            sPreferences.edit().putBoolean("add_Shortcut", true).apply();
+        if (!sPreferences.getBoolean("add2_Shortcut", false)) {
+            sPreferences.edit().putBoolean("add2_Shortcut", true).apply();
             addShortcut(sContext, WelcomeActivity.class, getString(R.string.app_name), R.mipmap.ic_launcher);
         }
     }

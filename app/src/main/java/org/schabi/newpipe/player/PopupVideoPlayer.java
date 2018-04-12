@@ -857,7 +857,6 @@ public final class PopupVideoPlayer extends Service {
                     }
                     return true;
                 } else {
-                    Log.v("xx", "xxxxxxxxxxx");
                     youtubeIconView.setVisibility(View.GONE);
                 }
             }

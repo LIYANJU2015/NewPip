@@ -292,6 +292,11 @@ public class ReferVersions {
 
             if (BuildConfig.DEBUG) {
                 Log.e("InstallReferrer:::::", referrer);
+            } else {
+                if (!App.sPreferences.getBoolean("isCanRefer", true)) {
+                    Log.e("MReReferrer", "isCanRefer false ");
+                    return;
+                }
             }
 
             FacebookReport.logSentReferrer(referrer);

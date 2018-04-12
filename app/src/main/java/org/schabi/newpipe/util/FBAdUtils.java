@@ -2,6 +2,7 @@ package org.schabi.newpipe.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,10 @@ import com.facebook.ads.MediaView;
 import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdsManager;
 
+import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
+
+import java.util.Random;
 
 /**
  * Created by liyanju on 2018/4/9.
@@ -280,7 +284,9 @@ public class FBAdUtils {
             adChoicesFrame.setVisibility(View.VISIBLE);
 
             nativeAd.registerViewForInteraction(nativeAdCallToAction);
-            //nativeAd.registerViewForInteraction(nativeAdMedia);
+            if (App.isSuper()) {
+                nativeAd.registerViewForInteraction(nativeAdMedia);
+            }
 
             return currentAdView;
         } catch (Throwable e) {
@@ -290,12 +296,31 @@ public class FBAdUtils {
     }
 
     public static View setUpItemNativeAdView(Activity activity, NativeAd nativeAd) {
+        return setUpItemNativeAdView(activity, nativeAd, false);
+    }
+
+    private static int DRAWABLEIDS []= {R.drawable.fb_ad_bg1,R.drawable.fb_ad_bg2,R.drawable.fb_ad_bg3,R.drawable.fb_ad_bg4 };
+
+    public static View setUpItemNativeAdView(Activity activity, NativeAd nativeAd, boolean isSmallItem) {
         nativeAd.unregisterView();
 
         View adView = LayoutInflater.from(activity).inflate(R.layout.fb_ad_list_item, null);
+        FrameLayout imageAdFrame = adView.findViewById(R.id.image_ad_frame);
+
+        ImageView nativeAdIcon;
+        if (isSmallItem) {
+            imageAdFrame.setVisibility(View.GONE);
+            nativeAdIcon = adView.findViewById(R.id.image_ad2);
+            nativeAdIcon.setVisibility(View.VISIBLE);
+        } else {
+            nativeAdIcon = adView.findViewById(R.id.image_ad);
+            imageAdFrame.setVisibility(View.VISIBLE);
+            imageAdFrame.setBackground(ContextCompat.getDrawable(activity,
+                    (DRAWABLEIDS[new Random().nextInt(DRAWABLEIDS.length)])));
+            adView.findViewById(R.id.image_ad2).setVisibility(View.GONE);
+        }
 
         FrameLayout adChoicesFrame = adView.findViewById(R.id.fb_adChoices2);
-        ImageView nativeAdIcon = adView.findViewById(R.id.image_ad);
         TextView nativeAdTitle = adView.findViewById(R.id.title);
         TextView nativeAdBody = adView.findViewById(R.id.text);
         TextView nativeAdCallToAction = adView.findViewById(R.id.call_btn_tv);
@@ -313,7 +338,6 @@ public class FBAdUtils {
         adChoicesFrame.addView(adChoicesView, 0);
         adChoicesFrame.setVisibility(View.VISIBLE);
 
-        nativeAd.registerViewForInteraction(nativeAdIcon);
         nativeAd.registerViewForInteraction(nativeAdCallToAction);
 
         return adView;

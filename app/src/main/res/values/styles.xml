@@ -93,7 +93,7 @@
         <item name="clear_history">@drawable/ic_delete_sweep_white_24dp</item>
         <item name="download">@drawable/ic_file_download_white_24dp</item>
         <item name="share">@drawable/ic_share_white_24dp</item>
-        <item name="cast">@drawable/ic_cast_black_24dp</item>
+        <item name="cast">@drawable/ic_cast_white_24dp</item>
         <item name="rss">@drawable/ic_rss_feed_black_24dp</item>
         <item name="search">@drawable/ic_search_white_24dp</item>
         <item name="close">@drawable/ic_close_white_24dp</item>
