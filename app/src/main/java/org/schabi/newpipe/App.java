@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.multidex.MultiDex;
 import android.util.Log;
 
 import com.nostra13.universalimageloader.cache.memory.impl.LRULimitedMemoryCache;
@@ -73,7 +74,7 @@ public class App extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-
+        MultiDex.install(base);
     }
 
     public static boolean isSuper() {

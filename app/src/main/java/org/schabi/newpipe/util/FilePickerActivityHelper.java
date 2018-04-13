@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
 import android.support.v7.util.SortedList;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import com.nononsenseapps.filepicker.AbstractFilePickerFragment;
 import com.nononsenseapps.filepicker.FilePickerFragment;
 
+import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
 
 import java.io.File;
@@ -92,6 +94,7 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
             final View view = viewHolder.itemView.findViewById(android.R.id.text1);
             if (view instanceof TextView) {
                 ((TextView) view).setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.file_picker_items_text_size));
+                ((TextView) view).setTextColor(ContextCompat.getColor(App.sContext, R.color.black));
             }
 
             return viewHolder;

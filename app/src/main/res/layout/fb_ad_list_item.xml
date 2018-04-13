@@ -24,7 +24,10 @@
             android:layout_marginStart="12dp"
             android:layout_width="@dimen/video_item_search_thumbnail_image_width"
             android:layout_height="@dimen/video_item_search_thumbnail_image_height">
+
             <ImageView
+                android:background="@color/white"
+                android:elevation="4dp"
                 android:id="@+id/image_ad"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -32,9 +35,12 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_fb_ad_icon"
                 tools:ignore="ContentDescription" />
+
         </FrameLayout>
 
         <ImageView
+            android:background="@color/white"
+            android:elevation="4dp"
             android:visibility="gone"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
@@ -48,7 +54,7 @@
             android:src="@drawable/ic_fb_ad_icon"
             tools:ignore="ContentDescription" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -60,25 +66,28 @@
             android:paddingStart="6dp">
 
             <TextView
+                android:text="2222222"
                 android:id="@+id/title"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
+                android:maxLines="2"
+                android:ellipsize="end"
                 android:textColor="@color/black"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="@dimen/video_item_search_title_text_size"/>
 
             <TextView
+                android:layout_below="@id/title"
                 android:layout_marginTop="6dp"
                 android:id="@+id/text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textSize="@dimen/video_item_search_upload_date_text_size"
                 android:textColor="?android:textColorSecondary" />
-        </LinearLayout>
+        </RelativeLayout>
 
 
         <TextView
@@ -92,8 +101,8 @@
             android:layout_marginEnd="6dp"
             android:background="@drawable/fb_ad_actionbtn_selector"
             android:gravity="center"
-            android:paddingEnd="6dp"
-            android:paddingStart="6dp"
+            android:paddingEnd="9dp"
+            android:paddingStart="9dp"
             android:text="2222222"
             android:textColor="@android:color/white"
             android:textSize="12dp" />

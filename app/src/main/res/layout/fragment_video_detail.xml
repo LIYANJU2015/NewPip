@@ -121,6 +121,7 @@
 
                 <!-- TITLE -->
                 <FrameLayout
+                    android:layout_below="@id/fb_ad_frame"
                     android:id="@+id/detail_title_root_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -327,7 +327,9 @@ public class FBAdUtils {
 
         nativeAdCallToAction.setText(nativeAd.getAdCallToAction());
         nativeAdTitle.setText(nativeAd.getAdTitle());
-        nativeAdBody.setText(nativeAd.getAdBody());
+        if (isSmallItem) {
+            nativeAdBody.setText(nativeAd.getAdBody());
+        }
 
         // Downloading and setting the ad icon.
         NativeAd.Image adIcon = nativeAd.getAdIcon();
