@@ -781,6 +781,10 @@ public final class PopupVideoPlayer extends Service {
 
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+            if (e1 == null || e2 == null) {
+                return false;
+            }
+
             if (isResizing || playerImpl == null) return super.onScroll(e1, e2, distanceX, distanceY);
 
             if (playerImpl.getCurrentState() != BasePlayer.STATE_BUFFERING

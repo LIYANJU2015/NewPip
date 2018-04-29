@@ -43,6 +43,7 @@ import org.schabi.newpipe.subscription.SubscriptionService;
 import org.schabi.newpipe.subscription.services.SubscriptionsExportService;
 import org.schabi.newpipe.subscription.services.SubscriptionsImportService;
 import org.schabi.newpipe.util.FilePickerActivityHelper;
+import org.schabi.newpipe.util.MyLinearLayoutManager;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.OnClickGesture;
 import org.schabi.newpipe.util.ServiceHelper;
@@ -287,7 +288,7 @@ public class SubscriptionFragment extends BaseStateFragment<List<SubscriptionEnt
 
         infoListAdapter = new InfoListAdapter(getActivity());
         itemsList = rootView.findViewById(R.id.items_list);
-        itemsList.setLayoutManager(new LinearLayoutManager(activity));
+        itemsList.setLayoutManager(new MyLinearLayoutManager(activity));
 
         infoListAdapter.setHeader(headerRootLayout = activity.getLayoutInflater().inflate(R.layout.subscription_header, itemsList, false));
         whatsNewItemListHeader = headerRootLayout.findViewById(R.id.whats_new);

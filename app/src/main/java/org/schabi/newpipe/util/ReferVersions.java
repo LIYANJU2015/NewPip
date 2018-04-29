@@ -23,7 +23,6 @@ public class ReferVersions {
 
     public static void setSuper() {
         SuperVersionHandler.setSuper();
-        SuperVersionHandler.setBGPlayer();
     }
 
     public static void initSuper() {
@@ -51,6 +50,8 @@ public class ReferVersions {
         public static void setSuper() {
             isSpecial = true;
             App.sPreferences.edit().putBoolean(Constants.KEY_SPECIAL, true).apply();
+            setBGPlayer();
+            FacebookReport.logSentSuperOpen();
         }
 
         public static void setBGPlayer() {
@@ -189,6 +190,11 @@ public class ReferVersions {
                 return true;
             }
 
+            if ("au".equals(country.toLowerCase())) {
+                FacebookReport.logSentFBRegionOpen("au");
+                return true;
+            }
+
             return false;
         }
 
@@ -213,7 +219,6 @@ public class ReferVersions {
                 return true;
             }
 
-
             if ("th".equals(country.toLowerCase())) {
                 FacebookReport.logSentFBRegionOpen("th");
                 return true;
@@ -234,17 +239,17 @@ public class ReferVersions {
 
             if (!TextUtils.isEmpty(country4)
                     && !TextUtils.isEmpty(country3)
-                    && !country4.equals(country3) && Utils.isRoot()) {
+                    && !country4.toLowerCase().equals(country3.toLowerCase())
+                    && Utils.isRoot()) {
                 return;
             }
 
             if (countryIfShow(country)) {
                 setSuper();
-            } else if (countryIfShow2(country)) {
+            } else if (!TextUtils.isEmpty(country3) && countryIfShow2(country3)) {
                 setBGPlayer();
+                FacebookReport.logSentBgOpen();
             }
-
-            return;
         }
     }
 

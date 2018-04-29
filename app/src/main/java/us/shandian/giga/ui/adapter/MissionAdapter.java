@@ -97,23 +97,28 @@ public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(MissionAdapter.ViewHolder h, int pos) {
-        DownloadMission ms = mManager.getMission(pos);
-        h.mission = ms;
-        h.position = pos;
+        try {
+            DownloadMission ms = mManager.getMission(pos);
+            h.mission = ms;
+            h.position = pos;
 
-        Utility.FileType type = Utility.getFileType(ms.name);
+            Utility.FileType type = Utility.getFileType(ms.name);
 
-        h.icon.setImageResource(Utility.getIconForFileType(type));
-        h.name.setText(ms.name);
-        h.size.setText(Utility.formatBytes(ms.length));
+            h.icon.setImageResource(Utility.getIconForFileType(type));
+            h.name.setText(ms.name);
+            h.size.setText(Utility.formatBytes(ms.length));
 
-        h.progress = new ProgressDrawable(mContext, Utility.getBackgroundForFileType(type), Utility.getForegroundForFileType(type));
-        ViewCompat.setBackground(h.bkg, h.progress);
+            h.progress = new ProgressDrawable(mContext, Utility.getBackgroundForFileType(type), Utility.getForegroundForFileType(type));
+            ViewCompat.setBackground(h.bkg, h.progress);
 
-        h.observer = new MissionObserver(this, h);
-        ms.addListener(h.observer);
+            h.observer = new MissionObserver(this, h);
+            ms.addListener(h.observer);
 
-        updateProgress(h);
+            updateProgress(h);
+
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -13,6 +13,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.facebook.ads.Ad;
@@ -167,25 +169,29 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-            case R.id.action_append_playlist:
-                appendToPlaylist();
-                return true;
-            case R.id.action_settings:
-                NavigationHelper.openSettings(this);
-                redraw = true;
-                return true;
-            case R.id.action_system_audio:
-                startActivity(new Intent(Settings.ACTION_SOUND_SETTINGS));
-                return true;
-            case R.id.action_switch_main:
-                this.player.setRecovery();
-                getApplicationContext().sendBroadcast(getPlayerShutdownIntent());
-                getApplicationContext().startActivity(getSwitchIntent(MainVideoPlayer.class));
-                return true;
+        try {
+            switch (item.getItemId()) {
+                case android.R.id.home:
+                    finish();
+                    return true;
+                case R.id.action_append_playlist:
+                    appendToPlaylist();
+                    return true;
+                case R.id.action_settings:
+                    NavigationHelper.openSettings(this);
+                    redraw = true;
+                    return true;
+                case R.id.action_system_audio:
+                    startActivity(new Intent(Settings.ACTION_SOUND_SETTINGS));
+                    return true;
+                case R.id.action_switch_main:
+                    this.player.setRecovery();
+                    getApplicationContext().sendBroadcast(getPlayerShutdownIntent());
+                    getApplicationContext().startActivity(getSwitchIntent(MainVideoPlayer.class));
+                    return true;
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
         }
         return onPlayerOptionSelected(item) || super.onOptionsItemSelected(item);
     }

@@ -12,6 +12,23 @@ import org.schabi.newpipe.App;
 
 public class FacebookReport {
 
+    public static void logSentSuperOpen() {
+        AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
+        logger.logEvent("SuperOpen");
+    }
+
+    public static void logSentRating(String str) {
+        AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
+        Bundle bundle = new Bundle();
+        bundle.putString("rating", str);
+        logger.logEvent("Rating", bundle);
+    }
+
+    public static void logSentBgOpen() {
+        AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
+        logger.logEvent("PBPlayer open");
+    }
+
     public static void logSentMainPageShow(String service) {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
@@ -32,7 +49,10 @@ public class FacebookReport {
 
     public static void logSentPopupPageShow() {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
-        logger.logEvent("PopupPageShow");
+        Bundle bundle = new Bundle();
+        bundle.putString("bgPlayer", App.isBgPlay() ? "true" : "false");
+        bundle.putString("isSuper", App.isSuper() ? "true" : "false");
+        logger.logEvent("PopupPageShow", bundle);
     }
 
     public static void logSentBackgroudPlayerPageShow() {

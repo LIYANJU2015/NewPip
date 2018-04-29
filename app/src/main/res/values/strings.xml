@@ -473,4 +473,11 @@
     <string name="fb_login_protocol_scheme">fb610127239332636</string>
 
     <string name="add_download_tips">Add download succeeded</string>
+
+    <string name="rating_download_tips">Download video for you, please give me a five-star rating</string>
+
+    <string name="five_star">Five star praise</string>
+    <string name="cancel_rating">Cancel</string>
+    <string name="rating">Rating</string>
+
 </resources>

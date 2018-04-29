@@ -3,6 +3,8 @@ package us.shandian.giga.util;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
@@ -123,6 +125,26 @@ public class Utility {
                 ext = ext.substring(0, index);
             }
             return ext.toLowerCase();
+        }
+    }
+
+    public static void goToGP(Context context) {
+        final String appPackageName = context.getPackageName();
+        try {
+            Intent launchIntent = new Intent();
+            launchIntent.setPackage("com.android.vending");
+            launchIntent.setData(Uri.parse("market://details?id=" + appPackageName));
+            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(launchIntent);
+        } catch (android.content.ActivityNotFoundException anfe) {
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
 

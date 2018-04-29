@@ -102,8 +102,8 @@
         <item name="expand">@drawable/ic_expand_more_black_24dp</item>
         <item name="collapse">@drawable/ic_expand_less_black_24dp</item>
         <item name="volume_off">@drawable/ic_volume_off_black_24dp</item>
-        <item name="palette">@drawable/ic_palette_60_24dp</item>
-        <item name="language">@drawable/ic_language_60_24dp</item>
+        <item name="palette">@drawable/ic_palette_6060_24dp</item>
+        <item name="language">@drawable/ic_language_6060_24dp</item>
         <item name="history">@drawable/ic_history_black_24dp</item>
         <item name="drag_handle">@drawable/ic_drag_handle_white_24dp</item>
         <item name="selected">@drawable/ic_drag_handle_white_24dp</item>

@@ -1,8 +1,10 @@
 package org.schabi.newpipe.download;
 
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.ViewTreeObserver;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+
+import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.settings.SettingsActivity;
 import org.schabi.newpipe.util.FacebookReport;
@@ -22,6 +28,7 @@ import org.schabi.newpipe.util.Utils;
 import us.shandian.giga.service.DownloadManagerService;
 import us.shandian.giga.ui.fragment.AllMissionsFragment;
 import us.shandian.giga.ui.fragment.MissionsFragment;
+import us.shandian.giga.util.Utility;
 
 public class DownloadActivity extends AppCompatActivity {
 
@@ -60,6 +67,49 @@ public class DownloadActivity extends AppCompatActivity {
         });
 
         FacebookReport.logSentDownloadPageShow();
+
+        showRating();
+    }
+
+    private void showRating() {
+        if (isFinishing()) {
+            return;
+        }
+
+        if (App.sPreferences.getBoolean("isShowRating", false)) {
+            return;
+        }
+
+        MaterialDialog dialog = new MaterialDialog.Builder(this)
+                .canceledOnTouchOutside(true)
+                .content(R.string.rating_download_tips)
+                .positiveText(R.string.five_star)
+                .cancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        App.sPreferences.edit().putBoolean("isShowRating", true).apply();
+                    }
+                })
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        dialog.dismiss();
+                        Utility.goToGP(App.sContext);
+                        FacebookReport.logSentRating("five rating");
+                        App.sPreferences.edit().putBoolean("isShowRating", true).apply();
+                    }
+                })
+                .negativeText(R.string.cancel)
+                .onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        dialog.dismiss();
+                        FacebookReport.logSentRating("not five");
+                    }
+                })
+                .title(R.string.rating)
+                .build();
+        dialog.show();
     }
 
     private void updateFragments() {

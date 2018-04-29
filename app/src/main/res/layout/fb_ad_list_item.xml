@@ -26,7 +26,6 @@
             android:layout_height="@dimen/video_item_search_thumbnail_image_height">
 
             <ImageView
-                android:background="@color/white"
                 android:elevation="4dp"
                 android:id="@+id/image_ad"
                 android:layout_width="50dp"
