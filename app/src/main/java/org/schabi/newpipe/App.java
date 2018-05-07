@@ -174,21 +174,21 @@ public class App extends Application {
                     errors = Collections.singletonList(throwable);
                 }
 
-                for (final Throwable error : errors) {
-                    if (isThrowableIgnored(error)) return;
-                    if (isThrowableCritical(error)) {
-                        reportException(error);
-                        return;
-                    }
-                }
-
-                // Out-of-lifecycle exceptions should only be reported if a debug user wishes so,
-                // When exception is not reported, log it
-                if (isDisposedRxExceptionsReported()) {
-                    reportException(throwable);
-                } else {
-                    Log.e(TAG, "RxJavaPlugin: Undeliverable Exception received: ", throwable);
-                }
+//                for (final Throwable error : errors) {
+//                    if (isThrowableIgnored(error)) return;
+//                    if (isThrowableCritical(error)) {
+//                        reportException(error);
+//                        return;
+//                    }
+//                }
+//
+//                // Out-of-lifecycle exceptions should only be reported if a debug user wishes so,
+//                // When exception is not reported, log it
+//                if (isDisposedRxExceptionsReported()) {
+//                    reportException(throwable);
+//                } else {
+//                    Log.e(TAG, "RxJavaPlugin: Undeliverable Exception received: ", throwable);
+//                }
             }
 
             private boolean isThrowableIgnored(@NonNull final Throwable throwable) {

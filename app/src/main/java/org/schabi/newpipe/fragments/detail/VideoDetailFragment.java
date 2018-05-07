@@ -24,6 +24,7 @@ import android.text.util.Linkify;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -205,6 +206,13 @@ public class VideoDetailFragment
                 .getBoolean(getString(R.string.show_next_video_key), true);
         PreferenceManager.getDefaultSharedPreferences(activity)
                 .registerOnSharedPreferenceChangeListener(this);
+
+        if (App.isSuper() && App.sPreferences.getBoolean("showdownloadtips", true)) {
+            Toast toast = Toast.makeText(App.sContext, R.string.download_tips, Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            App.sPreferences.edit().putBoolean("showdownloadtips", false).apply();
+        }
     }
 
     @Override

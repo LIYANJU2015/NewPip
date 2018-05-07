@@ -90,13 +90,13 @@ public class ErrorActivity extends AppCompatActivity {
 
     public static void reportError(final Context context, final List<Throwable> el,
                                    final Class returnActivity, View rootView, final ErrorInfo errorInfo) {
-        if (rootView != null) {
-            Snackbar.make(rootView, R.string.error_snackbar_message, 15 * 1000)
-                    .setActionTextColor(Color.YELLOW)
-                    .show();
-        } else {
-            startErrorActivity(returnActivity, context, errorInfo, el);
-        }
+//        if (rootView != null) {
+//            Snackbar.make(rootView, R.string.error_snackbar_message, 15 * 1000)
+//                    .setActionTextColor(Color.YELLOW)
+//                    .show();
+//        } else {
+//            startErrorActivity(returnActivity, context, errorInfo, el);
+//        }
     }
 
     private static void startErrorActivity(Class returnActivity, Context context, ErrorInfo errorInfo, List<Throwable> el) {

@@ -41,6 +41,9 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
 
     @Override
     public void onBackPressed() {
+        if (currentFragment == null) {
+            return;
+        }
         // If at top most level, normal behaviour
         if (currentFragment.isBackTop()) {
             super.onBackPressed();

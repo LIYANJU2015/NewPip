@@ -234,8 +234,10 @@ public final class PopupVideoPlayer extends Service {
     private NotificationCompat.Builder createNotification() {
         notRemoteView = new RemoteViews(BuildConfig.APPLICATION_ID, R.layout.player_popup_notification);
 
-        notRemoteView.setTextViewText(R.id.notificationSongName, playerImpl.getVideoTitle());
-        notRemoteView.setTextViewText(R.id.notificationArtist, playerImpl.getUploaderName());
+        if (playerImpl != null) {
+            notRemoteView.setTextViewText(R.id.notificationSongName, playerImpl.getVideoTitle());
+            notRemoteView.setTextViewText(R.id.notificationArtist, playerImpl.getUploaderName());
+        }
 
         notRemoteView.setOnClickPendingIntent(R.id.notificationPlayPause,
                 PendingIntent.getBroadcast(this, NOTIFICATION_ID, new Intent(ACTION_PLAY_PAUSE), PendingIntent.FLAG_UPDATE_CURRENT));
@@ -249,7 +251,9 @@ public final class PopupVideoPlayer extends Service {
         notRemoteView.setOnClickPendingIntent(R.id.notificationContent,
                 PendingIntent.getActivity(this, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT));
 
-        setRepeatModeRemote(notRemoteView, playerImpl.getRepeatMode());
+        if (playerImpl != null) {
+            setRepeatModeRemote(notRemoteView, playerImpl.getRepeatMode());
+        }
 
         return new NotificationCompat.Builder(this, getString(R.string.notification_channel_id))
                 .setOngoing(true)
@@ -785,32 +789,39 @@ public final class PopupVideoPlayer extends Service {
                 return false;
             }
 
-            if (isResizing || playerImpl == null) return super.onScroll(e1, e2, distanceX, distanceY);
+            try {
+                if (isResizing || playerImpl == null)
+                    return super.onScroll(e1, e2, distanceX, distanceY);
 
-            if (playerImpl.getCurrentState() != BasePlayer.STATE_BUFFERING
-                    && (!isMoving || playerImpl.getControlsRoot().getAlpha() != 1f)) playerImpl.showControls(0);
-            isMoving = true;
+                if (playerImpl.getCurrentState() != BasePlayer.STATE_BUFFERING
+                        && (!isMoving || playerImpl.getControlsRoot().getAlpha() != 1f))
+                    playerImpl.showControls(0);
+                isMoving = true;
 
-            float diffX = (int) (e2.getRawX() - e1.getRawX()), posX = (int) (initialPopupX + diffX);
-            float diffY = (int) (e2.getRawY() - e1.getRawY()), posY = (int) (initialPopupY + diffY);
+                float diffX = (int) (e2.getRawX() - e1.getRawX()), posX = (int) (initialPopupX + diffX);
+                float diffY = (int) (e2.getRawY() - e1.getRawY()), posY = (int) (initialPopupY + diffY);
 
-            if (posX > (screenWidth - popupWidth)) posX = (int) (screenWidth - popupWidth);
-            else if (posX < 0) posX = 0;
+                if (posX > (screenWidth - popupWidth)) posX = (int) (screenWidth - popupWidth);
+                else if (posX < 0) posX = 0;
 
-            if (posY > (screenHeight - popupHeight)) posY = (int) (screenHeight - popupHeight);
-            else if (posY < 0) posY = 0;
+                if (posY > (screenHeight - popupHeight)) posY = (int) (screenHeight - popupHeight);
+                else if (posY < 0) posY = 0;
 
-            windowLayoutParams.x = (int) posX;
-            windowLayoutParams.y = (int) posY;
+                windowLayoutParams.x = (int) posX;
+                windowLayoutParams.y = (int) posY;
 
-            //noinspection PointlessBooleanExpression
-            if (DEBUG && false) Log.d(TAG, "PopupVideoPlayer.onScroll = " +
-                    ", e1.getRaw = [" + e1.getRawX() + ", " + e1.getRawY() + "]" +
-                    ", e2.getRaw = [" + e2.getRawX() + ", " + e2.getRawY() + "]" +
-                    ", distanceXy = [" + distanceX + ", " + distanceY + "]" +
-                    ", posXy = [" + posX + ", " + posY + "]" +
-                    ", popupWh = [" + popupWidth + " x " + popupHeight + "]");
-            windowManager.updateViewLayout(playerImpl.getRootView(), windowLayoutParams);
+                //noinspection PointlessBooleanExpression
+                if (DEBUG && false) Log.d(TAG, "PopupVideoPlayer.onScroll = " +
+                        ", e1.getRaw = [" + e1.getRawX() + ", " + e1.getRawY() + "]" +
+                        ", e2.getRaw = [" + e2.getRawX() + ", " + e2.getRawY() + "]" +
+                        ", distanceXy = [" + distanceX + ", " + distanceY + "]" +
+                        ", posXy = [" + posX + ", " + posY + "]" +
+                        ", popupWh = [" + popupWidth + " x " + popupHeight + "]");
+                windowManager.updateViewLayout(playerImpl.getRootView(), windowLayoutParams);
+            } catch (Throwable e) {
+                e.printStackTrace();
+                return false;
+            }
             return true;
         }
 

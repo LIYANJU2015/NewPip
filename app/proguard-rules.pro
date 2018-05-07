@@ -16,7 +16,6 @@
 #   public *;
 #}
 
--dontobfuscate
 -keep class org.mozilla.javascript.** { *; }
 
 -keep class org.mozilla.classfile.ClassFileWriter
@@ -34,7 +33,7 @@
 -keepclasseswithmembernames class * {
     @icepick.* <fields>;
 }
--keepnames class * { @icepick.State *;}
+#-keepnames class * { @icepick.State *;}
 
 # Rules for OkHttp. Copy paste from https://github.com/square/okhttp
 -dontwarn okhttp3.**
@@ -45,3 +44,49 @@
 
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
+
+-dontwarn android.support.**
+
+-ignorewarning
+
+-keep class com.facebook.fresco.** {*;}
+-keep interface com.facebook.fresco.** {*;}
+-keep enum com.facebook.fresco.** {*;}
+
+-keep class com.facebook.** {*;}
+-keep interface com.facebook.** {*;}
+-keep enum com.facebook.** {*;}
+
+# Retrofit
+-keep class retrofit2.** { *; }
+-dontwarn retrofit2.**
+-keepattributes Signature
+-keepattributes Exceptions
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+
+# Gson
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class sun.misc.Unsafe { *; }
+-keep class com.google.gson.stream.** { *; }
+# 使用Gson时需要配置Gson的解析对象及变量都不混淆。不然Gson会找不到变量。
+# 将下面替换成自己的实体类
+-keep class org.schabi.newpipe.api.** { *; }
+
+-dontwarn sun.misc.**
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+    long producerIndex;
+    long consumerIndex;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode producerNode;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+-dontnote rx.internal.util.PlatformDependent
+
+-keep class com.google.** {*;}
+-keep interface com.google.** {*;}
+-keep enum com.google.** {*;}

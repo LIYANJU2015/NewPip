@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
     // Activity's LifeCycle
     //////////////////////////////////////////////////////////////////////////*/
 
+    private Handler mHandler = new Handler();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (DEBUG) Log.d(TAG, "onCreate() called with: savedInstanceState = [" + savedInstanceState + "]");
@@ -105,10 +107,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (App.sPreferences.getBoolean("isCanRefer", true)) {
-            new Handler().postDelayed(new Runnable() {
+            mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     App.sPreferences.edit().putBoolean("isCanRefer", false).apply();
+                    if (drawer != null && !isFinishing()) {
+                        drawer.openDrawer(GravityCompat.START);
+                    }
                 }
             }, 1000);
         }
@@ -207,6 +212,8 @@ public class MainActivity extends AppCompatActivity {
         if (!isChangingConfigurations()) {
             StateSaver.clearStateFiles();
         }
+
+        mHandler.removeCallbacksAndMessages(null);
 
         FBAdUtils.loadFBAds(Constants.NATIVE_AD);
     }
