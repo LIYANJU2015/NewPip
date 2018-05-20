@@ -64,7 +64,7 @@ public class AdViewWrapperAdapter extends RecyclerView.Adapter<RecyclerView.View
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return 0;
+        return -1;
     }
 
     public int getAdViewCountBeforeByPostion(int postion) {
@@ -92,7 +92,6 @@ public class AdViewWrapperAdapter extends RecyclerView.Adapter<RecyclerView.View
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (mADViews.get(viewType) != null) {
             return ViewHolder.createViewHolder(parent.getContext(), mADViews.get(viewType).adView);
-
         }
         return mInnerAdapter.onCreateViewHolder(parent, viewType);
     }

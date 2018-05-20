@@ -26,7 +26,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -37,16 +36,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
+import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
+import com.github.amlcurran.showcaseview.ShowcaseView;
+import com.github.amlcurran.showcaseview.targets.ViewTarget;
 
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.StreamingService;
@@ -63,8 +63,7 @@ import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.StateSaver;
 import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.util.Utils;
-
-import us.shandian.giga.util.Utility;
+import org.schabi.newpipe.views.CaseViewViewTarget;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -98,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.toolbar));
         setupDrawer();
 
-        FBAdUtils.showAdDialog(this, Constants.NATIVE_AD);
-
         if (ServiceHelper.getSelectedServiceId(this) == 0) {
             FacebookReport.logSentMainPageShow("youtube");
         } else {
@@ -111,14 +108,55 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     App.sPreferences.edit().putBoolean("isCanRefer", false).apply();
-                    if (drawer != null && !isFinishing()) {
-                        drawer.openDrawer(GravityCompat.START);
-                    }
                 }
             }, 1000);
+            showCaseView();
+        } else {
+            Utils.checkAndRequestPermissions(MainActivity.this);
+            FBAdUtils.showAdDialog(this, Constants.NATIVE_AD);
         }
+    }
 
-        Utils.checkAndRequestPermissions(this);
+    private void showCaseView() {
+        ViewTarget target = CaseViewViewTarget
+                .navigationButtonViewTarget(findViewById(R.id.toolbar));
+        if (target != null) {
+            String contentText;
+            if (App.isSuper()) {
+                contentText = getString(R.string.left_menu_tip_des2);
+            } else {
+                contentText = getString(R.string.left_menu_tip_des1);
+            }
+            new ShowcaseView.Builder(this)
+                    .setTarget(new CaseViewViewTarget(target))
+                    .setContentTitle(R.string.left_menu_tip_title)
+                    .setContentText(contentText)
+                    .hideOnTouchOutside()
+                    .setStyle(R.style.CustomShowcaseTheme)
+                    .setShowcaseEventListener(new OnShowcaseEventListener() {
+                        @Override
+                        public void onShowcaseViewHide(ShowcaseView showcaseView) {
+                            Log.v(TAG, "onShowcaseViewHide");
+                            Utils.checkAndRequestPermissions(MainActivity.this);
+                            FBAdUtils.showAdDialog(MainActivity.this, Constants.NATIVE_AD);
+                        }
+
+                        @Override
+                        public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+                        }
+
+                        @Override
+                        public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                        }
+
+                        @Override
+                        public void onShowcaseViewTouchBlocked(MotionEvent motionEvent) {
+
+                        }
+                    })
+                    .build();
+        }
     }
 
     private void setupDrawer() {

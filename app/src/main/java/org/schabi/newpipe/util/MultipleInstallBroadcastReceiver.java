@@ -3,6 +3,7 @@ package org.schabi.newpipe.util;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 
 /**
  * Created by liyanju on 2018/4/9.

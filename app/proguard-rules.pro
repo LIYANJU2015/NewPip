@@ -15,7 +15,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
+-dontobfuscate
 -keep class org.mozilla.javascript.** { *; }
 
 -keep class org.mozilla.classfile.ClassFileWriter

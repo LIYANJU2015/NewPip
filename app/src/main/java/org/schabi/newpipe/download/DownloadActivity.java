@@ -16,10 +16,13 @@ import android.view.ViewTreeObserver;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.facebook.ads.Ad;
 
 import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.settings.SettingsActivity;
+import org.schabi.newpipe.util.Constants;
+import org.schabi.newpipe.util.FBAdUtils;
 import org.schabi.newpipe.util.FacebookReport;
 import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.ThemeHelper;
@@ -68,48 +71,27 @@ public class DownloadActivity extends AppCompatActivity {
 
         FacebookReport.logSentDownloadPageShow();
 
-        showRating();
+        FBAdUtils.interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){
+            @Override
+            public void onInterstitialDismissed(Ad ad) {
+                super.onInterstitialDismissed(ad);
+                FBAdUtils.destoryInterstitial();
+            }
+        });
     }
 
-    private void showRating() {
-        if (isFinishing()) {
-            return;
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        try {
+            if (FBAdUtils.isInterstitialLoaded()) {
+                FBAdUtils.showInterstitial();
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        } finally {
+            FBAdUtils.destoryInterstitial();
         }
-
-        if (App.sPreferences.getBoolean("isShowRating", false)) {
-            return;
-        }
-
-        MaterialDialog dialog = new MaterialDialog.Builder(this)
-                .canceledOnTouchOutside(true)
-                .content(R.string.rating_download_tips)
-                .positiveText(R.string.five_star)
-                .cancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        App.sPreferences.edit().putBoolean("isShowRating", true).apply();
-                    }
-                })
-                .onPositive(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        dialog.dismiss();
-                        Utility.goToGP(App.sContext);
-                        FacebookReport.logSentRating("five rating");
-                        App.sPreferences.edit().putBoolean("isShowRating", true).apply();
-                    }
-                })
-                .negativeText(R.string.cancel)
-                .onNegative(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        dialog.dismiss();
-                        FacebookReport.logSentRating("not five");
-                    }
-                })
-                .title(R.string.rating)
-                .build();
-        dialog.show();
     }
 
     private void updateFragments() {

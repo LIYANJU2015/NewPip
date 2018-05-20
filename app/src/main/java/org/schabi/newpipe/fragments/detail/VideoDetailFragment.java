@@ -44,12 +44,16 @@ import android.widget.Toast;
 
 import com.facebook.ads.Ad;
 import com.facebook.ads.NativeAd;
+import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
+import com.github.amlcurran.showcaseview.ShowcaseView;
+import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.nirhart.parallaxscroll.views.ParallaxScrollView;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import org.schabi.newpipe.App;
+import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.ReCaptchaActivity;
 import org.schabi.newpipe.download.DownloadDialog;
@@ -86,6 +90,8 @@ import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.OnClickGesture;
 import org.schabi.newpipe.util.PermissionHelper;
 import org.schabi.newpipe.util.ThemeHelper;
+import org.schabi.newpipe.util.Utils;
+import org.schabi.newpipe.views.CaseViewViewTarget;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -224,6 +230,17 @@ public class VideoDetailFragment
     public void onPause() {
         super.onPause();
         if (currentWorker != null) currentWorker.dispose();
+    }
+
+    private void showCaseView() {
+        App.sPreferences.edit().putBoolean("isShowCaseView", true).apply();
+        new ShowcaseView.Builder(activity)
+                .setTarget(new CaseViewViewTarget(new ViewTarget(detailControlsDownload)))
+                .setContentTitle(R.string.download_caseview_title_tips)
+                .setContentText(R.string.download_caseview_tips)
+                .hideOnTouchOutside()
+                .setStyle(R.style.CustomShowcaseTheme)
+                .build();
     }
 
     @Override
@@ -637,8 +654,12 @@ public class VideoDetailFragment
             final ImageLoadingListener onFailListener = new SimpleImageLoadingListener() {
                 @Override
                 public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-                    showSnackBarError(failReason.getCause(), UserAction.LOAD_IMAGE,
-                            infoServiceName, imageUri, R.string.could_not_load_thumbnails);
+                    try {
+                        showSnackBarError(failReason.getCause(), UserAction.LOAD_IMAGE,
+                                infoServiceName, imageUri, R.string.could_not_load_thumbnails);
+                    } catch (Throwable e) {
+                        e.printStackTrace();
+                    }
                 }
             };
 
@@ -1284,6 +1305,8 @@ public class VideoDetailFragment
             default:
                 if (!App.isSuper()) {
                     detailControlsDownload.setVisibility(View.GONE);
+                } else if (!App.sPreferences.getBoolean("isShowCaseView", false)) {
+                    showCaseView();
                 }
 
                 if (!info.getVideoStreams().isEmpty()

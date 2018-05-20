@@ -20,8 +20,10 @@ import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.schabi.newpipe.App;
 import org.schabi.newpipe.BaseFragment;
 import org.schabi.newpipe.R;
+import org.schabi.newpipe.download.DownloadActivity;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.ServiceList;
 import org.schabi.newpipe.extractor.StreamingService;
@@ -107,6 +109,16 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
         if (DEBUG) Log.d(TAG, "onCreateOptionsMenu() called with: menu = [" + menu + "], inflater = [" + inflater + "]");
         inflater.inflate(R.menu.main_fragment_menu, menu);
         SubMenu kioskMenu = menu.addSubMenu(Menu.NONE, Menu.NONE, 200, getString(R.string.kiosk));
+        if (App.isSuper()) {
+            menu.add(Menu.NONE, Menu.NONE, 200, R.string.download)
+                    .setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            NavigationHelper.openDownloads(activity);
+                            return false;
+                        }
+                    });
+        }
         try {
             createKioskMenu(kioskMenu, inflater);
         } catch (Exception e) {

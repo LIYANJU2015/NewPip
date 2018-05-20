@@ -320,7 +320,7 @@ public class NavigationHelper {
         defaultTransaction(fragmentManager)
                 .replace(R.id.fragment_holder, new MainFragment())
                 .addToBackStack(MAIN_FRAGMENT_TAG)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     public static boolean tryGotoSearchFragment(FragmentManager fragmentManager) {
@@ -337,7 +337,7 @@ public class NavigationHelper {
         defaultTransaction(fragmentManager)
                 .replace(R.id.fragment_holder, SearchFragment.getInstance(serviceId, query))
                 .addToBackStack(SEARCH_FRAGMENT_TAG)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     public static void openVideoDetailFragment(FragmentManager fragmentManager, int serviceId, String url, String title) {
@@ -361,7 +361,7 @@ public class NavigationHelper {
         defaultTransaction(fragmentManager)
                 .replace(R.id.fragment_holder, instance)
                 .addToBackStack(null)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     public static void openChannelFragment(FragmentManager fragmentManager, int serviceId, String url, String name) {
@@ -369,7 +369,7 @@ public class NavigationHelper {
         defaultTransaction(fragmentManager)
                 .replace(R.id.fragment_holder, ChannelFragment.getInstance(serviceId, url, name))
                 .addToBackStack(null)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     public static void openPlaylistFragment(FragmentManager fragmentManager, int serviceId, String url, String name) {
@@ -377,14 +377,14 @@ public class NavigationHelper {
         defaultTransaction(fragmentManager)
                 .replace(R.id.fragment_holder, PlaylistFragment.getInstance(serviceId, url, name))
                 .addToBackStack(null)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     public static void openWhatsNewFragment(FragmentManager fragmentManager) {
         defaultTransaction(fragmentManager)
                 .replace(R.id.fragment_holder, new FeedFragment())
                 .addToBackStack(null)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     public static void openKioskFragment(FragmentManager fragmentManager, int serviceId, String kioskId) throws ExtractionException {
@@ -399,28 +399,28 @@ public class NavigationHelper {
         defaultTransaction(fragmentManager)
                 .replace(R.id.fragment_holder, LocalPlaylistFragment.getInstance(playlistId, name))
                 .addToBackStack(null)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     public static void openLastPlayedFragment(FragmentManager fragmentManager) {
         defaultTransaction(fragmentManager)
                 .replace(R.id.fragment_holder, new LastPlayedFragment())
                 .addToBackStack(null)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     public static void openMostPlayedFragment(FragmentManager fragmentManager) {
         defaultTransaction(fragmentManager)
                 .replace(R.id.fragment_holder, new MostPlayedFragment())
                 .addToBackStack(null)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     public static void openSubscriptionsImportFragment(FragmentManager fragmentManager, int serviceId) {
         defaultTransaction(fragmentManager)
                 .replace(R.id.fragment_holder, SubscriptionsImportFragment.getInstance(serviceId))
                 .addToBackStack(null)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     /*//////////////////////////////////////////////////////////////////////////

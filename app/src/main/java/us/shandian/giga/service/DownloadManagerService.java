@@ -19,6 +19,9 @@ import android.support.v4.content.PermissionChecker;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.rating.RatingActivity;
+
+import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.download.DownloadActivity;
 import org.schabi.newpipe.settings.NewPipeSettings;
@@ -129,6 +132,17 @@ public class DownloadManagerService extends Service {
             }
         };
 
+        RatingActivity.setRatingClickListener(new RatingActivity.RatingClickListener() {
+            @Override
+            public void onClickFiveStart() {
+                FacebookReport.logSentRating("five star");
+            }
+
+            @Override
+            public void onClickReject() {
+                FacebookReport.logSentRating("no star");
+            }
+        });
     }
 
     private void startMissionAsync(final String url, final String location, final String name,
@@ -233,6 +247,8 @@ public class DownloadManagerService extends Service {
             postUpdateMessage();
             notifyMediaScanner(downloadMission);
             FacebookReport.logSentDownloadFinish(downloadMission.name);
+
+            RatingActivity.launch(App.sContext, "", App.sContext.getString(R.string.download_rating));
         }
 
         @Override

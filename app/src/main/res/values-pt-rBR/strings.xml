@@ -425,4 +425,7 @@ abrir em modo popup</string>
     <string name="import_network_expensive_warning">Tenha em mente que esta operação poderá usar bastante a conexão com a internet.
 \n
 \nVocê deseja continuar?</string>
+
+
+    <string name="download_rating">Para Baixar um vídeo, por favor, dê - me Cinco elogios</string>
 </resources>

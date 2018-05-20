@@ -482,4 +482,13 @@
 
     <string name="download_tips">You can download your favorite video audio</string>
 
+    <string name="left_menu_tip_title">Left Menu</string>
+    <string name="left_menu_tip_des1">Switch YouTube and SoundCloud videos</string>
+    <string name="left_menu_tip_des2">Toggle YouTube and SoundCloud videos, download pages</string>
+
+    <string name="download_caseview_tips">Click to download favorite video</string>
+    <string name="download_caseview_title_tips">Download</string>
+
+    <string name="download_rating">For you to download a video, please give me five stars.</string>
+
 </resources>

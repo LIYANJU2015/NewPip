@@ -1,15 +1,15 @@
-NewPipe contribution guidelines
+TubeGo contribution guidelines
 ===============================
 
 PLEASE READ THESE GUIDELINES CAREFULLY BEFORE ANY CONTRIBUTION!
 
 ## Crash reporting
 
-Do not report crashes in the GitHub issue tracker. NewPipe has an automated crash report system that will ask you to send a report via e-mail when a crash occurs. This contains all the data we need for debugging, and allows you to even add a comment to it. You'll see exactly what is sent, the system is 100% transparent.
+Do not report crashes in the GitHub issue tracker. TubeGo has an automated crash report system that will ask you to send a report via e-mail when a crash occurs. This contains all the data we need for debugging, and allows you to even add a comment to it. You'll see exactly what is sent, the system is 100% transparent.
 
 ## Issue reporting/feature requests
 
-* Search the [existing issues](https://github.com/TeamNewPipe/NewPipe/issues) first to make sure your issue/feature hasn't been reported/requested before
+* Search the [existing issues](https://github.com/TeamTubeGo/TubeGo/issues) first to make sure your issue/feature hasn't been reported/requested before
 * Check whether your issue/feature is already fixed/implemented
 * Check if the issue still exists in the latest release/beta version
 * If you are an Android/Java developer, you are always welcome to fix/implement an issue/a feature yourself. PRs welcome!
@@ -17,15 +17,15 @@ Do not report crashes in the GitHub issue tracker. NewPipe has an automated cras
 * Please only add *one* issue at a time. Do not put multiple issues into one thread.
 
 ## Bug Fixing
-* If you want to help NewPipe to become free of bugs (this is our utopic goal for NewPipe), you can send us an email to tnp@newpipe.schabi.org to let me know that you intend to help. We'll send you further instructions. You may, on request, register at our [Sentry](https://sentry.schabi.org) instance (see section "Crash reporting" for more information.
+* If you want to help TubeGo to become free of bugs (this is our utopic goal for TubeGo), you can send us an email to tnp@TubeGo.schabi.org to let me know that you intend to help. We'll send you further instructions. You may, on request, register at our [Sentry](https://sentry.schabi.org) instance (see section "Crash reporting" for more information.
 
 ## Translation
 
-* NewPipe can be translated via [Weblate](https://hosted.weblate.org/projects/newpipe/strings/). You can log in there with your GitHub account.
+* TubeGo can be translated via [Weblate](https://hosted.weblate.org/projects/TubeGo/strings/). You can log in there with your GitHub account.
 
 ## Code contribution
 
-* Stick to NewPipe's style conventions (well, just look the other code and then do it the same way :))
+* Stick to TubeGo's style conventions (well, just look the other code and then do it the same way :))
 * Do not bring non-free software (e.g., binary blobs) into the project. Also, make sure you do not introduce Google libraries.
 * Stick to [F-Droid contribution guidelines](https://f-droid.org/wiki/page/Inclusion_Policy)
 * Make changes on a separate branch, not on the master branch. This is commonly known as *feature branch workflow*. You may then send your changes as a pull request on GitHub. Patches to the email address mentioned in this document might not be considered, GitHub is the primary platform.
@@ -40,7 +40,7 @@ Do not report crashes in the GitHub issue tracker. NewPipe has an automated cras
 
 ## Communication
 
-* WE DO NOW HAVE A MAILING LIST: [newpipe@list.schabi.org](https://list.schabi.org/cgi-bin/mailman/listinfo/newpipe).
-* There is an IRC channel on Freenode which is regularly visited by the core team and other developers: [#newpipe](irc:irc.freenode.net/newpipe). [Click here for Webchat](https://webchat.freenode.net/?channels=newpipe)!
+* WE DO NOW HAVE A MAILING LIST: [TubeGo@list.schabi.org](https://list.schabi.org/cgi-bin/mailman/listinfo/TubeGo).
+* There is an IRC channel on Freenode which is regularly visited by the core team and other developers: [#TubeGo](irc:irc.freenode.net/TubeGo). [Click here for Webchat](https://webchat.freenode.net/?channels=TubeGo)!
 * If you want to get in touch with the core team or one of our other contributors you can send an email to tnp(at)schabi.org. Please do not send issue reports, they will be ignored and remain unanswered! Use the GitHub issue tracker described above!
 * Feel free to post suggestions, changes, ideas etc. on GitHub, IRC or the mailing list!
