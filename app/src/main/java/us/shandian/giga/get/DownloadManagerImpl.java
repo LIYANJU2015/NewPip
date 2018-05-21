@@ -345,7 +345,7 @@ public class DownloadManagerImpl implements DownloadManager {
                 af.close();
 
                 mission.start();
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 e.printStackTrace();
             }
         }
