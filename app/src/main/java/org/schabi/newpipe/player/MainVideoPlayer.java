@@ -722,8 +722,12 @@ public final class MainVideoPlayer extends AppCompatActivity
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
-            super.onStopTrackingTouch(seekBar);
-            if (wasPlaying()) showControlsThenHide();
+            try {
+                super.onStopTrackingTouch(seekBar);
+                if (wasPlaying()) showControlsThenHide();
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
         }
 
         @Override

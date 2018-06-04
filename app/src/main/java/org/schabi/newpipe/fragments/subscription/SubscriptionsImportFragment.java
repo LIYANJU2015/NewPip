@@ -129,7 +129,11 @@ public class SubscriptionsImportFragment extends BaseFragment {
             if (TextUtils.isEmpty(relatedUrl)) {
                 setInfoText(getString(instructionsString));
             } else {
-                setInfoText(getString(instructionsString, relatedUrl));
+                try {
+                    setInfoText(getString(instructionsString, relatedUrl));
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
             }
         } else {
             setInfoText("");

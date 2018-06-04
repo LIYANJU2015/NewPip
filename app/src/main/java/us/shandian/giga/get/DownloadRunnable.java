@@ -28,7 +28,13 @@ public class DownloadRunnable implements Runnable {
     @Override
     public void run() {
         boolean retry = mMission.recovered;
-        long position = mMission.getPosition(mId);
+        long position;
+        try {
+            position = mMission.getPosition(mId);
+        } catch (Throwable e) {
+            e.printStackTrace();
+            return;
+        }
 
         if (DEBUG) {
             Log.d(TAG, mId + ":default pos " + position);

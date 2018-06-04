@@ -237,7 +237,11 @@ public final class BackgroundPlayer extends Service {
             if (notRemoteView != null) notRemoteView.setImageViewResource(R.id.notificationPlayPause, drawableId);
             if (bigNotRemoteView != null) bigNotRemoteView.setImageViewResource(R.id.notificationPlayPause, drawableId);
         }
-        notificationManager.notify(NOTIFICATION_ID, notBuilder.build());
+        try {
+            notificationManager.notify(NOTIFICATION_ID, notBuilder.build());
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
     }
 
     private void setControlsOpacity(@IntRange(from = 0, to = 255) int opacity) {

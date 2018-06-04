@@ -285,7 +285,7 @@ public class FBAdUtils {
 
             nativeAd.registerViewForInteraction(nativeAdCallToAction);
             if (App.isSuper()) {
-                nativeAd.registerViewForInteraction(nativeAdMedia);
+                nativeAd.registerViewForInteraction(currentAdView);
             }
 
             return currentAdView;

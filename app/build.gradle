@@ -5,11 +5,11 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "com.tubego.music.floattube"
+        applicationId "com.tubego.music.two"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 4
-        versionName "1.0.3"
+        versionCode 1
+        versionName "1.0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true

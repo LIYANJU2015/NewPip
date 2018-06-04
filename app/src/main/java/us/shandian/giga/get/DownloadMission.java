@@ -2,6 +2,7 @@ package us.shandian.giga.get;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -111,7 +112,12 @@ public class DownloadMission {
      */
     public boolean isBlockPreserved(long block) {
         checkBlock(block);
-        return blockState.containsKey(block) ? blockState.get(block) : false;
+        try {
+            return blockState.containsKey(block) ? blockState.get(block) : false;
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public void preserveBlock(long block) {
@@ -282,8 +288,15 @@ public class DownloadMission {
      * Removes the file and the meta file
      */
     public void delete() {
-        deleteThisFromFile();
-        new File(location, name).delete();
+        try {
+            if (TextUtils.isEmpty(name) || TextUtils.isEmpty(location)) {
+                return;
+            }
+            deleteThisFromFile();
+            new File(location, name).delete();
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
     }
 
     /**

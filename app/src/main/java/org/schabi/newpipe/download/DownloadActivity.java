@@ -100,7 +100,7 @@ public class DownloadActivity extends AppCompatActivity {
         getFragmentManager().beginTransaction()
                 .replace(R.id.frame, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
