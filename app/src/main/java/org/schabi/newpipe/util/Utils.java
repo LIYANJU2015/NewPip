@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.PowerManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,13 @@ public class Utils {
 
     private static final int INVALID_VAL = -1;
     private static final int COLOR_DEFAULT = Color.parseColor("#20000000");
+
+    public static DisplayMetrics getMetrics(Activity activity) {
+        Display display = activity.getWindowManager().getDefaultDisplay();
+        DisplayMetrics metrics = new DisplayMetrics();
+        display.getMetrics(metrics);
+        return metrics;
+    }
 
     public static void checkAndRequestPermissions(Activity activity) {
         try {

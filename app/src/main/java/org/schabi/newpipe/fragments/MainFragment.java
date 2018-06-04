@@ -55,6 +55,8 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     private static final String FALLBACK_KIOSK_ID = "Trending";
     private static final int KIOSK_MENU_OFFSET = 2000;
 
+    private TabLayout tabLayout;
+
     /*//////////////////////////////////////////////////////////////////////////
     // Fragment's LifeCycle
     //////////////////////////////////////////////////////////////////////////*/
@@ -75,7 +77,7 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     protected void initViews(View rootView, Bundle savedInstanceState) {
         super.initViews(rootView, savedInstanceState);
 
-        TabLayout tabLayout = rootView.findViewById(R.id.main_tab_layout);
+        tabLayout = rootView.findViewById(R.id.main_tab_layout);
         viewPager = rootView.findViewById(R.id.pager);
 
         /*  Nested fragment, use child fragment here to maintain backstack in view pager. */
@@ -85,17 +87,13 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
 
         tabLayout.setupWithViewPager(viewPager);
 
-        int channelIcon = ThemeHelper.resolveResourceIdFromAttr(activity, R.attr.ic_channel);
-        int whatsHotIcon = ThemeHelper.resolveResourceIdFromAttr(activity, R.attr.ic_hot);
-        int bookmarkIcon = ThemeHelper.resolveResourceIdFromAttr(activity, R.attr.ic_bookmark);
-
         if (isSubscriptionsPageOnlySelected()) {
-            tabLayout.getTabAt(0).setIcon(channelIcon);
-            tabLayout.getTabAt(1).setIcon(bookmarkIcon);
+            tabLayout.getTabAt(0).setIcon(R.drawable.channel_tab_selector);
+            tabLayout.getTabAt(1).setIcon(R.drawable.bookmark_tab_selector);
         } else {
-            tabLayout.getTabAt(0).setIcon(whatsHotIcon);
-            tabLayout.getTabAt(1).setIcon(channelIcon);
-            tabLayout.getTabAt(2).setIcon(bookmarkIcon);
+            tabLayout.getTabAt(0).setIcon(R.drawable.hot_tab_selector);
+            tabLayout.getTabAt(1).setIcon(R.drawable.channel_tab_selector);
+            tabLayout.getTabAt(2).setIcon(R.drawable.bookmark_tab_selector);
         }
     }
 
@@ -172,7 +170,7 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
             switch (position) {
                 case 0:
                     return isSubscriptionsPageOnlySelected() ? new SubscriptionFragment() : getMainPageFragment();
-                case 1:
+                case 2:
                     if(PreferenceManager.getDefaultSharedPreferences(getActivity())
                             .getString(getString(R.string.main_page_content_key), getString(R.string.blank_page_key))
                             .equals(getString(R.string.subscription_page_key))) {
@@ -180,7 +178,7 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
                     } else {
                         return new SubscriptionFragment();
                     }
-                case 2:
+                case 1:
                     return new BookmarkFragment();
                 default:
                     return new BlankFragment();

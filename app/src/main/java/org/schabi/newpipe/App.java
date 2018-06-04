@@ -70,6 +70,8 @@ public class App extends Application {
 
     public static final String DEEPLINK = "tube_go://player/12345";
 
+    public static boolean sIsCoolLaunch = false;
+
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -98,6 +100,9 @@ public class App extends Application {
             // You should not init your app in this process.
             return;
         }
+
+        sIsCoolLaunch = true;
+
         refWatcher = installLeakCanary();
         sContext = this;
         sPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -123,7 +128,7 @@ public class App extends Application {
 
         if (!sPreferences.getBoolean("add2_Shortcut", false)) {
             sPreferences.edit().putBoolean("add2_Shortcut", true).apply();
-            addShortcut(sContext, WelcomeActivity.class, getString(R.string.app_name), R.mipmap.ic_launcher);
+            addShortcut(sContext, SplashActivity.class, getString(R.string.app_name), R.mipmap.ic_launcher);
         }
     }
 

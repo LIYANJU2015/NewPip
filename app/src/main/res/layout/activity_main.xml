@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context="org.schabi.newpipe.MainActivity">
+
         <FrameLayout
             android:id="@+id/fragment_holder"
             android:layout_width="match_parent"
@@ -19,6 +20,7 @@
             android:layout_marginTop="?attr/actionBarSize" />
 
         <include layout="@layout/toolbar_layout" />
+
     </FrameLayout>
 
     <include layout="@layout/drawer_layout"/>

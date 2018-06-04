@@ -314,8 +314,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
-            finish();
-        } else super.onBackPressed();
+            moveTaskToBack(true);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     /**
