@@ -67,7 +67,7 @@ public class ErrorActivity extends AppCompatActivity {
     public static final String ERROR_INFO = "error_info";
     public static final String ERROR_LIST = "error_list";
 
-    public static final String ERROR_EMAIL_ADDRESS = "crashreport@newpipe.schabi.org";
+    public static final String ERROR_EMAIL_ADDRESS = "";
     public static final String ERROR_EMAIL_SUBJECT = "Exception in NewPipe " + BuildConfig.VERSION_NAME;
     private String[] errorList;
     private ErrorInfo errorInfo;

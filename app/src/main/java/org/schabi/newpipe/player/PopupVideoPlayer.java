@@ -88,14 +88,14 @@ public final class PopupVideoPlayer extends Service {
     private static final String TAG = ".PopupVideoPlayer";
     private static final boolean DEBUG = BasePlayer.DEBUG;
 
-    private static final int NOTIFICATION_ID = 40028922;
-    public static final String ACTION_CLOSE = "org.schabi.newpipe.player.PopupVideoPlayer.CLOSE";
-    public static final String ACTION_PLAY_PAUSE = "org.schabi.newpipe.player.PopupVideoPlayer.PLAY_PAUSE";
-    public static final String ACTION_REPEAT = "org.schabi.newpipe.player.PopupVideoPlayer.REPEAT";
+    private static final int NOTIFICATION_ID = 40124822;
+    public static final String ACTION_CLOSE = "com.playtube.plus.player.PopupVideoPlayer.CLOSE";
+    public static final String ACTION_PLAY_PAUSE = "com.playtube.plus.player.PopupVideoPlayer.PLAY_PAUSE";
+    public static final String ACTION_REPEAT = "com.playtube.plus.player.PopupVideoPlayer.REPEAT";
 
-    private static final String POPUP_SAVED_WIDTH = "popup_saved_width";
-    private static final String POPUP_SAVED_X = "popup_saved_x";
-    private static final String POPUP_SAVED_Y = "popup_saved_y";
+    private static final String POPUP_SAVED_WIDTH = "popup2_saved2_width";
+    private static final String POPUP_SAVED_X = "popup2_saved2_x";
+    private static final String POPUP_SAVED_Y = "popup2_saved2_y";
 
     private static final int MINIMUM_SHOW_EXTRA_WIDTH_DP = 300;
 
@@ -137,7 +137,7 @@ public final class PopupVideoPlayer extends Service {
 
         lockManager = new LockManager(this);
         playerImpl = new VideoPlayerImpl(this);
-
+        setTheme(R.style.DarkTheme);
         mBinder = new PlayerServiceBinder(playerImpl);
     }
 

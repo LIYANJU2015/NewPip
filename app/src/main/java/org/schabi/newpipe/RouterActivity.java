@@ -359,7 +359,7 @@ public class RouterActivity extends AppCompatActivity {
     public static class FetcherService extends IntentService {
 
         private static final int ID = 456;
-        public static final String KEY_CHOICE = "key_choice";
+        public static final String KEY_CHOICE = "key_lschoice";
         private Disposable fetcher;
 
         public FetcherService() {

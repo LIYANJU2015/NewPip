@@ -50,7 +50,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class StateSaver {
     private static final ConcurrentHashMap<String, Queue<Object>> stateObjectsHolder = new ConcurrentHashMap<>();
     private static final String TAG = "StateSaver";
-    private static final String CACHE_DIR_NAME = "state_cache";
+    private static final String CACHE_DIR_NAME = "castate_cache";
 
     public static final String KEY_SAVED_STATE = "key_saved_state";
     private static String cacheDirPath;

@@ -64,13 +64,13 @@ public final class BackgroundPlayer extends Service {
     private static final String TAG = "BackgroundPlayer";
     private static final boolean DEBUG = BasePlayer.DEBUG;
 
-    public static final String ACTION_CLOSE = "org.schabi.newpipe.player.BackgroundPlayer.CLOSE";
-    public static final String ACTION_PLAY_PAUSE = "org.schabi.newpipe.player.BackgroundPlayer.PLAY_PAUSE";
-    public static final String ACTION_REPEAT = "org.schabi.newpipe.player.BackgroundPlayer.REPEAT";
-    public static final String ACTION_PLAY_NEXT = "org.schabi.newpipe.player.BackgroundPlayer.ACTION_PLAY_NEXT";
-    public static final String ACTION_PLAY_PREVIOUS = "org.schabi.newpipe.player.BackgroundPlayer.ACTION_PLAY_PREVIOUS";
-    public static final String ACTION_FAST_REWIND = "org.schabi.newpipe.player.BackgroundPlayer.ACTION_FAST_REWIND";
-    public static final String ACTION_FAST_FORWARD = "org.schabi.newpipe.player.BackgroundPlayer.ACTION_FAST_FORWARD";
+    public static final String ACTION_CLOSE = "com.playtube.plus.player.BackgroundPlayer.CLOSE";
+    public static final String ACTION_PLAY_PAUSE = "com.playtube.plus.player.BackgroundPlayer.PLAY_PAUSE";
+    public static final String ACTION_REPEAT = "com.playtube.plus.player.BackgroundPlayer.REPEAT";
+    public static final String ACTION_PLAY_NEXT = "com.playtube.plus.player.BackgroundPlayer.ACTION_PLAY_NEXT";
+    public static final String ACTION_PLAY_PREVIOUS = "com.playtube.plus.player.BackgroundPlayer.ACTION_PLAY_PREVIOUS";
+    public static final String ACTION_FAST_REWIND = "com.playtube.plus.player.BackgroundPlayer.ACTION_FAST_REWIND";
+    public static final String ACTION_FAST_FORWARD = "com.playtube.plus.player.BackgroundPlayer.ACTION_FAST_FORWARD";
 
     public static final String SET_IMAGE_RESOURCE_METHOD = "setImageResource";
 

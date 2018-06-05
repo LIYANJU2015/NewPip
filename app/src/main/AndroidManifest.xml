@@ -92,7 +92,7 @@
             android:noHistory="true"
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
-                <action android:name="info.guardianproject.panic.action.TRIGGER"/>
+                <action android:name="info.2guardianproject.2panic.action.TRIGGER"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>

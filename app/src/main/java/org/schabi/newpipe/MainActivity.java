@@ -86,11 +86,11 @@ public class MainActivity extends AppCompatActivity {
             FacebookReport.logSentMainPageShow("soundcloud");
         }
 
-        if (App.sPreferences.getBoolean("isCanRefer", true)) {
-            mHandler.postDelayed(new Runnable() {
+        if (App.sPreferences.getBoolean("canRefer", true)) {
+            Utils.runUIThreadDelay(new Runnable() {
                 @Override
                 public void run() {
-                    App.sPreferences.edit().putBoolean("isCanRefer", false).apply();
+                    App.sPreferences.edit().putBoolean("canRefer", false).apply();
                 }
             }, 1000);
             showCaseView();

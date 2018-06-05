@@ -60,6 +60,10 @@ public class Utils {
         sHandler.post(runnable);
     }
 
+    public static void runUIThreadDelay(Runnable runnable, long delay) {
+        sHandler.postDelayed(runnable, delay);
+    }
+
     public static DisplayMetrics getMetrics(Activity activity) {
         Display display = activity.getWindowManager().getDefaultDisplay();
         DisplayMetrics metrics = new DisplayMetrics();

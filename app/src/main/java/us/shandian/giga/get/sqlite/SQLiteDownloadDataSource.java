@@ -22,7 +22,7 @@ import static us.shandian.giga.get.sqlite.DownloadMissionSQLiteHelper.MISSIONS_T
  */
 public class SQLiteDownloadDataSource implements DownloadDataSource {
 
-    private static final String TAG = "DownloadDataSourceImpl";
+    private static final String TAG = "DataSourceImpl";
     private final DownloadMissionSQLiteHelper downloadMissionSQLiteHelper;
 
     public SQLiteDownloadDataSource(Context context) {

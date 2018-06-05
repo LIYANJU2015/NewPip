@@ -27,7 +27,7 @@ import android.os.Bundle;
 
 public class PanicResponderActivity extends Activity {
 
-    public static final String PANIC_TRIGGER_ACTION = "info.guardianproject.panic.action.TRIGGER";
+    public static final String PANIC_TRIGGER_ACTION = "info.2guardianproject.2panic.action.TRIGGER";
 
     @SuppressLint("NewApi")
     @Override

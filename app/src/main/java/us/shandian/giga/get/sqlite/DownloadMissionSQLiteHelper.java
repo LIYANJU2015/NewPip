@@ -17,13 +17,13 @@ public class DownloadMissionSQLiteHelper extends SQLiteOpenHelper {
     private final String TAG = "DownloadMissionHelper";
 
     // TODO: use NewPipeSQLiteHelper ('s constants) when playlist branch is merged (?)
-    private static final String DATABASE_NAME = "downloads.db";
+    private static final String DATABASE_NAME = "appsuper.db";
 
     private static final int DATABASE_VERSION = 2;
     /**
      * The table name of download missions
      */
-    static final String MISSIONS_TABLE_NAME = "download_missions";
+    static final String MISSIONS_TABLE_NAME = "app_video";
 
     /**
      * The key to the directory location of the mission

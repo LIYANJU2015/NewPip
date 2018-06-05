@@ -68,8 +68,6 @@ public class App extends Application {
 
     public static Context sContext;
 
-    public static final String DEEPLINK = "tube_go://player/12345";
-
     public static boolean sIsCoolLaunch = false;
 
 

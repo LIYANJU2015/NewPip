@@ -58,8 +58,8 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class NavigationHelper {
-    public static final String MAIN_FRAGMENT_TAG = "main_fragment_tag";
-    public static final String SEARCH_FRAGMENT_TAG = "search_fragment_tag";
+    public static final String MAIN_FRAGMENT_TAG = "main_2fragment_tag";
+    public static final String SEARCH_FRAGMENT_TAG = "search_2fragment_tag";
 
     /*//////////////////////////////////////////////////////////////////////////
     // Players

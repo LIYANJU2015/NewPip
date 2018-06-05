@@ -46,10 +46,10 @@ public class DownloadManagerService extends Service {
      */
     private static final int UPDATE_MESSAGE = 0;
     private static final int NOTIFICATION_ID = 1000;
-    private static final String EXTRA_NAME = "DownloadManagerService.extra.name";
-    private static final String EXTRA_LOCATION = "DownloadManagerService.extra.location";
-    private static final String EXTRA_IS_AUDIO = "DownloadManagerService.extra.is_audio";
-    private static final String EXTRA_THREADS = "DownloadManagerService.extra.threads";
+    private static final String EXTRA_NAME = "ManagerService.extra.name";
+    private static final String EXTRA_LOCATION = "ManagerService.extra.location";
+    private static final String EXTRA_IS_AUDIO = "ManagerService.extra.is_audio";
+    private static final String EXTRA_THREADS = "ManagerService.extra.threads";
 
 
     private DMBinder mBinder;
