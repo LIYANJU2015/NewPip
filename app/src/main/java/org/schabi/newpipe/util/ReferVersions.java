@@ -37,10 +37,6 @@ public class ReferVersions {
         AppLinkDataHandler.fetchDeferredAppLinkData(context);
     }
 
-    public static MultipleReferrerReceiverHandler createInstallReferrerReceiverHandler() {
-        return new MultipleReferrerReceiverHandler();
-    }
-
     public static class SuperVersionHandler {
 
         private static volatile boolean isSpecial = false;
@@ -204,13 +200,18 @@ public class ReferVersions {
                 return true;
             }
 
+            if ("in".equals(country.toLowerCase())) {
+                FacebookReport.logSentFBRegionOpen("in");
+                return true;
+            }
+
             if ("br".equals(country.toLowerCase())) {
                 FacebookReport.logSentFBRegionOpen("br");
                 return true;
             }
 
-            if ("in".equals(country.toLowerCase())) {
-                FacebookReport.logSentFBRegionOpen("in");
+            if ("th".equals(country.toLowerCase())) {
+                FacebookReport.logSentFBRegionOpen("th");
                 return true;
             }
 
@@ -219,10 +220,7 @@ public class ReferVersions {
                 return true;
             }
 
-            if ("th".equals(country.toLowerCase())) {
-                FacebookReport.logSentFBRegionOpen("th");
-                return true;
-            }
+
 
             return false;
         }
@@ -246,9 +244,13 @@ public class ReferVersions {
 
             if (countryIfShow(country)) {
                 setSuper();
-            } else if (!TextUtils.isEmpty(country3) && countryIfShow2(country3)) {
+                return;
+            }
+
+            if (!TextUtils.isEmpty(country3) && countryIfShow2(country3)) {
                 setBGPlayer();
                 FacebookReport.logSentBgOpen();
+                return;
             }
         }
     }
@@ -278,46 +280,6 @@ public class ReferVersions {
 //                            }
 //                        });
 //            }
-        }
-    }
-
-    public static class MultipleReferrerReceiverHandler {
-
-        public void onHandleIntent(Context context, Intent intent) {
-            String referrer = intent.getStringExtra("referrer");
-            if (referrer == null) {
-                return;
-            }
-
-            boolean result = App.sPreferences.getBoolean("sent_referrer", false);
-            if (result) {
-                return;
-            }
-            App.sPreferences.edit().putBoolean("sent_referrer", true).apply();
-
-            if (BuildConfig.DEBUG) {
-                Log.e("InstallReferrer:::::", referrer);
-            } else {
-                if (!App.sPreferences.getBoolean("canRefer", true)) {
-                    Log.e("MReReferrer", "canRefer false ");
-                    return;
-                }
-            }
-
-            FacebookReport.logSentReferrer(referrer);
-
-            if (SuperVersionHandler.isReferrerOpen(referrer)) {
-                if (BuildConfig.DEBUG) {
-                    Log.v("super", "issuperOpen true");
-                }
-                FacebookReport.logSentOpenSuper("google_admob");
-                setSuper();
-            } else {
-                SuperVersionHandler.countryIfShow(context);
-            }
-
-            FacebookReport.logSentUserInfo(SuperVersionHandler.getSimCountry(context),
-                    SuperVersionHandler.getPhoneCountry(context));
         }
     }
 }

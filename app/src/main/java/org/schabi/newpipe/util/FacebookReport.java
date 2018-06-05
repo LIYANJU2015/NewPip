@@ -14,19 +14,19 @@ public class FacebookReport {
 
     public static void logSentSuperOpen() {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
-        logger.logEvent("SuperOpen");
+        logger.logEvent("logSuperOpen");
     }
 
     public static void logSentRating(String str) {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
         bundle.putString("rating", str);
-        logger.logEvent("Rating", bundle);
+        logger.logEvent("logRating", bundle);
     }
 
     public static void logSentBgOpen() {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
-        logger.logEvent("PBPlayer open");
+        logger.logEvent("logBackgroudPlayer open");
     }
 
     public static void logSentMainPageShow(String service) {
@@ -35,84 +35,78 @@ public class FacebookReport {
         bundle.putString("service", service);
         bundle.putString("bgPlayer", App.isBgPlay() ? "true" : "false");
         bundle.putString("isSuper", App.isSuper() ? "true" : "false");
-        logger.logEvent("MainPageShow", bundle);
+        logger.logEvent("logMainPageShow", bundle);
     }
 
     public static void logSentSearchPageShow(String service) {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
         bundle.putString("service", service);
-        bundle.putString("bgPlayer", App.isBgPlay() ? "true" : "false");
-        bundle.putString("isSuper", App.isSuper() ? "true" : "false");
-        logger.logEvent("SearchPageShow", bundle);
+        bundle.putString("backgPlayer", App.isBgPlay() ? "true" : "false");
+        bundle.putString("isfater", App.isSuper() ? "true" : "false");
+        logger.logEvent("logSearchPageShow", bundle);
     }
 
     public static void logSentPopupPageShow() {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
-        bundle.putString("bgPlayer", App.isBgPlay() ? "true" : "false");
-        bundle.putString("isSuper", App.isSuper() ? "true" : "false");
-        logger.logEvent("PopupPageShow", bundle);
+        bundle.putString("backgPlayer", App.isBgPlay() ? "true" : "false");
+        bundle.putString("isfaster", App.isSuper() ? "true" : "false");
+        logger.logEvent("logPopupPageShow", bundle);
     }
 
     public static void logSentBackgroudPlayerPageShow() {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
-        logger.logEvent("BackgroudPlayerShow");
+        logger.logEvent("logBackgroudPlayerShow");
     }
 
     public static void logSentDownloadPageShow() {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
-        logger.logEvent("DownloadPageShow");
+        logger.logEvent("logDownloadPageShow");
     }
 
     public static void logSentStartDownload(String title) {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
         bundle.putString("title", title);
-        logger.logEvent("StartDownload", bundle);
+        logger.logEvent("logStartDownload", bundle);
     }
 
     public static void logSentDownloadFinish(String title) {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
         bundle.putString("title", title);
-        logger.logEvent("DownloadFinish", bundle);
+        logger.logEvent("logDownloadFinish", bundle);
     }
 
     public static void logSentFBRegionOpen(String region) {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
-        bundle.putString("region", region);
-        logger.logEvent("SentFBRegionOpen",bundle);
+        bundle.putString("area", region);
+        logger.logEvent("logSentFBRegionOpen",bundle);
     }
 
     public static void logSentUserInfo(String simCode, String phoneCode) {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
-        bundle.putString("sim_country", simCode);
-        bundle.putString("phone_country", phoneCode);
+        bundle.putString("sim_ct", simCode);
+        bundle.putString("phone_ct", phoneCode);
         bundle.putString("phone_type", android.os.Build.MODEL);
-        logger.logEvent("sentUserInfo",bundle);
+        logger.logEvent("logSentUserInfo",bundle);
     }
 
-    public static void logSentFBDeepLink(String deepLink) {
-        AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
-        Bundle bundle = new Bundle();
-        bundle.putString("deepLink", deepLink);
-        logger.logEvent("SentFBDeepLink",bundle);
-    }
 
     public static void logSentReferrer(String Referrer) {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
         bundle.putString("referrer", Referrer);
-        logger.logEvent("SentReferrer",bundle);
+        logger.logEvent("logSentReferrer",bundle);
     }
 
     public static void logSentOpenSuper(String source) {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
-        bundle.putString("from_source", source);
-        logger.logEvent("SentOpenSuper",bundle);
+        bundle.putString("from", source);
+        logger.logEvent("logSentOpenSuper",bundle);
     }
 }

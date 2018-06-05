@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/black"
+    android:elevation="4dp"
     android:gravity="center"
     tools:layout_height="84dp"
     tools:layout_width="@dimen/popup_minimum_width">
