@@ -74,7 +74,6 @@ import org.schabi.newpipe.util.ListHelper;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.PermissionHelper;
 import org.schabi.newpipe.util.StateSaver;
-import org.schabi.newpipe.util.ThemeHelper;
 
 import java.util.List;
 import java.util.Queue;
@@ -116,7 +115,7 @@ public final class MainVideoPlayer extends AppCompatActivity
         super.onCreate(savedInstanceState);
         if (DEBUG) Log.d(TAG, "onCreate() called with: savedInstanceState = [" + savedInstanceState + "]");
         defaultPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        ThemeHelper.setTheme(this);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) getWindow().setStatusBarColor(Color.BLACK);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 

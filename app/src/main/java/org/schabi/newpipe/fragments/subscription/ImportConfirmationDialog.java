@@ -10,7 +10,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.util.ThemeHelper;
 
 import icepick.Icepick;
 import icepick.State;
@@ -34,7 +33,7 @@ public class ImportConfirmationDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        return new AlertDialog.Builder(getContext(), ThemeHelper.getDialogTheme(getContext()))
+        return new AlertDialog.Builder(getContext(), R.style.LightDialogTheme)
                 .setMessage(R.string.import_network_expensive_warning)
                 .setCancelable(true)
                 .setNegativeButton(R.string.cancel, null)

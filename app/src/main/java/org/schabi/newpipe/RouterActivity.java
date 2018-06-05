@@ -40,7 +40,6 @@ import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.PermissionHelper;
-import org.schabi.newpipe.util.ThemeHelper;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -56,8 +55,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.schabi.newpipe.util.ThemeHelper.resolveResourceIdFromAttr;
 
 /**
  * Get the url from the intent and open it in the chosen preferred player
@@ -90,9 +87,7 @@ public class RouterActivity extends AppCompatActivity {
             }
         }
 
-        setTheme(ThemeHelper.isLightThemeSelected(this)
-                ? R.style.RouterActivityThemeLight
-                : R.style.RouterActivityThemeDark);
+        setTheme(R.style.RouterActivityThemeDark);
     }
 
     @Override
@@ -188,22 +183,17 @@ public class RouterActivity extends AppCompatActivity {
 
     private void showDialog() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        final ContextThemeWrapper themeWrapper = new ContextThemeWrapper(this,
-                ThemeHelper.isLightThemeSelected(this) ? R.style.LightTheme : R.style.DarkTheme);
+        final ContextThemeWrapper themeWrapper = new ContextThemeWrapper(this, R.style.DarkTheme);
 
         LayoutInflater inflater = LayoutInflater.from(themeWrapper);
         final LinearLayout rootLayout = (LinearLayout) inflater.inflate(R.layout.preferred_player_dialog_view, null, false);
         final RadioGroup radioGroup = rootLayout.findViewById(android.R.id.list);
 
         final AdapterChoiceItem[] choices = {
-                new AdapterChoiceItem(getString(R.string.show_info_key), getString(R.string.show_info),
-                        resolveResourceIdFromAttr(themeWrapper, R.attr.info)),
-                new AdapterChoiceItem(getString(R.string.video_player_key), getString(R.string.video_player),
-                        resolveResourceIdFromAttr(themeWrapper, R.attr.play)),
-                new AdapterChoiceItem(getString(R.string.background_player_key), getString(R.string.background_player),
-                        resolveResourceIdFromAttr(themeWrapper, R.attr.audio)),
-                new AdapterChoiceItem(getString(R.string.popup_player_key), getString(R.string.popup_player),
-                        resolveResourceIdFromAttr(themeWrapper, R.attr.popup))
+                new AdapterChoiceItem(getString(R.string.show_info_key), getString(R.string.show_info), R.attr.info),
+                new AdapterChoiceItem(getString(R.string.video_player_key), getString(R.string.video_player),R.attr.play),
+                new AdapterChoiceItem(getString(R.string.background_player_key), getString(R.string.background_player), R.attr.audio),
+                new AdapterChoiceItem(getString(R.string.popup_player_key), getString(R.string.popup_player),R.attr.popup)
         };
 
         final DialogInterface.OnClickListener dialogButtonsClickListener = (dialog, which) -> {

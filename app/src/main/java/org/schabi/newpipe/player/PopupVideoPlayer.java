@@ -70,7 +70,6 @@ import org.schabi.newpipe.player.old.PlayVideoActivity;
 import org.schabi.newpipe.playlist.PlayQueueItem;
 import org.schabi.newpipe.util.ListHelper;
 import org.schabi.newpipe.util.NavigationHelper;
-import org.schabi.newpipe.util.ThemeHelper;
 
 import java.util.List;
 
@@ -138,7 +137,6 @@ public final class PopupVideoPlayer extends Service {
 
         lockManager = new LockManager(this);
         playerImpl = new VideoPlayerImpl(this);
-        ThemeHelper.setTheme(this);
 
         mBinder = new PlayerServiceBinder(playerImpl);
     }

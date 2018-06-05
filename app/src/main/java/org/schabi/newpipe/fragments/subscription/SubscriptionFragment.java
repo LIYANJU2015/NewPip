@@ -5,8 +5,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
@@ -15,7 +13,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -47,14 +44,12 @@ import org.schabi.newpipe.util.MyLinearLayoutManager;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.OnClickGesture;
 import org.schabi.newpipe.util.ServiceHelper;
-import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.views.CollapsibleView;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -210,10 +205,9 @@ public class SubscriptionFragment extends BaseStateFragment<List<SubscriptionEnt
     }
 
     private void setupImportFromItems(final ViewGroup listHolder) {
-        final View previousBackupItem = addItemView(getString(R.string.previous_export), ThemeHelper.resolveResourceIdFromAttr(getContext(), R.attr.ic_backup), listHolder);
+        final View previousBackupItem = addItemView(getString(R.string.previous_export), R.drawable.ic_backup_black_24dp, listHolder);
         previousBackupItem.setOnClickListener(item -> onImportPreviousSelected());
 
-        final int iconColor = ThemeHelper.isLightThemeSelected(getContext()) ? Color.BLACK : Color.WHITE;
         final String[] services = getResources().getStringArray(R.array.service_list);
         for (String serviceName : services) {
             try {
@@ -237,7 +231,7 @@ public class SubscriptionFragment extends BaseStateFragment<List<SubscriptionEnt
     }
 
     private void setupExportToItems(final ViewGroup listHolder) {
-        final View previousBackupItem = addItemView(getString(R.string.file), ThemeHelper.resolveResourceIdFromAttr(getContext(), R.attr.ic_save), listHolder);
+        final View previousBackupItem = addItemView(getString(R.string.file), R.drawable.ic_save_black_24dp, listHolder);
         previousBackupItem.setOnClickListener(item -> onExportSelected());
     }
 

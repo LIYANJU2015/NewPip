@@ -35,7 +35,7 @@ import static org.schabi.newpipe.database.Migrations.DB_VER_12_0;
 )
 public abstract class AppDatabase extends RoomDatabase {
 
-    public static final String DATABASE_NAME = "newpipe.db";
+    public static final String DATABASE_NAME = "playtube.db";
 
     public abstract SubscriptionDAO subscriptionDAO();
 

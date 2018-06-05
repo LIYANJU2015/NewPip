@@ -14,7 +14,6 @@ import android.view.MenuItem;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.util.ServiceHelper;
-import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.util.Utils;
 
 
@@ -46,7 +45,7 @@ public class SettingsActivity extends AppCompatActivity implements BasePreferenc
 
     @Override
     protected void onCreate(Bundle savedInstanceBundle) {
-        setTheme(ThemeHelper.getSettingsThemeStyle(this));
+//        setTheme(ThemeHelper.getSettingsThemeStyle(this));
 
         super.onCreate(savedInstanceBundle);
         setContentView(R.layout.settings_layout);

@@ -51,7 +51,6 @@ import org.schabi.newpipe.player.helper.PlayerHelper;
 import org.schabi.newpipe.playlist.PlayQueueItem;
 import org.schabi.newpipe.util.ListHelper;
 import org.schabi.newpipe.util.NavigationHelper;
-import org.schabi.newpipe.util.ThemeHelper;
 
 import static org.schabi.newpipe.player.helper.PlayerHelper.getTimeString;
 
@@ -108,7 +107,6 @@ public final class BackgroundPlayer extends Service {
         notificationManager = ((NotificationManager) getSystemService(NOTIFICATION_SERVICE));
         lockManager = new LockManager(this);
 
-        ThemeHelper.setTheme(this);
         basePlayerImpl = new BasePlayerImpl(this);
         basePlayerImpl.setup();
 

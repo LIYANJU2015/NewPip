@@ -85,7 +85,6 @@ import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.OnClickGesture;
 import org.schabi.newpipe.util.PermissionHelper;
-import org.schabi.newpipe.util.ThemeHelper;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -227,9 +226,11 @@ public class VideoDetailFragment
         if (currentWorker != null) currentWorker.dispose();
     }
 
+    private MaterialShowcaseView showcaseView;
+
     private void showCaseView() {
         App.sPreferences.edit().putBoolean("isShowCaseView", true).apply();
-        new MaterialShowcaseView.Builder(activity)
+        showcaseView = new MaterialShowcaseView.Builder(activity)
                 .setTarget(detailControlsDownload)
                 .setDismissText(R.string.got_it)
                 .setTitleText(R.string.download_caseview_title_tips)
@@ -290,6 +291,10 @@ public class VideoDetailFragment
             e.printStackTrace();
         } finally {
             FBAdUtils.get().destoryInterstitial();
+        }
+
+        if (showcaseView != null && showcaseView.isShown()) {
+            showcaseView.hide();
         }
     }
 
@@ -475,7 +480,7 @@ public class VideoDetailFragment
             relatedStreamsView.removeViews(initialCount,
                     relatedStreamsView.getChildCount() - (initialCount));
             relatedStreamExpandButton.setImageDrawable(ContextCompat.getDrawable(
-                    activity, ThemeHelper.resolveResourceIdFromAttr(activity, R.attr.expand)));
+                    activity, R.drawable.ic_expand_more_black_24dp));
             return;
         }
 
@@ -486,8 +491,7 @@ public class VideoDetailFragment
             relatedStreamsView.addView(infoItemBuilder.buildView(relatedStreamsView, item));
         }
         relatedStreamExpandButton.setImageDrawable(
-                ContextCompat.getDrawable(activity,
-                        ThemeHelper.resolveResourceIdFromAttr(activity, R.attr.collapse)));
+                ContextCompat.getDrawable(activity,R.drawable.ic_expand_less_black_24dp));
     }
 
     /*//////////////////////////////////////////////////////////////////////////
@@ -699,7 +703,7 @@ public class VideoDetailFragment
             relatedStreamExpandButton.setVisibility(View.VISIBLE);
 
             relatedStreamExpandButton.setImageDrawable(ContextCompat.getDrawable(
-                    activity, ThemeHelper.resolveResourceIdFromAttr(activity, R.attr.expand)));
+                    activity,  R.drawable.ic_expand_more_black_24dp));
         } else {
             if (info.getNextVideo() == null) relatedStreamRootLayout.setVisibility(View.GONE);
             relatedStreamExpandButton.setVisibility(View.GONE);

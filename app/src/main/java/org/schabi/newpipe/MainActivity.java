@@ -27,6 +27,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -47,7 +48,6 @@ import org.schabi.newpipe.util.FacebookReport;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.StateSaver;
-import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.util.Utils;
 
 import uk.co.deanwild.materialshowcaseview.IShowcaseListener;
@@ -66,9 +66,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (DEBUG) Log.d(TAG, "onCreate() called with: savedInstanceState = [" + savedInstanceState + "]");
-
-        ThemeHelper.setTheme(this, ServiceHelper.getSelectedServiceId(this));
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Utils.setStatusColor(this);
@@ -76,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportFragmentManager() != null && getSupportFragmentManager().getBackStackEntryCount() == 0) {
             initFragments();
         }
+
+        int color = ServiceHelper.getSelectedServiceId(this) == 0 ? ContextCompat.getColor(this, R.color.light_youtube_primary_color)
+                : ContextCompat.getColor(this, R.color.light_soundcloud_primary_color);
+        findViewById(R.id.toolbar).setBackgroundColor(color);
 
         setSupportActionBar(findViewById(R.id.toolbar));
 
@@ -99,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private MaterialShowcaseView showcaseView;
+
     private void showCaseView() {
         String contentText;
         if (App.isSuper()) {
@@ -111,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         morePlaceView.post(new Runnable() {
             @Override
             public void run() {
-                new MaterialShowcaseView.Builder(MainActivity.this)
+                showcaseView = new MaterialShowcaseView.Builder(MainActivity.this)
                         .setTarget(findViewById(R.id.more_place_view))
                         .setDismissText(R.string.got_it)
                         .setContentText(contentText)
@@ -145,6 +148,10 @@ public class MainActivity extends AppCompatActivity {
         mHandler.removeCallbacksAndMessages(null);
 
         FBAdUtils.get().loadFBAds(Constants.NATIVE_AD);
+
+        if (showcaseView != null && showcaseView.isShown()) {
+            showcaseView.hide();
+        }
     }
 
     @Override
