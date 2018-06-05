@@ -141,11 +141,11 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
         bind();
 
         if (App.isBgPlay()) {
-            FBAdUtils.interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener() {
+            FBAdUtils.get().interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener() {
                 @Override
                 public void onInterstitialDismissed(Ad ad) {
                     super.onInterstitialDismissed(ad);
-                    FBAdUtils.destoryInterstitial();
+                    FBAdUtils.get().destoryInterstitial();
                 }
             });
         }
@@ -203,13 +203,13 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
 
         if (App.isBgPlay()) {
             try {
-                if (FBAdUtils.isInterstitialLoaded()) {
-                    FBAdUtils.showInterstitial();
+                if (FBAdUtils.get().isInterstitialLoaded()) {
+                    FBAdUtils.get().showInterstitial();
                 }
             } catch (Throwable e) {
                 e.printStackTrace();
             } finally {
-                FBAdUtils.destoryInterstitial();
+                FBAdUtils.get().destoryInterstitial();
             }
         }
     }

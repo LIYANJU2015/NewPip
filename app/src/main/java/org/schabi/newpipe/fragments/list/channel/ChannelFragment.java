@@ -121,11 +121,11 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo> {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        FBAdUtils.interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener(){
+        FBAdUtils.get().interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener(){
             @Override
             public void onInterstitialDismissed(Ad ad) {
                 super.onInterstitialDismissed(ad);
-                FBAdUtils.destoryInterstitial();
+                FBAdUtils.get().destoryInterstitial();
             }
         });
 
@@ -136,10 +136,10 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo> {
     public void onDestroy() {
         super.onDestroy();
 
-        if (FBAdUtils.isInterstitialLoaded()) {
-            FBAdUtils.showInterstitial();
+        if (FBAdUtils.get().isInterstitialLoaded()) {
+            FBAdUtils.get().showInterstitial();
         }
-        FBAdUtils.destoryInterstitial();
+        FBAdUtils.get().destoryInterstitial();
 
         if (disposables != null) disposables.clear();
         if (subscribeButtonMonitor != null) subscribeButtonMonitor.dispose();

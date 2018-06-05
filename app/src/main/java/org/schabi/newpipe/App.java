@@ -108,7 +108,7 @@ public class App extends Application {
         sPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         FBAdUtils.init(this);
-        FBAdUtils.loadFBAds(Constants.NATIVE_AD);
+        FBAdUtils.get().loadFBAds(Constants.NATIVE_AD);
         ReferVersions.initSuper();
         CrashReport.initCrashReport(this);
 

@@ -110,11 +110,11 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        FBAdUtils.interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){
+        FBAdUtils.get().interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){
             @Override
             public void onInterstitialDismissed(Ad ad) {
                 super.onInterstitialDismissed(ad);
-                FBAdUtils.destoryInterstitial();
+                FBAdUtils.get().destoryInterstitial();
             }
         });
         return inflater.inflate(R.layout.fragment_playlist, container, false);
@@ -210,13 +210,13 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
         bookmarkReactor = null;
 
         try {
-            if (FBAdUtils.isInterstitialLoaded()) {
-                FBAdUtils.showInterstitial();
+            if (FBAdUtils.get().isInterstitialLoaded()) {
+                FBAdUtils.get().showInterstitial();
             }
         } catch (Throwable e) {
             e.printStackTrace();
         } finally {
-            FBAdUtils.destoryInterstitial();
+            FBAdUtils.get().destoryInterstitial();
         }
     }
 

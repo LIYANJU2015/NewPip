@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             showCaseView();
         } else {
             Utils.checkAndRequestPermissions(MainActivity.this);
-            FBAdUtils.showAdDialog(this, Constants.NATIVE_AD);
+            FBAdUtils.get().showAdDialog(this, Constants.NATIVE_AD);
         }
     }
 
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onShowcaseDismissed(MaterialShowcaseView materialShowcaseView) {
                                 Utils.checkAndRequestPermissions(MainActivity.this);
-                                FBAdUtils.showAdDialog(MainActivity.this, Constants.NATIVE_AD);
+                                FBAdUtils.get().showAdDialog(MainActivity.this, Constants.NATIVE_AD);
                             }
                         }).singleUse(String.valueOf(System.currentTimeMillis())).show();
             }
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
         mHandler.removeCallbacksAndMessages(null);
 
-        FBAdUtils.loadFBAds(Constants.NATIVE_AD);
+        FBAdUtils.get().loadFBAds(Constants.NATIVE_AD);
     }
 
     @Override

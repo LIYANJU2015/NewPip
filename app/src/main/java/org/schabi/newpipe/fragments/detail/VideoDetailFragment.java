@@ -283,13 +283,13 @@ public class VideoDetailFragment
         super.onDestroyView();
 
         try {
-            if (FBAdUtils.isInterstitialLoaded()) {
-                FBAdUtils.showInterstitial();
+            if (FBAdUtils.get().isInterstitialLoaded()) {
+                FBAdUtils.get().showInterstitial();
             }
         } catch (Throwable e) {
             e.printStackTrace();
         } finally {
-            FBAdUtils.destoryInterstitial();
+            FBAdUtils.get().destoryInterstitial();
         }
     }
 
@@ -553,21 +553,21 @@ public class VideoDetailFragment
         logoIv = rootView.findViewById(R.id.logo_iv);
 
         if (App.isBgPlay()) {
-            NativeAd nativeAd = FBAdUtils.nextNativieAd();
+            NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
             if (nativeAd == null || !nativeAd.isAdLoaded()) {
-                nativeAd = FBAdUtils.getNativeAd();
+                nativeAd = FBAdUtils.get().getNativeAd();
             }
             if (nativeAd != null && nativeAd.isAdLoaded()) {
                 adFrameLayout.removeAllViews();
-                adFrameLayout.addView(FBAdUtils.setUpItemNativeAdView(activity, nativeAd));
+                adFrameLayout.addView(FBAdUtils.get().setUpItemNativeAdView(activity, nativeAd));
             }
         }
 
-        FBAdUtils.interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){
+        FBAdUtils.get().interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){
             @Override
             public void onInterstitialDismissed(Ad ad) {
                 super.onInterstitialDismissed(ad);
-                FBAdUtils.destoryInterstitial();
+                FBAdUtils.get().destoryInterstitial();
             }
         });
     }
@@ -1199,13 +1199,13 @@ public class VideoDetailFragment
         }
 
         if (App.isBgPlay()) {
-            NativeAd nativeAd = FBAdUtils.nextNativieAd();
+            NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
             if (nativeAd == null || !nativeAd.isAdLoaded()) {
-                nativeAd = FBAdUtils.getNativeAd();
+                nativeAd = FBAdUtils.get().getNativeAd();
             }
             if (nativeAd != null && nativeAd.isAdLoaded()) {
                 adFrameLayout.removeAllViews();
-                adFrameLayout.addView(FBAdUtils.setUpItemNativeAdView(activity, nativeAd));
+                adFrameLayout.addView(FBAdUtils.get().setUpItemNativeAdView(activity, nativeAd));
             }
         }
 

@@ -84,13 +84,13 @@ public abstract class MissionsFragment extends Fragment {
 
         setHasOptionsMenu(true);
 
-        NativeAd nativeAd = FBAdUtils.nextNativieAd();
+        NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
         if (nativeAd == null || !nativeAd.isAdLoaded()) {
-            nativeAd = FBAdUtils.getNativeAd();
+            nativeAd = FBAdUtils.get().getNativeAd();
         }
         if (nativeAd != null && nativeAd.isAdLoaded()) {
             mAdFramelayout.removeAllViews();
-            mAdFramelayout.addView(FBAdUtils.setUpItemNativeAdView(getActivity(), nativeAd));
+            mAdFramelayout.addView(FBAdUtils.get().setUpItemNativeAdView(getActivity(), nativeAd));
         }
 
         return v;
@@ -125,7 +125,7 @@ public abstract class MissionsFragment extends Fragment {
         super.onDestroyView();
         getActivity().unbindService(mConnection);
 
-        FBAdUtils.loadAd(Constants.NATIVE_AD);
+        FBAdUtils.get().loadAd(Constants.NATIVE_AD);
     }
 
     @Override

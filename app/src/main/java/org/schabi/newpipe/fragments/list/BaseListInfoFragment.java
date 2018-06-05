@@ -171,14 +171,14 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
         super.handleNextItems(result);
         currentNextPageUrl = result.getNextPageUrl();
 
-        NativeAd nativeAd = FBAdUtils.nextNativieAd();
+        NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
         if (nativeAd == null || !nativeAd.isAdLoaded()) {
-            nativeAd = FBAdUtils.getNativeAd();
+            nativeAd = FBAdUtils.get().getNativeAd();
         }
         if (nativeAd != null && nativeAd.isAdLoaded() && result.getItems().size() > 3) {
             int offsetStart = adViewWrapperAdapter.getItemCount();
             adViewWrapperAdapter.addAdView(offsetStart + 2, new AdViewWrapperAdapter.
-                    AdViewItem(FBAdUtils.setUpItemNativeAdView(activity, nativeAd, onSmallItem()), offsetStart + 2));
+                    AdViewItem(FBAdUtils.get().setUpItemNativeAdView(activity, nativeAd, onSmallItem()), offsetStart + 2));
             infoListAdapter.addInfoItemList2(result.getItems());
         } else {
             infoListAdapter.addInfoItemList(result.getItems());
@@ -217,14 +217,14 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
 
         if (infoListAdapter.getItemsList() != null && infoListAdapter.getItemsList().size() == 0) {
             if (result.getRelatedItems().size() > 0) {
-                NativeAd nativeAd = FBAdUtils.nextNativieAd();
+                NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
                 if (nativeAd == null || !nativeAd.isAdLoaded()) {
-                    nativeAd = FBAdUtils.getNativeAd();
+                    nativeAd = FBAdUtils.get().getNativeAd();
                 }
                 if (nativeAd != null && nativeAd.isAdLoaded() && result.getRelatedItems().size() > 3) {
                     int offsetStart = adViewWrapperAdapter.getItemCount();
                     adViewWrapperAdapter.addAdView(offsetStart + 2, new AdViewWrapperAdapter.
-                            AdViewItem(FBAdUtils.setUpItemNativeAdView(activity, nativeAd, onSmallItem()), offsetStart + 2));
+                            AdViewItem(FBAdUtils.get().setUpItemNativeAdView(activity, nativeAd, onSmallItem()), offsetStart + 2));
                     infoListAdapter.addInfoItemList2(result.getRelatedItems());
                 } else {
                     infoListAdapter.addInfoItemList(result.getRelatedItems());
