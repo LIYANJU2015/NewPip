@@ -234,7 +234,7 @@
             android:src="@drawable/ic_pause_white"
             tools:ignore="ContentDescription"/>
 
-        <ProgressBar
+        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
             android:id="@+id/control_progress_bar"
             style="?android:attr/progressBarStyleLargeInverse"
             android:layout_width="50dp"

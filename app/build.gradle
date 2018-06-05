@@ -9,7 +9,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0.1"
+        versionName "1.0.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -129,8 +129,10 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
     debugImplementation "com.facebook.stetho:stetho-okhttp3:$okHttpLibVersion"
 
-    compile 'com.github.amlcurran.showcaseview:library:5.4.3'
-
     compile 'com.android.support.constraint:constraint-layout:1.1.0'
+
+    compile 'com.github.deano2390:MaterialShowcaseView:1.2.0'
+
+    implementation 'me.zhanghai.android.materialprogressbar:library:1.4.2'
 
 }

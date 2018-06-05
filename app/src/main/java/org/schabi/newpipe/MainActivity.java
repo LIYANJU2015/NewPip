@@ -26,35 +26,21 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
-import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
-import com.github.amlcurran.showcaseview.ShowcaseView;
-import com.github.amlcurran.showcaseview.targets.ViewTarget;
-
-import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.StreamingService;
 import org.schabi.newpipe.fragments.BackPressable;
 import org.schabi.newpipe.fragments.MainFragment;
 import org.schabi.newpipe.fragments.detail.VideoDetailFragment;
 import org.schabi.newpipe.fragments.list.search.SearchFragment;
-import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.FBAdUtils;
 import org.schabi.newpipe.util.FacebookReport;
@@ -63,16 +49,13 @@ import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.StateSaver;
 import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.util.Utils;
-import org.schabi.newpipe.views.CaseViewViewTarget;
+
+import uk.co.deanwild.materialshowcaseview.IShowcaseListener;
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     public static final boolean DEBUG = !BuildConfig.BUILD_TYPE.equals("release");
-
-    private ActionBarDrawerToggle toggle = null;
-    private DrawerLayout drawer = null;
-    private NavigationView drawerItems = null;
-    private TextView headerServiceView = null;
 
     /*//////////////////////////////////////////////////////////////////////////
     // Activity's LifeCycle
@@ -95,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setSupportActionBar(findViewById(R.id.toolbar));
-        setupDrawer();
 
         if (ServiceHelper.getSelectedServiceId(this) == 0) {
             FacebookReport.logSentMainPageShow("youtube");
@@ -118,130 +100,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showCaseView() {
-        ViewTarget target = CaseViewViewTarget
-                .navigationButtonViewTarget(findViewById(R.id.toolbar));
-        if (target != null) {
-            String contentText;
-            if (App.isSuper()) {
-                contentText = getString(R.string.left_menu_tip_des2);
-            } else {
-                contentText = getString(R.string.left_menu_tip_des1);
-            }
-            new ShowcaseView.Builder(this)
-                    .setTarget(new CaseViewViewTarget(target))
-                    .setContentTitle(R.string.left_menu_tip_title)
-                    .setContentText(contentText)
-                    .hideOnTouchOutside()
-                    .setStyle(R.style.CustomShowcaseTheme)
-                    .setShowcaseEventListener(new OnShowcaseEventListener() {
-                        @Override
-                        public void onShowcaseViewHide(ShowcaseView showcaseView) {
-                            Log.v(TAG, "onShowcaseViewHide");
-                            Utils.checkAndRequestPermissions(MainActivity.this);
-                            FBAdUtils.showAdDialog(MainActivity.this, Constants.NATIVE_AD);
-                        }
-
-                        @Override
-                        public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
-                        }
-
-                        @Override
-                        public void onShowcaseViewShow(ShowcaseView showcaseView) {
-
-                        }
-
-                        @Override
-                        public void onShowcaseViewTouchBlocked(MotionEvent motionEvent) {
-
-                        }
-                    })
-                    .build();
-        }
-    }
-
-    private void setupDrawer() {
-        final Toolbar toolbar = findViewById(R.id.toolbar);
-        drawer = findViewById(R.id.drawer_layout);
-        drawerItems = findViewById(R.id.navigation);
-
-        for (StreamingService s : NewPipe.getServices()) {
-            String title =
-                    s.getServiceInfo().getName();
-            MenuItem item = drawerItems.getMenu()
-                    .add(R.id.menu_services_group, s.getServiceId(), 0, title);
-            item.setIcon(ServiceHelper.getIcon(s.getServiceId()));
+        String contentText;
+        if (App.isSuper()) {
+            contentText = getString(R.string.left_menu_tip_des2);
+        } else {
+            contentText = getString(R.string.left_menu_tip_des1);
         }
 
-        drawerItems.getMenu().getItem(ServiceHelper.getSelectedServiceId(this)).setChecked(true);
-
-        toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close);
-        toggle.syncState();
-        drawer.addDrawerListener(toggle);
-        drawer.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            private int lastService;
-
+        View morePlaceView = findViewById(R.id.more_place_view);
+        morePlaceView.post(new Runnable() {
             @Override
-            public void onDrawerOpened(View drawerView) {
-                lastService = ServiceHelper.getSelectedServiceId(MainActivity.this);
-            }
+            public void run() {
+                new MaterialShowcaseView.Builder(MainActivity.this)
+                        .setTarget(findViewById(R.id.more_place_view))
+                        .setDismissText(R.string.got_it)
+                        .setContentText(contentText)
+                        .setDismissOnTouch(true)
+                        .setMaskColour(0xdd4d4d4d)
+                        .setDelay(500)
+                        .setListener(new IShowcaseListener() {
+                            @Override
+                            public void onShowcaseDisplayed(MaterialShowcaseView materialShowcaseView) {
 
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                int selectServiceId = ServiceHelper.getSelectedServiceId(MainActivity.this);
-                if (lastService != selectServiceId) {
-                    SharedPreferences defaultPreferences = PreferenceManager.getDefaultSharedPreferences(getApplication());
-                    defaultPreferences.edit()
-                            .putInt(getString(R.string.main_page_selected_service), selectServiceId).apply();
-                    if (selectServiceId == 1) {
-                        defaultPreferences.edit()
-                                .putString(getString(R.string.main_page_selectd_kiosk_id), Constants.NEWHOT_KIOSK_ID)
-                                .apply();
-                    } else {
-                        defaultPreferences.edit()
-                                .putString(getString(R.string.main_page_selectd_kiosk_id), Constants.TRENDING_KIOSK_ID)
-                                .apply();
-                    }
-//                    new Handler(Looper.getMainLooper()).post(MainActivity.this::recreate);
-                    NavigationHelper.openMainActivity(MainActivity.this);
-                }
+                            }
+
+                            @Override
+                            public void onShowcaseDismissed(MaterialShowcaseView materialShowcaseView) {
+                                Utils.checkAndRequestPermissions(MainActivity.this);
+                                FBAdUtils.showAdDialog(MainActivity.this, Constants.NATIVE_AD);
+                            }
+                        }).singleUse(String.valueOf(System.currentTimeMillis())).show();
             }
         });
 
-        drawerItems.setNavigationItemSelectedListener(this::changeService);
-
-        setupDrawerFooter();
-        setupDrawerHeader();
-    }
-
-
-    private boolean changeService(MenuItem item) {
-        if (item.getGroupId() == R.id.menu_services_group) {
-            drawerItems.getMenu().getItem(ServiceHelper.getSelectedServiceId(this)).setChecked(false);
-            ServiceHelper.setSelectedServiceId(this, item.getItemId());
-            drawerItems.getMenu().getItem(ServiceHelper.getSelectedServiceId(this)).setChecked(true);
-        } else {
-            return false;
-        }
-        drawer.closeDrawers();
-        return true;
-    }
-
-    private void setupDrawerFooter() {
-        ImageButton settings = findViewById(R.id.drawer_settings);
-        ImageButton downloads = findViewById(R.id.drawer_downloads);
-        ImageButton history = findViewById(R.id.drawer_history);
-
-        if (!App.isSuper()) {
-            downloads.setVisibility(View.GONE);
-        }
-
-        settings.setOnClickListener(view -> NavigationHelper.openSettings(this));
-        downloads.setOnClickListener(view ->NavigationHelper.openDownloads(this));
-        history.setOnClickListener(view -> NavigationHelper.openHistory(this));
-    }
-
-    private void setupDrawerHeader() {
-        headerServiceView = findViewById(R.id.drawer_header_service_view);
     }
 
     @Override
@@ -259,17 +150,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        // close drawer on return, and don't show animation, so its looks like the drawer isn't open
-        // when the user returns to MainActivity
-        drawer.closeDrawer(Gravity.START, false);
-        try {
-            String selectedServiceName = NewPipe.getService(
-                    ServiceHelper.getSelectedServiceId(this)).getServiceInfo().getName();
-            headerServiceView.setText(selectedServiceName);
-        } catch (Exception e) {
-            ErrorActivity.reportUiError(this, e);
-        }
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         if (sharedPreferences.getBoolean(Constants.KEY_THEME_CHANGE, false)) {
@@ -383,6 +263,30 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    private void changeSource() {
+        int selectServiceId = ServiceHelper.getSelectedServiceId(MainActivity.this);
+
+        SharedPreferences defaultPreferences = PreferenceManager.getDefaultSharedPreferences(getApplication());
+        defaultPreferences.edit()
+                .putInt(getString(R.string.main_page_selected_service), selectServiceId).apply();
+        if (selectServiceId == 1) {
+            defaultPreferences.edit()
+                    .putString(getString(R.string.main_page_selectd_kiosk_id), Constants.NEWHOT_KIOSK_ID)
+                    .apply();
+        } else {
+            defaultPreferences.edit()
+                    .putString(getString(R.string.main_page_selectd_kiosk_id), Constants.TRENDING_KIOSK_ID)
+                    .apply();
+        }
+
+        Utils.runUIThead(new Runnable() {
+            @Override
+            public void run() {
+                NavigationHelper.openMainActivity(MainActivity.this);
+            }
+        });
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (DEBUG) Log.d(TAG, "onOptionsItemSelected() called with: item = [" + item + "]");
@@ -399,6 +303,23 @@ public class MainActivity extends AppCompatActivity {
                 return NavigationHelper.openDownloads(this);
             case R.id.action_about:
                 NavigationHelper.openSettings(this);
+                return true;
+            case R.id.action_soundcloud:
+                if (ServiceHelper.getSelectedServiceId(this) == 1) {
+                    return true;
+                }
+                ServiceHelper.setSelectedServiceId(this, 1);
+                changeSource();
+                return true;
+            case R.id.action_youtube:
+                if (ServiceHelper.getSelectedServiceId(this) == 0) {
+                    return true;
+                }
+                ServiceHelper.setSelectedServiceId(this, 0);
+                changeSource();
+                return true;
+            case R.id.action_history:
+                NavigationHelper.openHistory(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -425,18 +346,11 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportActionBar() == null) return;
 
         final Toolbar toolbar = findViewById(R.id.toolbar);
-        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
 
         final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_holder);
         if (fragment instanceof MainFragment) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-            if (toggle != null) {
-                toggle.syncState();
-                toolbar.setNavigationOnClickListener(v -> drawer.openDrawer(GravityCompat.START));
-                drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNDEFINED);
-            }
         } else {
-            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             toolbar.setNavigationOnClickListener(v -> onHomeButtonPressed());
         }

@@ -157,7 +157,7 @@
                 </FrameLayout>
 
                 <!-- LOADING INDICATOR-->
-                <ProgressBar
+                <me.zhanghai.android.materialprogressbar.MaterialProgressBar
                     android:id="@+id/loading_progress_bar"
                     style="@style/Widget.AppCompat.ProgressBar"
                     android:layout_width="match_parent"

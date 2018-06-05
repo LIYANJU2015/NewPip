@@ -135,6 +135,10 @@ public class AdViewWrapperAdapter extends RecyclerView.Adapter<RecyclerView.View
         mInnerAdapter.onViewAttachedToWindow(holder);
     }
 
+    public RecyclerView.Adapter getInnerAdapter() {
+        return mInnerAdapter;
+    }
+
     public static class AdViewItem {
 
         public AdViewItem(View adView, int postion) {

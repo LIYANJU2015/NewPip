@@ -4,10 +4,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.preference.PreferenceManager;
@@ -23,7 +25,6 @@ import android.view.ViewGroup;
 import org.schabi.newpipe.App;
 import org.schabi.newpipe.BaseFragment;
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.download.DownloadActivity;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.ServiceList;
 import org.schabi.newpipe.extractor.StreamingService;
@@ -38,9 +39,8 @@ import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.util.KioskTranslator;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.ServiceHelper;
-import org.schabi.newpipe.util.ThemeHelper;
 
-public class MainFragment extends BaseFragment implements TabLayout.OnTabSelectedListener {
+public class MainFragment extends BaseFragment implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     public int currentServiceId = -1;
     private ViewPager viewPager;
@@ -55,7 +55,7 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     private static final String FALLBACK_KIOSK_ID = "Trending";
     private static final int KIOSK_MENU_OFFSET = 2000;
 
-    private TabLayout tabLayout;
+    private BottomNavigationView mBNavigation;
 
     /*//////////////////////////////////////////////////////////////////////////
     // Fragment's LifeCycle
@@ -77,24 +77,41 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     protected void initViews(View rootView, Bundle savedInstanceState) {
         super.initViews(rootView, savedInstanceState);
 
-        tabLayout = rootView.findViewById(R.id.main_tab_layout);
+        mBNavigation = rootView.findViewById(R.id.main_navigation);
+        mBNavigation.setOnNavigationItemSelectedListener(this);
         viewPager = rootView.findViewById(R.id.pager);
 
         /*  Nested fragment, use child fragment here to maintain backstack in view pager. */
         PagerAdapter adapter = new PagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(adapter.getCount());
-
-        tabLayout.setupWithViewPager(viewPager);
+        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+            @Override
+            public void onPageSelected(int position) {
+                int menuId = mBNavigation.getMenu().getItem(position).getItemId();
+                mBNavigation.setSelectedItemId(menuId);
+            }
+        });
 
         if (isSubscriptionsPageOnlySelected()) {
-            tabLayout.getTabAt(0).setIcon(R.drawable.channel_tab_selector);
-            tabLayout.getTabAt(1).setIcon(R.drawable.bookmark_tab_selector);
+            if (ServiceHelper.getSelectedServiceId(activity) == 0) {
+                mBNavigation.inflateMenu(R.menu.navigation_two);
+            } else {
+                mBNavigation.inflateMenu(R.menu.navigation_two2);
+            }
         } else {
-            tabLayout.getTabAt(0).setIcon(R.drawable.hot_tab_selector);
-            tabLayout.getTabAt(1).setIcon(R.drawable.channel_tab_selector);
-            tabLayout.getTabAt(2).setIcon(R.drawable.bookmark_tab_selector);
+            if (ServiceHelper.getSelectedServiceId(activity) == 0) {
+                mBNavigation.inflateMenu(R.menu.navigation_three);
+            } else {
+                mBNavigation.inflateMenu(R.menu.navigation_three2);
+            }
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        viewPager.clearOnPageChangeListeners();
     }
 
     /*//////////////////////////////////////////////////////////////////////////
@@ -148,16 +165,9 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     //////////////////////////////////////////////////////////////////////////*/
 
     @Override
-    public void onTabSelected(TabLayout.Tab tab) {
-        viewPager.setCurrentItem(tab.getPosition());
-    }
-
-    @Override
-    public void onTabUnselected(TabLayout.Tab tab) {
-    }
-
-    @Override
-    public void onTabReselected(TabLayout.Tab tab) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        viewPager.setCurrentItem(item.getOrder());
+        return true;
     }
 
     private class PagerAdapter extends FragmentPagerAdapter {

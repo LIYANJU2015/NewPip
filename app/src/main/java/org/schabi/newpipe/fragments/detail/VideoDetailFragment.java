@@ -44,16 +44,12 @@ import android.widget.Toast;
 
 import com.facebook.ads.Ad;
 import com.facebook.ads.NativeAd;
-import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
-import com.github.amlcurran.showcaseview.ShowcaseView;
-import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.nirhart.parallaxscroll.views.ParallaxScrollView;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import org.schabi.newpipe.App;
-import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.ReCaptchaActivity;
 import org.schabi.newpipe.download.DownloadDialog;
@@ -90,8 +86,6 @@ import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.OnClickGesture;
 import org.schabi.newpipe.util.PermissionHelper;
 import org.schabi.newpipe.util.ThemeHelper;
-import org.schabi.newpipe.util.Utils;
-import org.schabi.newpipe.views.CaseViewViewTarget;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -104,6 +98,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView;
 
 import static org.schabi.newpipe.util.AnimationUtils.animateView;
 
@@ -234,13 +229,15 @@ public class VideoDetailFragment
 
     private void showCaseView() {
         App.sPreferences.edit().putBoolean("isShowCaseView", true).apply();
-        new ShowcaseView.Builder(activity)
-                .setTarget(new CaseViewViewTarget(new ViewTarget(detailControlsDownload)))
-                .setContentTitle(R.string.download_caseview_title_tips)
+        new MaterialShowcaseView.Builder(activity)
+                .setTarget(detailControlsDownload)
+                .setDismissText(R.string.got_it)
+                .setTitleText(R.string.download_caseview_title_tips)
                 .setContentText(R.string.download_caseview_tips)
-                .hideOnTouchOutside()
-                .setStyle(R.style.CustomShowcaseTheme)
-                .build();
+                .setDismissOnTouch(true)
+                .setMaskColour(0xdd4d4d4d)
+                .setDelay(500)
+                .singleUse(String.valueOf(System.currentTimeMillis())).show();
     }
 
     @Override

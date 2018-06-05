@@ -38,9 +38,9 @@ public class ImageDisplayConstants {
     public static final DisplayImageOptions DISPLAY_THUMBNAIL_OPTIONS =
             new DisplayImageOptions.Builder()
                     .cloneFrom(BASE_DISPLAY_IMAGE_OPTIONS)
-                    .showImageOnLoading(R.drawable.dummy_thumbnail)
-                    .showImageForEmptyUri(R.drawable.dummy_thumbnail)
-                    .showImageOnFail(R.drawable.dummy_thumbnail)
+                    .showImageOnLoading(R.drawable.item_thumbnail)
+                    .showImageForEmptyUri(R.drawable.item_thumbnail)
+                    .showImageOnFail(R.drawable.item_thumbnail)
                     .build();
 
     public static final DisplayImageOptions DISPLAY_BANNER_OPTIONS =

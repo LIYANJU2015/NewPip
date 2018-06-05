@@ -7,13 +7,17 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.hardware.display.DisplayManager;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.PowerManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
@@ -30,6 +34,31 @@ public class Utils {
 
     private static final int INVALID_VAL = -1;
     private static final int COLOR_DEFAULT = Color.parseColor("#20000000");
+
+    private static Handler sHandler = new Handler(Looper.getMainLooper());
+
+    public static View getToolbarMoreView(Context context, Toolbar toolbar) {
+        int count = toolbar.getChildCount();
+        for (int i = 0; i < count; i++) {
+            View view = toolbar.getChildAt(i);
+            if (view instanceof LinearLayoutCompat) {
+                count = ((LinearLayoutCompat) view).getChildCount();
+                for (int j = 0; j < count; j++) {
+                    view = ((LinearLayoutCompat) view).getChildAt(j);
+                    if (view instanceof ImageView) {
+                        return view;
+                    }
+
+                }
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static void runUIThead(Runnable runnable) {
+        sHandler.post(runnable);
+    }
 
     public static DisplayMetrics getMetrics(Activity activity) {
         Display display = activity.getWindowManager().getDefaultDisplay();

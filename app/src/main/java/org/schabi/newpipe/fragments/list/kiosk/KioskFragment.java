@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,10 +26,13 @@ import org.schabi.newpipe.extractor.kiosk.KioskInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.fragments.list.BaseListInfoFragment;
 import org.schabi.newpipe.info_list.InfoItemBuilder;
+import org.schabi.newpipe.info_list.InfoListAdapter;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.KioskTranslator;
 import org.schabi.newpipe.util.NavigationHelper;
+import org.schabi.newpipe.util.ServiceHelper;
+import org.schabi.newpipe.views.AdViewWrapperAdapter;
 
 import icepick.State;
 import io.reactivex.Single;
@@ -111,7 +117,8 @@ public class KioskFragment extends BaseListInfoFragment<KioskInfo> {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_kiosk, container, false);
+        View view = inflater.inflate(R.layout.fragment_kiosk, container, false);
+        return view;
     }
 
     /*//////////////////////////////////////////////////////////////////////////

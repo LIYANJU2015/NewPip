@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:orderInCategory="0"
+        android:id="@+id/navigation_hot"
+        android:icon="@drawable/hot_tab_selector2"
+        android:title="@string/trending" />
+
+    <item
+        android:orderInCategory="1"
+        android:id="@+id/navigation_channel"
+        android:icon="@drawable/channel_tab_selector2"
+        android:title="@string/channel" />
+
+    <item
+        android:orderInCategory="2"
+        android:id="@+id/navigation_bookmark"
+        android:icon="@drawable/bookmark_tab_selector2"
+        android:title="@string/tab_bookmarks" />
+
+</menu>

@@ -234,13 +234,4 @@
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 
-    <style name="CustomShowcaseTheme" parent="ShowcaseView.Light">
-        <item name="sv_backgroundColor">#dea9abb2</item>
-        <item name="sv_showcaseColor">#d32f2f</item>
-        <item name="sv_titleTextAppearance">@style/CustomTitle</item>
-    </style>
-
-    <style name="CustomTitle" parent="TextAppearance.ShowcaseView.Title.Light">
-        <item name="android:textColor">#ded32f2f</item>
-    </style>
 </resources>

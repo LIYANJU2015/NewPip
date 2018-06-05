@@ -179,11 +179,11 @@
 
         <meta-data
             android:name="BUGLY_APPID"
-            android:value="f7681ab8b8" />
+            android:value="ecc7edf653" />
         <!-- 配置APP版本号 -->
         <meta-data
             android:name="BUGLY_APP_VERSION"
-            android:value="1.0.4" />
+            android:value="1.0.0" />
         <!-- 配置APP渠道号 -->
         <meta-data
             android:name="BUGLY_APP_CHANNEL"
