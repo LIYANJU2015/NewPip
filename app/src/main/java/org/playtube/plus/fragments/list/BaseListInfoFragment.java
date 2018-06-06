@@ -56,10 +56,8 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
 
     @Override
     public RecyclerView.Adapter onGetAdapter() {
-        if (adViewWrapperAdapter == null) {
-            adViewWrapperAdapter = new AdViewWrapperAdapter(infoListAdapter);
-            infoListAdapter.setParentAdapter(adViewWrapperAdapter);
-        }
+        adViewWrapperAdapter = new AdViewWrapperAdapter(infoListAdapter);
+        infoListAdapter.setParentAdapter(adViewWrapperAdapter);
         return adViewWrapperAdapter;
     }
 

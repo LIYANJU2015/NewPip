@@ -99,8 +99,7 @@ public class MainFragment extends BaseFragment implements BottomNavigationView.O
             mBNavigation.inflateMenu(R.menu.navigation_three);
         }
 
-        int[][] states = new int[][]{
-                new int[]{-android.R.attr.state_checked},
+        int[][] states = new int[][]{                new int[]{-android.R.attr.state_checked},
                 new int[]{android.R.attr.state_checked}
         };
         int[] colors;
@@ -117,6 +116,13 @@ public class MainFragment extends BaseFragment implements BottomNavigationView.O
         ColorStateList csl = new ColorStateList(states, colors);
         mBNavigation.setItemIconTintList(csl);
         mBNavigation.setItemTextColor(csl);
+
+        String title = KioskTranslator.getTranslatedKioskName(App.sPreferences
+                .getString(getString(R.string.main_page_selectd_kiosk_id),
+                        FALLBACK_KIOSK_ID), activity);
+        if (mBNavigation.getMenu().size() == 3) {
+            mBNavigation.getMenu().getItem(0).setTitle(title);
+        }
     }
 
     @Override

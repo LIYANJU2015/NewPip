@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.playtube.plus.NewPipeDatabase;
+import org.playtube.plus.R;
 import org.playtube.plus.database.playlist.PlaylistLocalItem;
 import org.playtube.plus.database.playlist.PlaylistMetadataEntry;
 import org.playtube.plus.database.playlist.model.PlaylistRemoteEntity;
@@ -68,10 +69,10 @@ public final class BookmarkFragment
                              Bundle savedInstanceState) {
         if (activity != null && activity.getSupportActionBar() != null) {
             activity.getSupportActionBar().setDisplayShowTitleEnabled(true);
-            activity.setTitle(org.playtube.plus.R.string.tab_subscriptions);
+            activity.setTitle(R.string.tab_subscriptions);
         }
 
-        return inflater.inflate(org.playtube.plus.R.layout.fragment_bookmarks, container, false);
+        return inflater.inflate(R.layout.fragment_bookmarks, container, false);
     }
 
 
@@ -79,7 +80,7 @@ public final class BookmarkFragment
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (activity != null && isVisibleToUser) {
-            setTitle(activity.getString(org.playtube.plus.R.string.tab_bookmarks));
+            setTitle(activity.getString(R.string.tab_bookmarks));
         }
     }
 
