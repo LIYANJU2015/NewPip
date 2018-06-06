@@ -22,6 +22,7 @@ import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdsManager;
 
 import org.playtube.plus.App;
+import org.playtube.plus.R;
 
 import java.util.Random;
 
@@ -311,8 +312,6 @@ public class FBAdUtils {
         return setUpItemNativeAdView(activity, nativeAd, false);
     }
 
-    private static int DRAWABLEIDS []= {org.playtube.plus.R.drawable.fb_ad_bg1, org.playtube.plus.R.drawable.fb_ad_bg2, org.playtube.plus.R.drawable.fb_ad_bg3, org.playtube.plus.R.drawable.fb_ad_bg4 };
-
     public View setUpItemNativeAdView(Activity activity, NativeAd nativeAd, boolean isSmallItem) {
         nativeAd.unregisterView();
 
@@ -327,8 +326,7 @@ public class FBAdUtils {
         } else {
             nativeAdIcon = adView.findViewById(org.playtube.plus.R.id.image_ad);
             imageAdFrame.setVisibility(View.VISIBLE);
-            imageAdFrame.setBackground(ContextCompat.getDrawable(activity,
-                    (DRAWABLEIDS[new Random().nextInt(DRAWABLEIDS.length)])));
+            imageAdFrame.setBackground(ContextCompat.getDrawable(activity, R.drawable.fb_ad_bg1));
             adView.findViewById(org.playtube.plus.R.id.image_ad2).setVisibility(View.GONE);
         }
 
