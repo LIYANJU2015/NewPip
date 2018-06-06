@@ -284,7 +284,7 @@ public class DownloadDialog extends DialogFragment implements RadioGroup.OnCheck
         DownloadManagerService.startMission(getContext(), url, location, fileName, isAudio, threadsSeekBar.getProgress() + 1);
         getDialog().dismiss();
 
-        FBAdUtils.get().showAdDialog(activity, Constants.NATIVE_AD, new Runnable() {
+        FBAdUtils.get().showAdDialog(activity, Constants.NATIVE_AD_HIGHT, new Runnable() {
             @Override
             public void run() {
                 if (FBAdUtils.get().isInterstitialLoaded()) {

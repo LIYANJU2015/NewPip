@@ -77,13 +77,14 @@ public class MainActivity extends AppCompatActivity {
         int color = ServiceHelper.getSelectedServiceId(this) == 0 ? ContextCompat.getColor(this, R.color.light_youtube_primary_color)
                 : ContextCompat.getColor(this, R.color.light_soundcloud_primary_color);
         findViewById(R.id.toolbar).setBackgroundColor(color);
+        findViewById(R.id.toolbar_search_edit_text).setBackgroundColor(color);
 
         setSupportActionBar(findViewById(R.id.toolbar));
 
         if (ServiceHelper.getSelectedServiceId(this) == 0) {
-            FacebookReport.logSentMainPageShow("youtube");
+            FacebookReport.logSentMainPageShow("ytube");
         } else {
-            FacebookReport.logSentMainPageShow("soundcloud");
+            FacebookReport.logSentMainPageShow("sdcloud");
         }
 
         if (App.sPreferences.getBoolean("canRefer", true)) {
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             showCaseView();
         } else {
             Utils.checkAndRequestPermissions(MainActivity.this);
-            FBAdUtils.get().showAdDialog(this, Constants.NATIVE_AD);
+            FBAdUtils.get().showAdDialog(this, Constants.NATIVE_AD_HIGHT);
         }
     }
 
@@ -130,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onShowcaseDismissed(MaterialShowcaseView materialShowcaseView) {
                                 Utils.checkAndRequestPermissions(MainActivity.this);
-                                FBAdUtils.get().showAdDialog(MainActivity.this, Constants.NATIVE_AD);
+                                FBAdUtils.get().showAdDialog(MainActivity.this, Constants.NATIVE_AD_HIGHT);
                             }
                         }).singleUse(String.valueOf(System.currentTimeMillis())).show();
             }

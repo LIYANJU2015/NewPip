@@ -50,6 +50,7 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import org.playtube.plus.App;
+import org.playtube.plus.R;
 import org.playtube.plus.ReCaptchaActivity;
 import org.playtube.plus.download.DownloadDialog;
 import org.playtube.plus.fragments.BackPressable;
@@ -206,13 +207,6 @@ public class VideoDetailFragment
                 .getBoolean(getString(org.playtube.plus.R.string.show_next_video_key), true);
         PreferenceManager.getDefaultSharedPreferences(activity)
                 .registerOnSharedPreferenceChangeListener(this);
-
-        if (App.isSuper() && App.sPreferences.getBoolean("showdownloadtips", true)) {
-            Toast toast = Toast.makeText(App.sContext, org.playtube.plus.R.string.download_tips, Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
-            App.sPreferences.edit().putBoolean("showdownloadtips", false).apply();
-        }
     }
 
     @Override
@@ -721,7 +715,18 @@ public class VideoDetailFragment
         // CAUTION set item properties programmatically otherwise it would not be accepted by
         // appcompat itemsinflater.inflate(R.menu.videoitem_detail, menu);
 
-        inflater.inflate(org.playtube.plus.R.menu.video_detail_menu, menu);
+        inflater.inflate(R.menu.video_detail_menu, menu);
+
+        if (App.isSuper()) {
+            menu.add(Menu.NONE, Menu.NONE, 200, org.playtube.plus.R.string.download)
+                    .setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            NavigationHelper.openDownloads(activity);
+                            return false;
+                        }
+                    });
+        }
 
         updateMenuItemVisibility();
 

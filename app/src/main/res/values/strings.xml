@@ -466,27 +466,20 @@
     <string name="playback_default">Default</string>
 
 
-    <string name="background_play_tips">Sorry, because google play policy, youtube video can not play in the background, so the background play queue can not add youtube video</string>
+    <string name="background_play_tips">Sorry, because YouTube video cannot be used for backstage broadcasting because of violation of Google play policy, so it can not be used</string>
     <string name="popup_drag_tips">One finger is long on the screen, the screen becomes larger, the two fingers are long, the screen becomes smaller.</string>
 
-    <string name="facebook_app_id">995779903905888</string>
-    <string name="fb_login_protocol_scheme">fb995779903905888</string>
+    <string name="facebook_app_id">148863299308082</string>
+    <string name="fb_login_protocol_scheme">fb148863299308082</string>
 
-    <string name="add_download_tips">Add download succeeded</string>
+    <string name="add_download_tips">Add Download queue succeeded</string>
 
-    <string name="rating_download_tips">Download video for you, please give me a five-star rating</string>
+    <string name="rating_download_tips">Your video download is complete, please give me five stars.</string>
 
-    <string name="five_star">Five star praise</string>
-    <string name="cancel_rating">Cancel</string>
-    <string name="rating">Rating</string>
+    <string name="left_menu_tip_des1">Select YouTube or SoundCloud video content</string>
+    <string name="left_menu_tip_des2">YouTube or SoundCloud, Download Page</string>
 
-    <string name="download_tips">You can download your favorite video audio</string>
-
-    <string name="left_menu_tip_title">Left Menu</string>
-    <string name="left_menu_tip_des1">Switch YouTube and SoundCloud videos</string>
-    <string name="left_menu_tip_des2">Toggle YouTube and SoundCloud videos, download pages</string>
-
-    <string name="download_caseview_tips">Click to download favorite video</string>
+    <string name="download_caseview_tips">Click the download video</string>
     <string name="download_caseview_title_tips">Download</string>
 
     <string name="download_rating">For you to download a video, please give me five stars.</string>

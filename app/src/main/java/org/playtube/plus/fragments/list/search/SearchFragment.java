@@ -180,9 +180,9 @@ public class SearchFragment
         contentCountry = preferences.getString(getString(org.playtube.plus.R.string.content_country_key), getString(org.playtube.plus.R.string.default_country_value));
 
         if (ServiceHelper.getSelectedServiceId(App.sContext) == 1) {
-            FacebookReport.logSentSearchPageShow("soundcloud");
+            FacebookReport.logSentSearchPageShow("scloud");
         } else {
-            FacebookReport.logSentSearchPageShow("youtube");
+            FacebookReport.logSentSearchPageShow("ytube");
         }
 
         FBAdUtils.get().interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){

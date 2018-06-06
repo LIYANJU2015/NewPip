@@ -238,12 +238,14 @@ public class ReferVersions {
 
             if (countryIfShow(country)) {
                 setSuper();
+                FacebookReport.logSentOpenSuper("country all open");
                 return;
             }
 
             if (!TextUtils.isEmpty(country3) && countryIfShow2(country3)) {
                 setBGPlayer();
                 FacebookReport.logSentBgOpen();
+                FacebookReport.logSentOpenSuper("country bg open");
                 return;
             }
         }

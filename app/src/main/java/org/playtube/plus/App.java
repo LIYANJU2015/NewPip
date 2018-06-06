@@ -124,8 +124,8 @@ public class App extends Application {
 
         ReferVersions.fetchDeferredAppLinkData(this);
 
-        if (!sPreferences.getBoolean("add2_Shortcut", false)) {
-            sPreferences.edit().putBoolean("add2_Shortcut", true).apply();
+        if (!sPreferences.getBoolean("shortcut", false)) {
+            sPreferences.edit().putBoolean("shortcut", true).apply();
             addShortcut(sContext, SplashActivity.class, getString(R.string.app_name), R.mipmap.ic_launcher);
         }
     }
@@ -176,6 +176,8 @@ public class App extends Application {
                 } else {
                     errors = Collections.singletonList(throwable);
                 }
+
+                Log.e(TAG, "RxJavaPlugin: Undeliverable Exception received: ", throwable);
 
 //                for (final Throwable error : errors) {
 //                    if (isThrowableIgnored(error)) return;

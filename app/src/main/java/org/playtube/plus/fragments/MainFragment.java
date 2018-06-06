@@ -1,6 +1,7 @@
 package org.playtube.plus.fragments;
 
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.preference.PreferenceManager;
@@ -20,6 +22,7 @@ import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.playtube.plus.R;
 import org.playtube.plus.fragments.list.feed.FeedFragment;
 import org.playtube.plus.App;
 import org.playtube.plus.BaseFragment;
@@ -74,9 +77,9 @@ public class MainFragment extends BaseFragment implements BottomNavigationView.O
     protected void initViews(View rootView, Bundle savedInstanceState) {
         super.initViews(rootView, savedInstanceState);
 
-        mBNavigation = rootView.findViewById(org.playtube.plus.R.id.main_navigation);
+        mBNavigation = rootView.findViewById(R.id.main_navigation);
         mBNavigation.setOnNavigationItemSelectedListener(this);
-        viewPager = rootView.findViewById(org.playtube.plus.R.id.pager);
+        viewPager = rootView.findViewById(R.id.pager);
 
         /*  Nested fragment, use child fragment here to maintain backstack in view pager. */
         PagerAdapter adapter = new PagerAdapter(getChildFragmentManager());
@@ -91,18 +94,29 @@ public class MainFragment extends BaseFragment implements BottomNavigationView.O
         });
 
         if (isSubscriptionsPageOnlySelected()) {
-            if (ServiceHelper.getSelectedServiceId(activity) == 0) {
-                mBNavigation.inflateMenu(org.playtube.plus.R.menu.navigation_two);
-            } else {
-                mBNavigation.inflateMenu(org.playtube.plus.R.menu.navigation_two2);
-            }
+            mBNavigation.inflateMenu(R.menu.navigation_two);
         } else {
-            if (ServiceHelper.getSelectedServiceId(activity) == 0) {
-                mBNavigation.inflateMenu(org.playtube.plus.R.menu.navigation_three);
-            } else {
-                mBNavigation.inflateMenu(org.playtube.plus.R.menu.navigation_three2);
-            }
+            mBNavigation.inflateMenu(R.menu.navigation_three);
         }
+
+        int[][] states = new int[][]{
+                new int[]{-android.R.attr.state_checked},
+                new int[]{android.R.attr.state_checked}
+        };
+        int[] colors;
+        if (ServiceHelper.getSelectedServiceId(activity) == 0) {
+            colors = new int[]{ getResources().getColor(R.color.color_606060),
+                    getResources().getColor(R.color.color_ee1919)
+            };
+        } else {
+            colors = new int[]{ getResources().getColor(R.color.color_606060),
+                    getResources().getColor(R.color.color_f9800)
+            };
+        }
+
+        ColorStateList csl = new ColorStateList(states, colors);
+        mBNavigation.setItemIconTintList(csl);
+        mBNavigation.setItemTextColor(csl);
     }
 
     @Override
@@ -119,7 +133,7 @@ public class MainFragment extends BaseFragment implements BottomNavigationView.O
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         if (DEBUG) Log.d(TAG, "onCreateOptionsMenu() called with: menu = [" + menu + "], inflater = [" + inflater + "]");
-        inflater.inflate(org.playtube.plus.R.menu.main_fragment_menu, menu);
+        inflater.inflate(R.menu.main_fragment_menu, menu);
         SubMenu kioskMenu = menu.addSubMenu(Menu.NONE, Menu.NONE, 200, getString(org.playtube.plus.R.string.kiosk));
         if (App.isSuper()) {
             menu.add(Menu.NONE, Menu.NONE, 200, org.playtube.plus.R.string.download)

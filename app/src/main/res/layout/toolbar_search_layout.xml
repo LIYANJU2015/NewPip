@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary">
+    >
 
     <EditText
         android:id="@+id/toolbar_search_edit_text"

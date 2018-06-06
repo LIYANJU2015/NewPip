@@ -405,8 +405,8 @@ public final class PopupVideoPlayer extends Service {
             extraOptionsView = rootView.findViewById(org.playtube.plus.R.id.extraOptionsView);
             rootView.addOnLayoutChangeListener(this);
 
-            if (!App.sPreferences.getBoolean("popup_tips", false)) {
-                App.sPreferences.edit().putBoolean("popup_tips", true).apply();
+            if (!App.sPreferences.getBoolean("pop_tip", false)) {
+                App.sPreferences.edit().putBoolean("pop_tip", true).apply();
                 Toast.makeText(getApplication(), org.playtube.plus.R.string.popup_drag_tips, Toast.LENGTH_LONG).show();
             }
         }

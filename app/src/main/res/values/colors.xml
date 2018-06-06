@@ -73,5 +73,9 @@
 
     <color name="white_d_d_d">#a1a1a1</color>
 
+    <color name="color_606060">#606060</color>
+    <color name="color_ee1919">#ee1919</color>
+    <color name="color_f9800">#ff9800</color>
+
 
 </resources>

@@ -107,6 +107,6 @@ public class FacebookReport {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
         bundle.putString("from", source);
-        logger.logEvent("logSentOpenSuper",bundle);
+        logger.logEvent("logSentOpenApp",bundle);
     }
 }
