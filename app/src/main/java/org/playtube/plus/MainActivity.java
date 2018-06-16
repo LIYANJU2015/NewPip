@@ -203,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
             moveTaskToBack(true);
+            FBAdUtils.get().loadFBAds(Constants.NATIVE_AD);
         } else {
             super.onBackPressed();
         }

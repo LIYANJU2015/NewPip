@@ -34,6 +34,7 @@ import com.lingting.fone.get.DownloadManager;
 import com.lingting.fone.get.DownloadMission;
 import com.lingting.fone.service.DownloadManagerService;
 import com.lingting.fone.ui.common.ProgressDrawable;
+import com.lingting.fone.ui.fragment.MissionsFragment;
 import com.lingting.fone.util.Utility;
 
 import static android.content.Intent.FLAG_GRANT_PREFIX_URI_PERMISSION;
@@ -242,6 +243,7 @@ public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.ViewHold
                         Log.v(TAG, "Mime: " + mime + " package: " + mContext.getApplicationContext().getPackageName() + ".provider");
                         if (f.exists()) {
                             viewFileWithFileProvider(f, mime);
+                            MissionsFragment.sIsPlay = true;
                         } else {
                             Log.w(TAG, "File doesn't exist");
                         }

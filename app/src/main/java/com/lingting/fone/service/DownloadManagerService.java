@@ -143,6 +143,7 @@ public class DownloadManagerService extends Service {
                 FacebookReport.logSentRating("no star");
             }
         });
+        RatingActivity.setPopTotalCount(this, 2);
     }
 
     private void startMissionAsync(final String url, final String location, final String name,

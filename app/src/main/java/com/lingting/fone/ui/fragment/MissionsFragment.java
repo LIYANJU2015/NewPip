@@ -21,6 +21,7 @@ import android.widget.FrameLayout;
 
 import com.facebook.ads.NativeAd;
 
+import org.playtube.plus.App;
 import org.playtube.plus.R;
 import org.playtube.plus.util.Constants;
 import org.playtube.plus.util.FBAdUtils;
@@ -28,6 +29,7 @@ import org.playtube.plus.util.FBAdUtils;
 import com.lingting.fone.get.DownloadManager;
 import com.lingting.fone.service.DownloadManagerService;
 import com.lingting.fone.ui.adapter.MissionAdapter;
+import com.rating.RatingActivity;
 
 public abstract class MissionsFragment extends Fragment {
     private DownloadManager mManager;
@@ -42,6 +44,17 @@ public abstract class MissionsFragment extends Fragment {
     private GridLayoutManager mGridManager;
     private LinearLayoutManager mLinearManager;
     private Context mActivity;
+
+    public static boolean sIsPlay = false;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (sIsPlay) {
+            sIsPlay = false;
+            RatingActivity.launch(App.sContext, "", App.sContext.getString(R.string.download_rating));
+        }
+    }
 
     private ServiceConnection mConnection = new ServiceConnection() {
 
