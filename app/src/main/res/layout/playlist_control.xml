@@ -40,7 +40,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/playlist_ctrl_height"
         android:layout_weight="1"
         android:gravity="center"
         android:clickable="true"
@@ -66,7 +66,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/playlist_ctrl_height"
         android:layout_weight="1"
         android:gravity="center"
         android:clickable="true"

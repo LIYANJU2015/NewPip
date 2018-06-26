@@ -2,7 +2,7 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.playtube.plus">
+    package="org.tubeplayer.plus">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
@@ -16,7 +16,7 @@
     <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
 
     <application
-        android:name="org.playtube.plus.App"
+        android:name="org.tubeplayer.plus.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,7 +24,7 @@
         android:theme="@style/DarkTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name="org.playtube.plus.SplashActivity"
+            android:name="org.tubeplayer.plus.SplashActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="org.playtube.plus.MainActivity"
+        <activity android:name="org.tubeplayer.plus.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"/>
 
@@ -46,48 +46,48 @@
         </receiver>
 
         <activity
-            android:name="org.playtube.plus.player.old.PlayVideoActivity"
+            android:name="org.tubeplayer.plus.player.old.PlayVideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/OldVideoPlayerTheme"
             tools:ignore="UnusedAttribute"/>
 
         <service
-            android:name="org.playtube.plus.player.BackgroundPlayer"
+            android:name="org.tubeplayer.plus.player.BackgroundPlayer"
             android:exported="false"/>
 
         <activity
-            android:name="org.playtube.plus.player.BackgroundPlayerActivity"
+            android:name="org.tubeplayer.plus.player.BackgroundPlayerActivity"
             android:launchMode="singleTask"
             android:label="@string/title_activity_background_player"/>
 
         <activity
-            android:name="org.playtube.plus.player.PopupVideoPlayerActivity"
+            android:name="org.tubeplayer.plus.player.PopupVideoPlayerActivity"
             android:launchMode="singleTask"
             android:label="@string/title_activity_popup_player"/>
 
         <service
-            android:name="org.playtube.plus.player.PopupVideoPlayer"
+            android:name="org.tubeplayer.plus.player.PopupVideoPlayer"
             android:exported="false"/>
 
         <activity
-            android:name="org.playtube.plus.player.MainVideoPlayer"
+            android:name="org.tubeplayer.plus.player.MainVideoPlayer"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:launchMode="singleTask"/>
 
         <activity
-            android:name="org.playtube.plus.settings.SettingsActivity"
+            android:name="org.tubeplayer.plus.settings.SettingsActivity"
             android:label="@string/settings"/>
 
         <activity
-            android:name="org.playtube.plus.history.HistoryActivity"
+            android:name="org.tubeplayer.plus.history.HistoryActivity"
             android:label="@string/title_activity_history"/>
 
-        <service android:name="org.playtube.plus.subscription.services.SubscriptionsImportService"/>
-        <service android:name="org.playtube.plus.subscription.services.SubscriptionsExportService"/>
+        <service android:name="org.tubeplayer.plus.subscription.services.SubscriptionsImportService"/>
+        <service android:name="org.tubeplayer.plus.subscription.services.SubscriptionsExportService"/>
 
         <activity
-            android:name="org.playtube.plus.PanicResponderActivity"
+            android:name="org.tubeplayer.plus.PanicResponderActivity"
             android:launchMode="singleInstance"
             android:noHistory="true"
             android:theme="@android:style/Theme.NoDisplay">
@@ -99,22 +99,22 @@
         </activity>
 
         <activity
-            android:name="org.playtube.plus.ExitActivity"
+            android:name="org.tubeplayer.plus.ExitActivity"
             android:label="@string/general_error"
             android:theme="@android:style/Theme.NoDisplay"/>
 
-        <activity android:name="org.playtube.plus.report.ErrorActivity"/>
+        <activity android:name="org.tubeplayer.plus.report.ErrorActivity"/>
 
         <!-- giga get related -->
         <activity
-            android:name="org.playtube.plus.download.DownloadActivity"
+            android:name="org.tubeplayer.plus.download.DownloadActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"/>
 
-        <service android:name="com.lingting.fone.service.DownloadManagerService"/>
+        <service android:name="com.xunlei.fone.service.DownloadManagerService"/>
 
         <activity
-            android:name="org.playtube.plus.util.FilePickerActivityHelper"
+            android:name="org.tubeplayer.plus.util.FilePickerActivityHelper"
             android:label="@string/app_name"
             android:theme="@style/FilePickerThemeDark">
             <intent-filter>
@@ -124,7 +124,7 @@
         </activity>
 
         <activity
-            android:name="org.playtube.plus.ReCaptchaActivity"
+            android:name="org.tubeplayer.plus.ReCaptchaActivity"
             android:label="@string/reCaptchaActivity"/>
 
         <provider
@@ -138,7 +138,7 @@
         </provider>
 
         <activity
-            android:name="org.playtube.plus.RouterActivity"
+            android:name="org.tubeplayer.plus.RouterActivity"
             android:excludeFromRecents="true"
             android:label="@string/preferred_player_share_menu_title"
             android:taskAffinity=""
@@ -146,7 +146,7 @@
         </activity>
 
         <service
-            android:name="org.playtube.plus.RouterActivity$FetcherService"
+            android:name="org.tubeplayer.plus.RouterActivity$FetcherService"
             android:exported="false"/>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
@@ -171,7 +171,7 @@
             android:hardwareAccelerated="true" />
 
         <receiver
-            android:name="org.playtube.plus.facebook.FacebookInstallReferrer"
+            android:name="org.tubeplayer.plus.facebook.FacebookInstallReferrer"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
