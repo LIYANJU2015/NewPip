@@ -48,23 +48,6 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
-import org.tubeplayer.plus.App;
-import org.tubeplayer.plus.R;
-import org.tubeplayer.plus.ReCaptchaActivity;
-import org.tubeplayer.plus.download.DownloadDialog;
-import org.tubeplayer.plus.fragments.BackPressable;
-import org.tubeplayer.plus.fragments.local.dialog.PlaylistAppendDialog;
-import org.tubeplayer.plus.player.PopupVideoPlayer;
-import org.tubeplayer.plus.player.helper.PlayerHelper;
-import org.tubeplayer.plus.playlist.PlayQueue;
-import org.tubeplayer.plus.report.UserAction;
-import org.tubeplayer.plus.util.AnimationUtils;
-import org.tubeplayer.plus.util.ExtractorHelper;
-import org.tubeplayer.plus.util.FBAdUtils;
-import org.tubeplayer.plus.util.ListHelper;
-import org.tubeplayer.plus.util.NavigationHelper;
-import org.tubeplayer.plus.util.OnClickGesture;
-import org.tubeplayer.plus.util.PermissionHelper;
 import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.exceptions.ContentNotAvailableException;
@@ -75,16 +58,33 @@ import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.extractor.stream.StreamType;
 import org.schabi.newpipe.extractor.stream.VideoStream;
+import org.tubeplayer.plus.App;
+import org.tubeplayer.plus.R;
+import org.tubeplayer.plus.ReCaptchaActivity;
+import org.tubeplayer.plus.download.DownloadDialog;
+import org.tubeplayer.plus.fragments.BackPressable;
 import org.tubeplayer.plus.fragments.BaseStateFragment;
+import org.tubeplayer.plus.fragments.local.dialog.PlaylistAppendDialog;
 import org.tubeplayer.plus.info_list.InfoItemBuilder;
 import org.tubeplayer.plus.info_list.InfoItemDialog;
 import org.tubeplayer.plus.player.MainVideoPlayer;
+import org.tubeplayer.plus.player.PopupVideoPlayer;
+import org.tubeplayer.plus.player.helper.PlayerHelper;
 import org.tubeplayer.plus.player.old.PlayVideoActivity;
+import org.tubeplayer.plus.playlist.PlayQueue;
 import org.tubeplayer.plus.playlist.SinglePlayQueue;
+import org.tubeplayer.plus.report.UserAction;
+import org.tubeplayer.plus.util.AnimationUtils;
 import org.tubeplayer.plus.util.Constants;
+import org.tubeplayer.plus.util.ExtractorHelper;
+import org.tubeplayer.plus.util.FBAdUtils;
 import org.tubeplayer.plus.util.ImageDisplayConstants;
 import org.tubeplayer.plus.util.InfoCache;
+import org.tubeplayer.plus.util.ListHelper;
 import org.tubeplayer.plus.util.Localization;
+import org.tubeplayer.plus.util.NavigationHelper;
+import org.tubeplayer.plus.util.OnClickGesture;
+import org.tubeplayer.plus.util.PermissionHelper;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -97,9 +97,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView;
-
-import static org.tubeplayer.plus.util.AnimationUtils.animateView;
 
 public class VideoDetailFragment
         extends BaseStateFragment<StreamInfo>
@@ -219,21 +216,6 @@ public class VideoDetailFragment
         if (currentWorker != null) currentWorker.dispose();
     }
 
-    private MaterialShowcaseView showcaseView;
-
-    private void showCaseView() {
-        App.sPreferences.edit().putBoolean("isShowCaseView", true).apply();
-        showcaseView = new MaterialShowcaseView.Builder(activity)
-                .setTarget(detailControlsDownload)
-                .setDismissText(org.tubeplayer.plus.R.string.got_it)
-                .setTitleText(org.tubeplayer.plus.R.string.download_caseview_title_tips)
-                .setContentText(org.tubeplayer.plus.R.string.download_caseview_tips)
-                .setDismissOnTouch(true)
-                .setMaskColour(0xdd4d4d4d)
-                .setDelay(500)
-                .singleUse(String.valueOf(System.currentTimeMillis())).show();
-    }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -284,10 +266,6 @@ public class VideoDetailFragment
             e.printStackTrace();
         } finally {
             FBAdUtils.get().destoryInterstitial();
-        }
-
-        if (showcaseView != null && showcaseView.isShown()) {
-            showcaseView.hide();
         }
     }
 
@@ -549,15 +527,13 @@ public class VideoDetailFragment
 
         logoIv = rootView.findViewById(org.tubeplayer.plus.R.id.logo_iv);
 
-        if (App.isBgPlay()) {
-            NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
-            if (nativeAd == null || !nativeAd.isAdLoaded()) {
-                nativeAd = FBAdUtils.get().getNativeAd();
-            }
-            if (nativeAd != null && nativeAd.isAdLoaded()) {
-                adFrameLayout.removeAllViews();
-                adFrameLayout.addView(FBAdUtils.get().setUpItemNativeAdView(activity, nativeAd));
-            }
+        NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
+        if (nativeAd == null || !nativeAd.isAdLoaded()) {
+            nativeAd = FBAdUtils.get().getNativeAd();
+        }
+        if (nativeAd != null && nativeAd.isAdLoaded()) {
+            adFrameLayout.removeAllViews();
+            adFrameLayout.addView(FBAdUtils.get().setUpItemNativeAdView(activity, nativeAd));
         }
 
         FBAdUtils.get().interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){
@@ -1200,21 +1176,15 @@ public class VideoDetailFragment
         videoTitleTextView.setText(name);
 
         logoIv.setVisibility(View.VISIBLE);
-        if (info.getServiceId() == 0) {
-            logoIv.setImageResource(org.tubeplayer.plus.R.drawable.ic_youtube);
-        } else {
-            logoIv.setImageResource(org.tubeplayer.plus.R.drawable.ic_soundcloud);
-        }
+        logoIv.setImageResource(org.tubeplayer.plus.R.drawable.ic_youtube);
 
-        if (App.isBgPlay()) {
-            NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
-            if (nativeAd == null || !nativeAd.isAdLoaded()) {
-                nativeAd = FBAdUtils.get().getNativeAd();
-            }
-            if (nativeAd != null && nativeAd.isAdLoaded()) {
-                adFrameLayout.removeAllViews();
-                adFrameLayout.addView(FBAdUtils.get().setUpItemNativeAdView(activity, nativeAd));
-            }
+        NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
+        if (nativeAd == null || !nativeAd.isAdLoaded()) {
+            nativeAd = FBAdUtils.get().getNativeAd();
+        }
+        if (nativeAd != null && nativeAd.isAdLoaded()) {
+            adFrameLayout.removeAllViews();
+            adFrameLayout.addView(FBAdUtils.get().setUpItemNativeAdView(activity, nativeAd));
         }
 
         if (!TextUtils.isEmpty(info.getUploaderName())) {
@@ -1263,11 +1233,11 @@ public class VideoDetailFragment
 
         if (info.getDuration() > 0) {
             detailDurationView.setText(Localization.getDurationString(info.getDuration()));
-            detailDurationView.setBackgroundColor(ContextCompat.getColor(activity, org.tubeplayer.plus.R.color.duration_background_color));
+            detailDurationView.setBackgroundColor(ContextCompat.getColor(activity, R.color.duration_background_color));
             AnimationUtils.animateView(detailDurationView, true, 100);
         } else if (info.getStreamType() == StreamType.LIVE_STREAM) {
             detailDurationView.setText(org.tubeplayer.plus.R.string.duration_live);
-            detailDurationView.setBackgroundColor(ContextCompat.getColor(activity, org.tubeplayer.plus.R.color.live_duration_background_color));
+            detailDurationView.setBackgroundColor(ContextCompat.getColor(activity, R.color.live_duration_background_color));
             AnimationUtils.animateView(detailDurationView, true, 100);
         } else {
             detailDurationView.setVisibility(View.GONE);
@@ -1310,8 +1280,6 @@ public class VideoDetailFragment
             default:
                 if (!App.isSuper()) {
                     detailControlsDownload.setVisibility(View.GONE);
-                } else if (!App.sPreferences.getBoolean("isShowCaseView", false)) {
-                    showCaseView();
                 }
 
                 if (!info.getVideoStreams().isEmpty()
@@ -1326,7 +1294,7 @@ public class VideoDetailFragment
                 break;
         }
 
-        if (!App.isSuper() && info.getServiceId() == 0) {
+        if (!App.isBgPlay() && info.getServiceId() == 0) {
             detailControlsBackground.setVisibility(View.GONE);
         }
 

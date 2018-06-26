@@ -21,11 +21,11 @@ public class FacebookReferrerHandler {
             return;
         }
 
-        boolean result = App.sPreferences.getBoolean("handle_referrer", false);
+        boolean result = App.sPreferences.getBoolean("get_referrer", false);
         if (result) {
             return;
         }
-        App.sPreferences.edit().putBoolean("handle_referrer", true).apply();
+        App.sPreferences.edit().putBoolean("get_referrer", true).apply();
 
         if (BuildConfig.DEBUG) {
             Log.e("Installrr:::::", referrer);
@@ -44,6 +44,8 @@ public class FacebookReferrerHandler {
             }
             FacebookReport.logSentOpenSuper("open for admob");
             ReferVersions.SuperVersionHandler.setSuper();
+        } else if (ReferVersions.SuperVersionHandler.isFacebookOpen(referrer)) {
+            FacebookReport.logSentOpenSuper("open for facebook");
         } else {
             ReferVersions.SuperVersionHandler.countryIfShow(context);
         }

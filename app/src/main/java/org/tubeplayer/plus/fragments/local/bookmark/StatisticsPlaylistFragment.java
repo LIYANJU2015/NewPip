@@ -91,7 +91,7 @@ public abstract class StatisticsPlaylistFragment
         headerPopupButton = headerRootLayout.findViewById(R.id.playlist_ctrl_play_popup_button);
         headerBackgroundButton = headerRootLayout.findViewById(R.id.playlist_ctrl_play_bg_button);
 
-        if (!App.isSuper()) {
+        if (!App.isBgPlay()) {
             headerRootLayout.findViewById(R.id.anchorLeft).setVisibility(View.GONE);
             headerBackgroundButton.setVisibility(View.GONE);
         }

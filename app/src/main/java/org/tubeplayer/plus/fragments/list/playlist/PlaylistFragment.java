@@ -137,7 +137,7 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
         headerPopupButton = headerRootLayout.findViewById(org.tubeplayer.plus.R.id.playlist_ctrl_play_popup_button);
         headerBackgroundButton = headerRootLayout.findViewById(org.tubeplayer.plus.R.id.playlist_ctrl_play_bg_button);
 
-        if (!App.isSuper()) {
+        if (!App.isBgPlay()) {
             headerRootLayout.findViewById(R.id.anchorLeft).setVisibility(View.GONE);
             headerBackgroundButton.setVisibility(View.GONE);
         }

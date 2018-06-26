@@ -6,6 +6,7 @@ import android.text.TextUtils;
 
 import org.tubeplayer.plus.App;
 
+import java.net.URLDecoder;
 import java.util.Locale;
 
 /**
@@ -32,6 +33,36 @@ public class ReferVersions {
     }
 
     public static class SuperVersionHandler {
+
+        public static boolean isFacebookOpen(String referrer) {
+            try {
+                String decodeReferrer = URLDecoder.decode(referrer, "utf-8");
+                String utmSource = getUtmSource(decodeReferrer);
+                if (!TextUtils.isEmpty(utmSource) && utmSource.contains("not set")) {
+                    return true;
+                }
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+            return false;
+        }
+
+        private static String getUtmSource(String str) {
+            if (!TextUtils.isEmpty(str)) {
+                String[] split = str.split("&");
+                if (split != null && split.length >= 0) {
+                    for (String str2 : split) {
+                        if (str2 != null && str2.contains("utm_source")) {
+                            String[] split2 = str2.split("=");
+                            if (split2 != null && split2.length > 1) {
+                                return split2[1];
+                            }
+                        }
+                    }
+                }
+            }
+            return null;
+        }
 
         private static volatile boolean isSpecial = false;
 
@@ -145,27 +176,27 @@ public class ReferVersions {
         }
 
         private static boolean countryIfShow2(String country) {
-            if ("ph".equals(country.toLowerCase())) {
-                FacebookReport.logSentFBRegionOpen("ph");
+            if ("ar".equals(country.toLowerCase())) {
+                FacebookReport.logSentFBRegionOpen("ar");
                 return true;
             }
 
-            if ("it".equals(country.toLowerCase())) {
-                FacebookReport.logSentFBRegionOpen("it");
+            if ("in".equals(country.toLowerCase())) {
+                FacebookReport.logSentFBRegionOpen("in");
                 return true;
             }
 
-            if ("de".equals(country.toLowerCase())) {
-                FacebookReport.logSentFBRegionOpen("de");
+            if ("tz".equals(country.toLowerCase())) {
+                FacebookReport.logSentFBRegionOpen("tz");
                 return true;
             }
 
-            if ("mx".equals(country.toLowerCase())) {
-                FacebookReport.logSentFBRegionOpen("mx");
+            if ("pk".equals(country.toLowerCase())) {
+                FacebookReport.logSentFBRegionOpen("pk");
                 return true;
             }
 
-            if ("id".equals(country.toLowerCase())) {
+            if ("kh".equals(country.toLowerCase())) {
                 FacebookReport.logSentFBRegionOpen("id");
                 return true;
             }
@@ -211,6 +242,11 @@ public class ReferVersions {
 
             if ("sa".equals(country.toLowerCase())) {
                 FacebookReport.logSentFBRegionOpen("sa");
+                return true;
+            }
+
+            if ("vn".equals(country.toLowerCase())) {
+                FacebookReport.logSentFBRegionOpen("vn");
                 return true;
             }
 
