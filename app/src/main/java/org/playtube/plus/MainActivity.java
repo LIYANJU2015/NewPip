@@ -61,23 +61,21 @@ public class MainActivity extends AppCompatActivity {
     // Activity's LifeCycle
     //////////////////////////////////////////////////////////////////////////*/
 
-    private Handler mHandler = new Handler();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (DEBUG) Log.d(TAG, "onCreate() called with: savedInstanceState = [" + savedInstanceState + "]");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Utils.setStatusColor(this);
+        Utils.compat(this, ContextCompat.getColor(this, R.color.color_cccccc));
 
         if (getSupportFragmentManager() != null && getSupportFragmentManager().getBackStackEntryCount() == 0) {
             initFragments();
         }
 
-        int color = ServiceHelper.getSelectedServiceId(this) == 0 ? ContextCompat.getColor(this, R.color.light_youtube_primary_color)
-                : ContextCompat.getColor(this, R.color.light_soundcloud_primary_color);
-        findViewById(R.id.toolbar).setBackgroundColor(color);
-        findViewById(R.id.toolbar_search_edit_text).setBackgroundColor(color);
+//        int color = ServiceHelper.getSelectedServiceId(this) == 0 ? ContextCompat.getColor(this, R.color.light_youtube_primary_color)
+//                : ContextCompat.getColor(this, R.color.light_soundcloud_primary_color);
+//        findViewById(R.id.toolbar).setBackgroundColor(color);
+//        findViewById(R.id.toolbar_search_edit_text).setBackgroundColor(color);
 
         setSupportActionBar(findViewById(R.id.toolbar));
 
@@ -94,49 +92,10 @@ public class MainActivity extends AppCompatActivity {
                     App.sPreferences.edit().putBoolean("canRefer", false).apply();
                 }
             }, 1000);
-            showCaseView();
-        } else {
-            Utils.checkAndRequestPermissions(MainActivity.this);
-            FBAdUtils.get().showAdDialog(this, Constants.NATIVE_AD_HIGHT);
-        }
-    }
-
-    private MaterialShowcaseView showcaseView;
-
-    private void showCaseView() {
-        String contentText;
-        if (App.isSuper()) {
-            contentText = getString(R.string.left_menu_tip_des2);
-        } else {
-            contentText = getString(R.string.left_menu_tip_des1);
         }
 
-        View morePlaceView = findViewById(R.id.more_place_view);
-        morePlaceView.post(new Runnable() {
-            @Override
-            public void run() {
-                showcaseView = new MaterialShowcaseView.Builder(MainActivity.this)
-                        .setTarget(findViewById(R.id.more_place_view))
-                        .setDismissText(R.string.got_it)
-                        .setContentText(contentText)
-                        .setDismissOnTouch(true)
-                        .setMaskColour(0xdd4d4d4d)
-                        .setDelay(500)
-                        .setListener(new IShowcaseListener() {
-                            @Override
-                            public void onShowcaseDisplayed(MaterialShowcaseView materialShowcaseView) {
-
-                            }
-
-                            @Override
-                            public void onShowcaseDismissed(MaterialShowcaseView materialShowcaseView) {
-                                Utils.checkAndRequestPermissions(MainActivity.this);
-                                FBAdUtils.get().showAdDialog(MainActivity.this, Constants.NATIVE_AD_HIGHT);
-                            }
-                        }).singleUse(String.valueOf(System.currentTimeMillis())).show();
-            }
-        });
-
+        Utils.checkAndRequestPermissions(MainActivity.this);
+        FBAdUtils.get().showAdDialog(this, Constants.NATIVE_AD_HIGHT);
     }
 
     @Override
@@ -146,13 +105,7 @@ public class MainActivity extends AppCompatActivity {
             StateSaver.clearStateFiles();
         }
 
-        mHandler.removeCallbacksAndMessages(null);
-
         FBAdUtils.get().loadFBAds(Constants.NATIVE_AD);
-
-        if (showcaseView != null && showcaseView.isShown()) {
-            showcaseView.hide();
-        }
     }
 
     @Override
@@ -272,30 +225,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    private void changeSource() {
-        int selectServiceId = ServiceHelper.getSelectedServiceId(MainActivity.this);
-
-        SharedPreferences defaultPreferences = PreferenceManager.getDefaultSharedPreferences(getApplication());
-        defaultPreferences.edit()
-                .putInt(getString(R.string.main_page_selected_service), selectServiceId).apply();
-        if (selectServiceId == 1) {
-            defaultPreferences.edit()
-                    .putString(getString(R.string.main_page_selectd_kiosk_id), Constants.NEWHOT_KIOSK_ID)
-                    .apply();
-        } else {
-            defaultPreferences.edit()
-                    .putString(getString(R.string.main_page_selectd_kiosk_id), Constants.TRENDING_KIOSK_ID)
-                    .apply();
-        }
-
-        Utils.runUIThead(new Runnable() {
-            @Override
-            public void run() {
-                NavigationHelper.openMainActivity(MainActivity.this);
-            }
-        });
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (DEBUG) Log.d(TAG, "onOptionsItemSelected() called with: item = [" + item + "]");
@@ -312,20 +241,6 @@ public class MainActivity extends AppCompatActivity {
                 return NavigationHelper.openDownloads(this);
             case R.id.action_about:
                 NavigationHelper.openSettings(this);
-                return true;
-            case R.id.action_soundcloud:
-                if (ServiceHelper.getSelectedServiceId(this) == 1) {
-                    return true;
-                }
-                ServiceHelper.setSelectedServiceId(this, 1);
-                changeSource();
-                return true;
-            case R.id.action_youtube:
-                if (ServiceHelper.getSelectedServiceId(this) == 0) {
-                    return true;
-                }
-                ServiceHelper.setSelectedServiceId(this, 0);
-                changeSource();
                 return true;
             case R.id.action_history:
                 NavigationHelper.openHistory(this);

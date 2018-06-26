@@ -3,14 +3,15 @@
 
     <item
         android:orderInCategory="0"
+        android:id="@+id/navigation_bookmark"
+        android:icon="@drawable/ic_bookmark_6060_24dp"
+        android:title="@string/tab_bookmarks" />
+
+    <item
+        android:orderInCategory="1"
         android:id="@+id/navigation_channel"
         android:icon="@drawable/ic_channel_tv_6060_24dp"
         android:title="@string/channel" />
 
-    <item
-        android:orderInCategory="1"
-        android:id="@+id/navigation_bookmark"
-        android:icon="@drawable/ic_bookmark_6060_24dp"
-        android:title="@string/tab_bookmarks" />
 
 </menu>

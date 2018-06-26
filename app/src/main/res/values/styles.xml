@@ -78,9 +78,13 @@
         <item name="android:windowAnimationStyle">@style/SwitchAnimation</item>
     </style>
 
+    <style name="apptheme_toolbar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">#757575</item>
+    </style>
+
     <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/dark_youtube_primary_color</item>
-        <item name="colorPrimaryDark">@color/dark_youtube_dark_color</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/dark_youtube_accent_color</item>
         <item name="android:windowBackground">@color/dark_background_color</item>
         <item name="windowBackground">@color/dark_background_color</item>

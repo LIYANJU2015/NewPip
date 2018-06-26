@@ -10,7 +10,7 @@
     <item
         android:orderInCategory="1"
         android:id="@+id/navigation_bookmark"
-        android:icon="@drawable/bookmark_tab_selector2"
+        android:icon="@drawable/ic_bookmark_6060_24dp"
         android:title="@string/tab_bookmarks" />
 
 </menu>

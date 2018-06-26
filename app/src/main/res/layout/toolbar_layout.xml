@@ -12,10 +12,12 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/white"
         android:gravity="center_vertical"
         android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:theme="@style/apptheme_toolbar"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/black"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:titleTextAppearance="@style/Toolbar.Title">
 
@@ -36,11 +38,5 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <View
-        android:visibility="invisible"
-        android:layout_gravity="right"
-        android:id="@+id/more_place_view"
-        android:layout_width="?attr/actionBarSize"
-        android:layout_height="?attr/actionBarSize"/>
 
 </FrameLayout>

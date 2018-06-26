@@ -42,7 +42,7 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
     @Override
     protected void initViews(View rootView, Bundle savedInstanceState) {
         super.initViews(rootView, savedInstanceState);
-        setTitle(name);
+//        setTitle(name);
         showListFooter(hasMoreItems());
     }
 
@@ -206,7 +206,7 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
             url = result.getUrl();
         }
         name = result.getName();
-        setTitle(name);
+//        setTitle(name);
 
         if (infoListAdapter.getItemsList() != null && infoListAdapter.getItemsList().size() == 0) {
             if (result.getRelatedItems().size() > 0) {

@@ -69,7 +69,7 @@ public final class BookmarkFragment
                              Bundle savedInstanceState) {
         if (activity != null && activity.getSupportActionBar() != null) {
             activity.getSupportActionBar().setDisplayShowTitleEnabled(true);
-            activity.setTitle(R.string.tab_subscriptions);
+            //activity.setTitle(R.string.tab_subscriptions);
         }
 
         return inflater.inflate(R.layout.fragment_bookmarks, container, false);
@@ -79,9 +79,9 @@ public final class BookmarkFragment
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (activity != null && isVisibleToUser) {
-            setTitle(activity.getString(R.string.tab_bookmarks));
-        }
+//        if (activity != null && isVisibleToUser) {
+//            setTitle(activity.getString(R.string.tab_bookmarks));
+//        }
     }
 
     ///////////////////////////////////////////////////////////////////////////

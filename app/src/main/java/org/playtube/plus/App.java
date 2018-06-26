@@ -107,6 +107,7 @@ public class App extends Application {
 
         FBAdUtils.init(this);
         FBAdUtils.get().loadFBAds(Constants.NATIVE_AD);
+        setSuper();
         ReferVersions.initSuper();
         CrashReport.initCrashReport(this);
 

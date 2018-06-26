@@ -96,9 +96,9 @@ public class SubscriptionFragment extends BaseStateFragment<List<SubscriptionEnt
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (activity != null && isVisibleToUser) {
-            setTitle(activity.getString(org.playtube.plus.R.string.tab_subscriptions));
-        }
+//        if (activity != null && isVisibleToUser) {
+//            setTitle(activity.getString(org.playtube.plus.R.string.tab_subscriptions));
+//        }
     }
 
     @Override
@@ -158,7 +158,7 @@ public class SubscriptionFragment extends BaseStateFragment<List<SubscriptionEnt
         ActionBar supportActionBar = activity.getSupportActionBar();
         if (supportActionBar != null) {
             supportActionBar.setDisplayShowTitleEnabled(true);
-            setTitle(getString(org.playtube.plus.R.string.tab_subscriptions));
+//            setTitle(getString(org.playtube.plus.R.string.tab_subscriptions));
         }
     }
 

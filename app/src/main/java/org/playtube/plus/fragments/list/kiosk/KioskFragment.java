@@ -93,15 +93,15 @@ public class KioskFragment extends BaseListInfoFragment<KioskInfo> {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if(useAsFrontPage && isVisibleToUser && activity != null) {
-            try {
-                setTitle(kioskTranslatedName);
-            } catch (Exception e) {
-                onUnrecoverableError(e, UserAction.UI_ERROR,
-                        "none",
-                        "none", org.playtube.plus.R.string.app_ui_crash);
-            }
-        }
+//        if(useAsFrontPage && isVisibleToUser && activity != null) {
+//            try {
+////                setTitle(kioskTranslatedName);
+//            } catch (Exception e) {
+//                onUnrecoverableError(e, UserAction.UI_ERROR,
+//                        "none",
+//                        "none", org.playtube.plus.R.string.app_ui_crash);
+//            }
+//        }
     }
 
     @Override
@@ -160,7 +160,7 @@ public class KioskFragment extends BaseListInfoFragment<KioskInfo> {
         super.handleResult(result);
 
         name = kioskTranslatedName;
-        setTitle(kioskTranslatedName);
+//        setTitle(kioskTranslatedName);
 
         if (!result.getErrors().isEmpty()) {
             showSnackBarError(result.getErrors(),

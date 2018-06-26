@@ -815,8 +815,8 @@ public class VideoDetailFragment
                 }
                 TextView text = view.findViewById(android.R.id.text1);
                 if (text != null) {
-                    text.setTextColor(ContextCompat.getColor(activity, org.playtube.plus.R.color.white));
-                    view.setBackgroundColor(ContextCompat.getColor(activity, org.playtube.plus.R.color.transparent_background_color));
+                   // text.setTextColor(ContextCompat.getColor(activity, org.playtube.plus.R.color.white));
+                    view.setBackgroundColor(ContextCompat.getColor(activity, R.color.transparent_background_color));
                 }
             }
 

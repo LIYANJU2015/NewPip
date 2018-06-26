@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.playtube.plus.R;
 import org.playtube.plus.util.ServiceHelper;
 import org.playtube.plus.util.Utils;
 
@@ -50,10 +51,11 @@ public class SettingsActivity extends AppCompatActivity implements BasePreferenc
         setContentView(org.playtube.plus.R.layout.settings_layout);
 
         Toolbar toolbar = findViewById(org.playtube.plus.R.id.toolbar);
-        int color = ServiceHelper.getSelectedServiceId(this) == 0 ? ContextCompat.getColor(this, org.playtube.plus.R.color.light_youtube_primary_color)
-                : ContextCompat.getColor(this, org.playtube.plus.R.color.light_soundcloud_primary_color);
-        Utils.compat(this, color);
-        toolbar.setBackgroundColor(color);
+//        int color = ServiceHelper.getSelectedServiceId(this) == 0 ? ContextCompat.getColor(this, org.playtube.plus.R.color.light_youtube_primary_color)
+//                : ContextCompat.getColor(this, org.playtube.plus.R.color.light_soundcloud_primary_color);
+//        Utils.compat(this, color);
+//        toolbar.setBackgroundColor(color);
+        Utils.compat(this, ContextCompat.getColor(this, R.color.color_cccccc));
         setSupportActionBar(toolbar);
 
         if (savedInstanceBundle == null) {

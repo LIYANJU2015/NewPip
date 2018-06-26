@@ -2,6 +2,8 @@ package org.playtube.plus.util;
 
 import android.content.Context;
 
+import org.playtube.plus.R;
+
 /**
  * Created by Chrsitian Schabesberger on 28.09.17.
  * KioskTranslator.java is part of NewPipe.
@@ -24,7 +26,7 @@ public class KioskTranslator {
     public static String getTranslatedKioskName(String kioskId, Context c) {
         switch(kioskId) {
             case "Trending":
-                return c.getString(org.playtube.plus.R.string.trending);
+                return c.getString(R.string.trending);
             case "Top 50":
                 return c.getString(org.playtube.plus.R.string.top_50);
             case "New & hot":

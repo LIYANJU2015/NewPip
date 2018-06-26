@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/action_youtube"
-        android:orderInCategory="998"
-        android:title="@string/youtube"/>
-
-    <item android:id="@+id/action_soundcloud"
-        android:orderInCategory="999"
-        android:title="@string/soundcloud"/>
-
     <item android:id="@+id/action_history"
         android:orderInCategory="1000"
         android:title="@string/action_history"/>
