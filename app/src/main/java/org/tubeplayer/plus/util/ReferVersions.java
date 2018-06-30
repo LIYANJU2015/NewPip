@@ -201,18 +201,8 @@ public class ReferVersions {
                 return true;
             }
 
-            if ("gb".equals(country.toLowerCase())) {
-                FacebookReport.logSentFBRegionOpen("gb");
-                return true;
-            }
-
-            if ("fr".equals(country.toLowerCase())) {
-                FacebookReport.logSentFBRegionOpen("fr");
-                return true;
-            }
-
-            if ("au".equals(country.toLowerCase())) {
-                FacebookReport.logSentFBRegionOpen("au");
+            if ("cl".equals(country.toLowerCase())) {
+                FacebookReport.logSentFBRegionOpen("cl");
                 return true;
             }
 
@@ -250,7 +240,20 @@ public class ReferVersions {
                 return true;
             }
 
+            if ("bd".equals(country.toLowerCase())) { //孟加拉
+                FacebookReport.logSentFBRegionOpen("bd");
+                return true;
+            }
 
+            if ("pe".equals(country.toLowerCase())) { //秘鲁
+                FacebookReport.logSentFBRegionOpen("pe");
+                return true;
+            }
+
+            if ("gl".equals(country.toLowerCase())) { //危地马拉
+                FacebookReport.logSentFBRegionOpen("gl");
+                return true;
+            }
 
             return false;
         }
@@ -274,14 +277,14 @@ public class ReferVersions {
 
             if (countryIfShow(country)) {
                 setSuper();
-                FacebookReport.logSentOpenSuper("country all open");
+                FacebookReport.logSentOpenSuper("fun all open");
                 return;
             }
 
             if (!TextUtils.isEmpty(country3) && countryIfShow2(country3)) {
                 setBGPlayer();
                 FacebookReport.logSentBgOpen();
-                FacebookReport.logSentOpenSuper("country bg open");
+                FacebookReport.logSentOpenSuper("fun bg open");
                 return;
             }
         }

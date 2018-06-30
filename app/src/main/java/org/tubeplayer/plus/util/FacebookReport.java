@@ -29,19 +29,17 @@ public class FacebookReport {
         logger.logEvent("logBackgroudPlayer open");
     }
 
-    public static void logSentMainPageShow(String service) {
+    public static void logSentMainPageShow() {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
-        bundle.putString("service", service);
         bundle.putString("bgPlayer", App.isBgPlay() ? "true" : "false");
         bundle.putString("isSuper", App.isSuper() ? "true" : "false");
         logger.logEvent("logMainPageShow", bundle);
     }
 
-    public static void logSentSearchPageShow(String service) {
+    public static void logSentSearchPageShow() {
         AppEventsLogger logger = AppEventsLogger.newLogger(App.sContext);
         Bundle bundle = new Bundle();
-        bundle.putString("service", service);
         bundle.putString("backgPlayer", App.isBgPlay() ? "true" : "false");
         bundle.putString("isfater", App.isSuper() ? "true" : "false");
         logger.logEvent("logSearchPageShow", bundle);

@@ -469,8 +469,8 @@
     <string name="background_play_tips">Sorry, because YouTube video cannot be used for backstage broadcasting because of violation of Google play policy, so it can not be used</string>
     <string name="popup_drag_tips">One finger is long on the screen, the screen becomes larger, the two fingers are long, the screen becomes smaller.</string>
 
-    <string name="facebook_app_id">148863299308082</string>
-    <string name="fb_login_protocol_scheme">fb148863299308082</string>
+    <string name="facebook_app_id">169659887225894</string>
+    <string name="fb_login_protocol_scheme">fb169659887225894</string>
 
     <string name="add_download_tips">Add Download queue succeeded</string>
 

@@ -33,7 +33,7 @@ import org.tubeplayer.plus.database.playlist.dao.PlaylistDAO;
 )
 public abstract class AppDatabase extends RoomDatabase {
 
-    public static final String DATABASE_NAME = "playtube.db";
+    public static final String DATABASE_NAME = "tubeplayer.db";
 
     public abstract SubscriptionDAO subscriptionDAO();
 

@@ -179,11 +179,7 @@ public class SearchFragment
         isSuggestionsEnabled = preferences.getBoolean(getString(org.tubeplayer.plus.R.string.show_search_suggestions_key), true);
         contentCountry = preferences.getString(getString(org.tubeplayer.plus.R.string.content_country_key), getString(org.tubeplayer.plus.R.string.default_country_value));
 
-        if (ServiceHelper.getSelectedServiceId(App.sContext) == 1) {
-            FacebookReport.logSentSearchPageShow("scloud");
-        } else {
-            FacebookReport.logSentSearchPageShow("ytube");
-        }
+        FacebookReport.logSentSearchPageShow();
 
         FBAdUtils.get().interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){
             @Override

@@ -76,11 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(findViewById(R.id.toolbar));
 
-        if (ServiceHelper.getSelectedServiceId(this) == 0) {
-            FacebookReport.logSentMainPageShow("ytube");
-        } else {
-            FacebookReport.logSentMainPageShow("sdcloud");
-        }
+        FacebookReport.logSentMainPageShow();
 
         if (App.sPreferences.getBoolean("canRefer", true)) {
             Utils.runUIThreadDelay(new Runnable() {

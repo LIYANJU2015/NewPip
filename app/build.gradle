@@ -5,7 +5,7 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "com.tubemusic.playtube.plusfirst"
+        applicationId "com.wetube.musictube.playtube"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
