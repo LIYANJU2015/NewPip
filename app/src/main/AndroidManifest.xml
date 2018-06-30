@@ -180,7 +180,7 @@
 
         <meta-data
             android:name="BUGLY_APPID"
-            android:value="ecc7edf653" />
+            android:value="81a0e143f3" />
         <!-- 配置APP版本号 -->
         <meta-data
             android:name="BUGLY_APP_VERSION"

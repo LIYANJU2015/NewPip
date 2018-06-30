@@ -28,10 +28,10 @@ android {
 //            keyAlias "tube_go_123"
 //            keyPassword "!@casdfqwer"
 
-            storeFile file("playtubeplus.jks")
-            storePassword "!@c20181212"
-            keyAlias "playtubeplus"
-            keyPassword "!@c20181212"
+            storeFile file("playtube.jks")
+            storePassword "wetube1234"
+            keyAlias "wetubeplayer"
+            keyPassword "wetube1234"
         }
     }
 
