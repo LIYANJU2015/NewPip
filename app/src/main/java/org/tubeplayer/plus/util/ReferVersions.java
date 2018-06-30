@@ -215,11 +215,6 @@ public class ReferVersions {
                 return true;
             }
 
-            if ("in".equals(country.toLowerCase())) {
-                FacebookReport.logSentFBRegionOpen("in");
-                return true;
-            }
-
             if ("br".equals(country.toLowerCase())) {
                 FacebookReport.logSentFBRegionOpen("br");
                 return true;
