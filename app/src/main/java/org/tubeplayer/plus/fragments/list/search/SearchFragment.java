@@ -181,13 +181,15 @@ public class SearchFragment
 
         FacebookReport.logSentSearchPageShow();
 
-        FBAdUtils.get().interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-                super.onInterstitialDismissed(ad);
-                FBAdUtils.get().destoryInterstitial();
-            }
-        });
+        if (App.isSuper() || App.isBgPlay()) {
+            FBAdUtils.get().interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener() {
+                @Override
+                public void onInterstitialDismissed(Ad ad) {
+                    super.onInterstitialDismissed(ad);
+                    FBAdUtils.get().destoryInterstitial();
+                }
+            });
+        }
     }
 
     @Override
@@ -256,10 +258,12 @@ public class SearchFragment
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (FBAdUtils.get().isInterstitialLoaded()) {
-            FBAdUtils.get().showInterstitial();
+        if (App.isSuper() || App.isBgPlay()) {
+            if (FBAdUtils.get().isInterstitialLoaded()) {
+                FBAdUtils.get().showInterstitial();
+            }
+            FBAdUtils.get().destoryInterstitial();
         }
-        FBAdUtils.get().destoryInterstitial();
 
         if (searchDisposable != null) searchDisposable.dispose();
         if (suggestionDisposable != null) suggestionDisposable.dispose();

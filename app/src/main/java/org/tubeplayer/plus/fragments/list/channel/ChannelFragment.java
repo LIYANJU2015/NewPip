@@ -118,13 +118,15 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo> {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        FBAdUtils.get().interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener(){
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-                super.onInterstitialDismissed(ad);
-                FBAdUtils.get().destoryInterstitial();
-            }
-        });
+        if (App.isSuper() || App.isBgPlay()) {
+            FBAdUtils.get().interstitialLoad(Constants.INTERSTITIAL_AD, new FBAdUtils.FBInterstitialAdListener() {
+                @Override
+                public void onInterstitialDismissed(Ad ad) {
+                    super.onInterstitialDismissed(ad);
+                    FBAdUtils.get().destoryInterstitial();
+                }
+            });
+        }
 
         return inflater.inflate(org.tubeplayer.plus.R.layout.fragment_channel, container, false);
     }
@@ -132,11 +134,12 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo> {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
-        if (FBAdUtils.get().isInterstitialLoaded()) {
-            FBAdUtils.get().showInterstitial();
+        if (App.isSuper() || App.isBgPlay()) {
+            if (FBAdUtils.get().isInterstitialLoaded()) {
+                FBAdUtils.get().showInterstitial();
+            }
+            FBAdUtils.get().destoryInterstitial();
         }
-        FBAdUtils.get().destoryInterstitial();
 
         if (disposables != null) disposables.clear();
         if (subscribeButtonMonitor != null) subscribeButtonMonitor.dispose();

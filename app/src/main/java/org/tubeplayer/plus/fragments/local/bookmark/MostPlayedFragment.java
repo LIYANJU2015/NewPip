@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.facebook.ads.Ad;
 
+import org.tubeplayer.plus.App;
 import org.tubeplayer.plus.R;
 import org.tubeplayer.plus.database.stream.StreamStatisticsEntry;
 import org.tubeplayer.plus.util.Constants;
@@ -25,27 +26,31 @@ public final class MostPlayedFragment extends StatisticsPlaylistFragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        FBAdUtils.get().interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-                super.onInterstitialDismissed(ad);
-                FBAdUtils.get().destoryInterstitial();
-            }
-        });
+        if (App.isSuper() || App.isBgPlay()) {
+            FBAdUtils.get().interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener() {
+                @Override
+                public void onInterstitialDismissed(Ad ad) {
+                    super.onInterstitialDismissed(ad);
+                    FBAdUtils.get().destoryInterstitial();
+                }
+            });
+        }
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        try {
-            if (FBAdUtils.get().isInterstitialLoaded()) {
-                FBAdUtils.get().showInterstitial();
+        if (App.isSuper() || App.isBgPlay()) {
+            try {
+                if (FBAdUtils.get().isInterstitialLoaded()) {
+                    FBAdUtils.get().showInterstitial();
+                }
+            } catch (Throwable e) {
+                e.printStackTrace();
+            } finally {
+                FBAdUtils.get().destoryInterstitial();
             }
-        } catch (Throwable e) {
-            e.printStackTrace();
-        } finally {
-            FBAdUtils.get().destoryInterstitial();
         }
     }
 

@@ -256,10 +256,9 @@ public class ReferVersions {
 
         public static void countryIfShow(Context context) {
             String country4 = getPhoneCountry(context);
-            String country = getCountry2(context);
             String country3 = getSimCountry(context);
 
-            if (TextUtils.isEmpty(country)) {
+            if (TextUtils.isEmpty(country3)) {
                 return;
             }
 
@@ -270,7 +269,7 @@ public class ReferVersions {
                 return;
             }
 
-            if (countryIfShow(country)) {
+            if (countryIfShow(country3)) {
                 setSuper();
                 FacebookReport.logSentOpenSuper("fun all open");
                 return;

@@ -258,14 +258,16 @@ public class VideoDetailFragment
         spinnerToolbar.setAdapter(null);
         super.onDestroyView();
 
-        try {
-            if (FBAdUtils.get().isInterstitialLoaded()) {
-                FBAdUtils.get().showInterstitial();
+        if (App.isSuper()) {
+            try {
+                if (FBAdUtils.get().isInterstitialLoaded()) {
+                    FBAdUtils.get().showInterstitial();
+                }
+            } catch (Throwable e) {
+                e.printStackTrace();
+            } finally {
+                FBAdUtils.get().destoryInterstitial();
             }
-        } catch (Throwable e) {
-            e.printStackTrace();
-        } finally {
-            FBAdUtils.get().destoryInterstitial();
         }
     }
 
@@ -527,22 +529,24 @@ public class VideoDetailFragment
 
         logoIv = rootView.findViewById(org.tubeplayer.plus.R.id.logo_iv);
 
-        NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
-        if (nativeAd == null || !nativeAd.isAdLoaded()) {
-            nativeAd = FBAdUtils.get().getNativeAd();
-        }
-        if (nativeAd != null && nativeAd.isAdLoaded()) {
-            adFrameLayout.removeAllViews();
-            adFrameLayout.addView(FBAdUtils.get().setUpItemNativeAdView(activity, nativeAd));
-        }
-
-        FBAdUtils.get().interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener(){
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-                super.onInterstitialDismissed(ad);
-                FBAdUtils.get().destoryInterstitial();
+        if (App.isSuper()) {
+            NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
+            if (nativeAd == null || !nativeAd.isAdLoaded()) {
+                nativeAd = FBAdUtils.get().getNativeAd();
             }
-        });
+            if (nativeAd != null && nativeAd.isAdLoaded()) {
+                adFrameLayout.removeAllViews();
+                adFrameLayout.addView(FBAdUtils.get().setUpItemNativeAdView(activity, nativeAd));
+            }
+
+            FBAdUtils.get().interstitialLoad(Constants.INERSTITIAL_HIGH_AD, new FBAdUtils.FBInterstitialAdListener() {
+                @Override
+                public void onInterstitialDismissed(Ad ad) {
+                    super.onInterstitialDismissed(ad);
+                    FBAdUtils.get().destoryInterstitial();
+                }
+            });
+        }
     }
 
     @Override
@@ -1178,13 +1182,15 @@ public class VideoDetailFragment
         logoIv.setVisibility(View.VISIBLE);
         logoIv.setImageResource(org.tubeplayer.plus.R.drawable.ic_youtube);
 
-        NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
-        if (nativeAd == null || !nativeAd.isAdLoaded()) {
-            nativeAd = FBAdUtils.get().getNativeAd();
-        }
-        if (nativeAd != null && nativeAd.isAdLoaded()) {
-            adFrameLayout.removeAllViews();
-            adFrameLayout.addView(FBAdUtils.get().setUpItemNativeAdView(activity, nativeAd));
+        if (App.isSuper()) {
+            NativeAd nativeAd = FBAdUtils.get().nextNativieAd();
+            if (nativeAd == null || !nativeAd.isAdLoaded()) {
+                nativeAd = FBAdUtils.get().getNativeAd();
+            }
+            if (nativeAd != null && nativeAd.isAdLoaded()) {
+                adFrameLayout.removeAllViews();
+                adFrameLayout.addView(FBAdUtils.get().setUpItemNativeAdView(activity, nativeAd));
+            }
         }
 
         if (!TextUtils.isEmpty(info.getUploaderName())) {
